@@ -79,18 +79,18 @@ class App extends Component {
   }
 
   getFilm(){
-    const randomFilm =Math.floor(Math.random() * 7) + 1
+    const randomFilm =Math.floor(Math.random() * 7) + 1;
     fetch(`https://swapi.co/api/films/${randomFilm}`)
-    .then(resultsFromAPI => resultsFromAPI.json())
-    .then(filmJsonResults => {console.log(filmJsonResults)
-    this.setState({
-      film: {
-        scrollText: filmJsonResults.opening_crawl,
-        title: filmJsonResults.title,
-        releaseDate: filmJsonResults.release_date
-      }
-    })
-  })
+      .then(resultsFromAPI => resultsFromAPI.json())
+      .then(filmJsonResults => {
+        this.setState({
+          film: {
+            scrollText: filmJsonResults.opening_crawl,
+            title: filmJsonResults.title,
+            releaseDate: filmJsonResults.release_date
+          }
+        });
+      });
 
   }
 
