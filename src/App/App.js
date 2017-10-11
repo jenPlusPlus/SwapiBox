@@ -41,7 +41,6 @@ class App extends Component {
             );
         });
 
-
         const resolvedPeopleArray = Promise.all(peopleWithHomeworld)
           .then(promiseResult => {
             const finalPeopleArray = promiseResult.reduce( (acc, person) => {
@@ -74,7 +73,6 @@ class App extends Component {
               });
           });
       });
-
   }
 
   getPlanets() {
@@ -151,46 +149,50 @@ class App extends Component {
   render() {
     const allData= this.state;
     return (
-      <div className="App">
-        <Header getPlanets={this.getPlanets}
-          getVehicles={this.getVehicles}/>
-        <SideBar {... allData} />
-        <CardContainer {...allData}/>
+      <div>
+
+          <Route exact path='/'
+          render={ () =>
+          <div className="home-message">
+            <Header />
+          <CardContainer />
+        </div>
+        }
+        />
+        <Route exact path='/people'
+        render={ () =>
+        <div className="people">
+          <Header />
+        <CardContainer />
+        </div>
+        }
+        />
+        <Route exact path='/vehicle'
+        render={ () =>
+        <div className="vehicle">
+        <CardContainer />
+        </div>
+        }
+        />
+        <Route exact path='/planet'
+        render={ () =>
+        <div className="planet">
+        <CardContainer />
+        </div>
+        }
+        />
+        <p>SWAPI BOX!</p>
       </div>
     );
   }
 }
 
-/* <Header />
-  <SideBar />
-  <Route exact path='/'
-  render={ () =>
-  <div className="home-message">
-  <CardContainer />
-</div>
-}
-/>
-<Route exact path='/people'
-render={ () =>
-<div className="people">
-<CardContainer />
-</div>
-}
-/>
-<Route exact path='/vehicle'
-render={ () =>
-<div className="vehicle">
-<CardContainer />
-</div>
-}
-/>
-<Route exact path='/planet'
-render={ () =>
-<div className="planet">
-<CardContainer />
-</div>
-}
-/>
-<p>SWAPI BOX!</p>
-<People /> */
+
+
+{/* <div className="App">
+  <Header getPlanets={this.getPlanets}
+    getVehicles={this.getVehicles}/>
+  <SideBar {... allData} />
+  <CardContainer {...allData}/>
+</div> */}
 export default App;
