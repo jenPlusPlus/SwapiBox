@@ -9,16 +9,77 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      people: [],
       planets: [],
       vehicles: [],
       film:{}
     };
     this.getVehicles = this.getVehicles.bind(this);
     this.getPlanets = this.getPlanets.bind(this);
+    this.getPeople =this.getPeople.bind(this);
   }
 
   componentDidMount() {
     this.getFilm();
+    this.getPeople();
+  }
+
+  getPeople() {
+    fetch('https://swapi.co/api/people/')
+      .then(response => response.json())
+      .then(peopleData => {
+        return peopleData.results;
+      })
+      .then(peopleArray => {
+        // console.log(peopleArray);
+        let peopleWithHomeworld = peopleArray.map(person=>{
+          return fetch(person.homeworld)
+          .then(result => result.json())
+          .then(jsonResult =>
+            Object.assign({}, person, {homeworld: jsonResult.name}, {population: jsonResult.population})
+          )
+        })
+
+       Promise.all(peopleWithHomeworld)
+        .then(resolvedArray =>{
+          const mappedArray = resolvedArray.map(person =>{
+            return person
+          })
+          console.log(mappedArray);
+          peopleWithHomeworld = mappedArray
+        })
+
+        console.log(peopleWithHomeworld);
+        const resolvedPeopleArray = peopleArray.reduce( (acc, person) => {
+          const unresolvedSpeciesPromises = person.species
+            .map( speciesURL => {
+              return fetch(speciesURL)
+                .then(result => result.json())
+                .then(jsonResult => jsonResult.name);
+            });
+          const promiseSpecies = Promise.all(unresolvedSpeciesPromises);
+          const finishedSpecies = promiseSpecies
+            .then( speciesData => {
+              const resolvedSpecies = Object
+                .assign({}, person, {species: speciesData});
+              return resolvedSpecies;
+            });
+          acc.push(finishedSpecies);
+          return acc;
+        }, []);
+        return resolvedPeopleArray;
+      })
+      .then(finalPeopleArray => {
+        Promise.all(finalPeopleArray)
+          .then(dataSet => {
+            const forState = dataSet.map(personObject=>{
+              return personObject;
+            });
+            this.setState({
+              people: forState
+            });
+          });
+      });
   }
 
   getPlanets() {
@@ -98,7 +159,7 @@ class App extends Component {
       <div className="App">
         <Header getPlanets={this.getPlanets}
           getVehicles={this.getVehicles}/>
-          <SideBar {... allData} />
+        <SideBar {... allData} />
         <CardContainer {...allData}/>
       </div>
     );
