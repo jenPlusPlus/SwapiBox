@@ -6,97 +6,116 @@ import SideBar from './SideBar/SideBar';
 import CardContainer from './CardContainer/CardContainer'
 
 class App extends Component {
-  constructor(){
+  constructor() {
     super()
     this.state = {
-      planets: []
+      planets: [],
     }
   }
 
   componentDidMount() {
-   this.getPlanets();
- }
+    this.getPlanets();
+  }
 
- getPlanets() {
-   fetch('https://swapi.co/api/planets/')
-     .then(response => response.json())
-     .then(returnData => {
-       const planets = returnData.results.map((planet, index) => {
-         return Object.assign({}, {name: planet.name,
-                            Terrain: planet.terrain,
-                            Population: planet.population,
-                            Climate: planet.climate,
-                            residents: planet.residents});
-       });
-       return planets;
-     })
-     .then(planetArray => planetArray.reduce((acc, planet) => {
-       let updatedPlanet
-       if(planet.residents.length){
-         if(planet.residents.length){
-        const namesArray = planet.residents.map( residentURL => {
-           return fetch(residentURL)
-           .then(resp => resp.json())
-           .then(newResponse =>
-             newResponse.name)
-         })
-         const resolvedNamesArray = Promise.all(namesArray)
-         const namesForPlanetObject = resolvedNamesArray.then(
-           names => names.map(name=>{
-             return name
-           })
-         )
-         console.log(resolvedNamesArray);
-         updatedPlanet = Object.assign({}, planet, {residents: namesForPlanetObject})
-       } }
-       else{
-         updatedPlanet = Object.assign({}, planet, {residents: []})
-       }
-         acc.push(updatedPlanet)
-         return acc
-     }, [] ))
-     .then( finalPlanetArray =>{
-       this.setState({
-         planets: finalPlanetArray
-       })
-     })
+  getPlanets() {
+    fetch('https://swapi.co/api/planets/')
+      .then(response => response.json())
+      .then(planetData => {
+        console.log(planetData);
+        return planetData.results
+        })
+        .then(planetArray => {
+          let resolvedResidents
+          let resolvedPlanetArray
+           resolvedPlanetArray = planetArray.reduce( (acc, planet) => {
+            const unResolvedResidentPromises = planet.residents.map( residentURL => {
+              return fetch(residentURL)
+              .then(result => result.json())
+              .then(jsonResult => jsonResult.name)
+            });
+            const promiseAll = Promise.all(unResolvedResidentPromises);
+              const finishedPromise = promiseAll.then( residentData => {
+              resolvedResidents = Object.assign({}, planet, {residents: residentData})
+              return resolvedResidents
+            })
+            console.log(finishedPromise);
+            acc.push(finishedPromise)
+            return acc
+          }, []);
+          return resolvedPlanetArray
+        })
+        .then(finalPlanetArray => {
+          Promise.all(finalPlanetArray)
+          .then(data => {
+        const forState = data.map(planetObject=>{
+              return planetObject
+            })
+            this.setState({
+              planets: forState
+            });
+            }
+            )
+
+        })
 
 
-   }
+  }
+
+  // compnentDidMount(){
+  //   fetch('http://localhost:3001/api/frontend-staff')
+  //   .then(res => res.json())
+  //   .then(staffData => staffData.bio)
+  //   .then(staffArray => {
+  //     const unResovedPromises = staffArray.map(member => {
+  //       return fetch(member.info).then(res => res.json())
+  //     })
+  //     const promiseAll = Promise.all(unResovedPromises)
+  //     promiseAll.then(data => {
+  //       const finalArray = data.map((bio, i) => {
+  //         return Object.assign({}, bio, staffArray[i])
+  //       })
+  //       this.setState({
+  //         staff: finalArray
+  //       })
+  //     })
+  //   })
+  // }
+
   render() {
     return (
       <div className="App">
         {/* <Header />
-        <SideBar />
-        <Route exact path='/'
+          <SideBar />
+          <Route exact path='/'
           render={ () =>
             <div className="home-message">
-              <CardContainer />
+          <CardContainer />
             </div>
           }
-        />
-        <Route exact path='/people'
+          />
+          <Route exact path='/people'
           render={ () =>
             <div className="people">
-              <CardContainer />
+          <CardContainer />
             </div>
           }
-        />
-        <Route exact path='/vehicle'
+          />
+          <Route exact path='/vehicle'
           render={ () =>
             <div className="vehicle">
-              <CardContainer />
+          <CardContainer />
             </div>
           }
-        />
-        <Route exact path='/planet'
+          />
+          <Route exact path='/planet'
           render={ () =>
             <div className="planet">
-              <CardContainer />
+          <CardContainer />
             </div>
           }
-        />
-        <p>SWAPI BOX!</p> */}
+          />
+          <p>SWAPI BOX!</p>
+        <People /> */}
       </div>
     );
   }
