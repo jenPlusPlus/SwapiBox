@@ -13,7 +13,6 @@ class App extends Component {
       vehicles: [],
       film:{}
     };
-    // console.log(this)
     this.getVehicles = this.getVehicles.bind(this);
     this.getPlanets = this.getPlanets.bind(this);
   }
@@ -94,12 +93,13 @@ class App extends Component {
   }
 
   render() {
-    const allState= this.state;
+    const allData= this.state;
     return (
       <div className="App">
         <Header getPlanets={this.getPlanets}
           getVehicles={this.getVehicles}/>
-        <SideBar {... allState} />
+          <SideBar {... allData} />
+        <CardContainer {...allData}/>
       </div>
     );
   }
