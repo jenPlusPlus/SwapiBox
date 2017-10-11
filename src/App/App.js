@@ -21,7 +21,7 @@ class App extends Component {
 
   componentDidMount() {
     this.getFilm();
-    this.getPeople();
+
   }
 
   getPeople() {
@@ -149,37 +149,48 @@ class App extends Component {
   render() {
     const allData= this.state;
     return (
-      <div>
+      <div className="top-app-wrapper">
 
-          <Route exact path='/'
+        <Route exact path='/'
           render={ () =>
-          <div className="home-message">
-            <Header />
-          <CardContainer />
-        </div>
-        }
+            <div className="home-message">
+              <Header getPlanets={this.getPlanets}
+                getVehicles={this.getVehicles}
+                getPeople={this.getPeople}/>
+              <SideBar {... allData} />
+              <CardContainer {...allData}/>
+            </div>
+          }
         />
         <Route exact path='/people'
-        render={ () =>
-        <div className="people">
-          <Header />
-        <CardContainer />
-        </div>
-        }
+          render={ () =>
+            <div className="people">
+              <Header getPlanets={this.getPlanets}
+                getVehicles={this.getVehicles}/>
+              <SideBar {... allData} />
+              <CardContainer {...allData}/>
+            </div>
+          }
         />
         <Route exact path='/vehicle'
-        render={ () =>
-        <div className="vehicle">
-        <CardContainer />
-        </div>
-        }
+          render={ () =>
+            <div className="vehicle">
+              <Header getPlanets={this.getPlanets}
+                getVehicles={this.getVehicles}/>
+              <SideBar {... allData} />
+              <CardContainer {...allData}/>
+            </div>
+          }
         />
         <Route exact path='/planet'
-        render={ () =>
-        <div className="planet">
-        <CardContainer />
-        </div>
-        }
+          render={ () =>
+            <div className="planet">
+              <Header getPlanets={this.getPlanets}
+                getVehicles={this.getVehicles}/>
+              <SideBar {... allData} />
+              <CardContainer {...allData}/>
+            </div>
+          }
         />
         <p>SWAPI BOX!</p>
       </div>
