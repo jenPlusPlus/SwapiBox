@@ -3,14 +3,15 @@ import './App.css';
 import { Route } from 'react-router';
 import Header from './Header/Header';
 import SideBar from './SideBar/SideBar';
-import CardContainer from './CardContainer/CardContainer'
+import CardContainer from './CardContainer/CardContainer';
 
 class App extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
-      planets: []
-    }
+      planets: [],
+      vehicles: []
+    };
   }
 
   componentDidMount() {
@@ -21,44 +22,40 @@ class App extends Component {
     fetch('https://swapi.co/api/planets/')
       .then(response => response.json())
       .then(planetData => {
-        console.log(planetData);
-        return planetData.results
-        })
-        .then(planetArray => {
-          let resolvedResidents
-          let resolvedPlanetArray
-           resolvedPlanetArray = planetArray.reduce( (acc, planet) => {
-            const unResolvedResidentPromises = planet.residents.map( residentURL => {
+        return planetData.results;
+      })
+      .then(planetArray => {
+        let resolvedResidents;
+        let resolvedPlanetArray;
+        resolvedPlanetArray = planetArray.reduce( (acc, planet) => {
+          const unResolvedResidentPromises = planet.residents.
+            map( residentURL => {
               return fetch(residentURL)
-              .then(result => result.json())
-              .then(jsonResult => jsonResult.name)
+                .then(result => result.json())
+                .then(jsonResult => jsonResult.name);
             });
-            const promiseAll = Promise.all(unResolvedResidentPromises);
-              const finishedPromise = promiseAll.then( residentData => {
-              resolvedResidents = Object.assign({}, planet, {residents: residentData})
-              return resolvedResidents
-            })
-            console.log(finishedPromise);
-            acc.push(finishedPromise)
-            return acc
-          }, []);
-          return resolvedPlanetArray
-        })
-        .then(finalPlanetArray => {
-          Promise.all(finalPlanetArray)
-          .then(data => {
-        const forState = data.map(planetObject=>{
-              return planetObject
-            })
+          const promiseAll = Promise.all(unResolvedResidentPromises);
+          const finishedPromise = promiseAll.then( residentData => {
+            resolvedResidents = Object
+              .assign({}, planet, {residents: residentData});
+            return resolvedResidents;
+          });
+          acc.push(finishedPromise);
+          return acc;
+        }, []);
+        return resolvedPlanetArray;
+      })
+      .then(finalPlanetArray => {
+        Promise.all(finalPlanetArray)
+          .then(dataSet => {
+            const forState = dataSet.map(planetObject=>{
+              return planetObject;
+            });
             this.setState({
               planets: forState
             });
-            }
-            )
-
-        })
-
-
+          });
+      });
   }
 
 
