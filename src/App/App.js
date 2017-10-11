@@ -21,9 +21,7 @@ class App extends Component {
 
   componentDidMount() {
     this.getFilm();
-    this.getPeople();
-    this.getPlanets();
-    this.getVehicles();
+
   }
 
   getPeople() {
@@ -157,7 +155,8 @@ class App extends Component {
           render={ () =>
             <div className="home-message">
               <Header getPlanets={this.getPlanets}
-                getVehicles={this.getVehicles}/>
+                getVehicles={this.getVehicles}
+                getPeople={this.getPeople}/>
               <SideBar {... allData} />
               <CardContainer {...allData}/>
             </div>

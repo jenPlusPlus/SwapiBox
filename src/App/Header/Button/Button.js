@@ -1,6 +1,7 @@
 import React from 'react'
 
-const Header = ({getPlanets, getVehicles, buttonTitle, buttonAction}) => {
+const Header = ({ buttonTitle, buttonAction}) => {
+  console.log(buttonAction);
   return (
     <div>
       <a href={`/${buttonTitle}`}>
