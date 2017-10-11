@@ -33,19 +33,20 @@ class App extends Component {
       })
       .then(peopleArray => {
         const resolvedPeopleArray = peopleArray.reduce( (acc, person) => {
-          const unResolvedHomeworldPromises = person.species
+          const unresolvedSpeciesPromises = person.species
             .map( speciesURL => {
               return fetch(speciesURL)
                 .then(result => result.json())
                 .then(jsonResult => jsonResult.name);
             });
-          const promiseSpecies = Promise.all(unResolvedHomeworldPromises);
-          const finishedPromiseHomeworld = promiseSpecies
-            .then( homeworldData => {
-              const resolvedSpecies = Object.assign({}, person, {species: homeworldData});
+          const promiseSpecies = Promise.all(unresolvedSpeciesPromises);
+          const finishedSpecies = promiseSpecies
+            .then( speciesData => {
+              const resolvedSpecies = Object
+                .assign({}, person, {species: speciesData});
               return resolvedSpecies;
             });
-          acc.push(finishedPromiseHomeworld);
+          acc.push(finishedSpecies);
           return acc;
         }, []);
         return resolvedPeopleArray;
