@@ -4,7 +4,7 @@ const Header = ({getPlanets, getVehicles, buttonTitle, buttonAction}) => {
   return (
     <div>
       <button onClick={buttonAction}>
-      {buttonTitle}
+        {buttonTitle}
       </button>
     </div>
   );
