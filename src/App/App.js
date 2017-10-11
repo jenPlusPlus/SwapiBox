@@ -83,7 +83,6 @@ class App extends Component {
     fetch(`https://swapi.co/api/films/${randomFilm}`)
       .then(resultsFromAPI => resultsFromAPI.json())
       .then(filmJsonResults => {
-        console.log(filmJsonResults);
         this.setState({
           film: {
             scrollText: filmJsonResults.opening_crawl,
