@@ -9,7 +9,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      planets: [],
+      planets: []
     }
   }
 
@@ -21,51 +21,46 @@ class App extends Component {
     fetch('https://swapi.co/api/planets/')
       .then(response => response.json())
       .then(planetData => {
-        console.log('planetData.results: ', planetData.results);
+        console.log(planetData);
         return planetData.results
         })
         .then(planetArray => {
-          return planetArray.map( planet => {
+          let resolvedResidents
+          let resolvedPlanetArray
+           resolvedPlanetArray = planetArray.reduce( (acc, planet) => {
             const unResolvedResidentPromises = planet.residents.map( residentURL => {
               return fetch(residentURL)
               .then(result => result.json())
               .then(jsonResult => jsonResult.name)
             });
             const promiseAll = Promise.all(unResolvedResidentPromises);
-            promiseAll.then( residentData => {
-              return Object.assign({}, planet, {residents: residentData})
+              const finishedPromise = promiseAll.then( residentData => {
+              resolvedResidents = Object.assign({}, planet, {residents: residentData})
+              return resolvedResidents
             })
-          });
-
+            console.log(finishedPromise);
+            acc.push(finishedPromise)
+            return acc
+          }, []);
+          return resolvedPlanetArray
         })
         .then(finalPlanetArray => {
-          this.setState({
-            planets: finalPlanetArray
-          })
+          Promise.all(finalPlanetArray)
+          .then(data => {
+        const forState = data.map(planetObject=>{
+              return planetObject
+            })
+            this.setState({
+              planets: forState
+            });
+            }
+            )
+
         })
 
 
   }
 
-  // compnentDidMount(){
-  //   fetch('http://localhost:3001/api/frontend-staff')
-  //   .then(res => res.json())
-  //   .then(staffData => staffData.bio)
-  //   .then(staffArray => {
-  //     const unResovedPromises = staffArray.map(member => {
-  //       return fetch(member.info).then(res => res.json())
-  //     })
-  //     const promiseAll = Promise.all(unResovedPromises)
-  //     promiseAll.then(data => {
-  //       const finalArray = data.map((bio, i) => {
-  //         return Object.assign({}, bio, staffArray[i])
-  //       })
-  //       this.setState({
-  //         staff: finalArray
-  //       })
-  //     })
-  //   })
-  // }
 
   render() {
     return (
