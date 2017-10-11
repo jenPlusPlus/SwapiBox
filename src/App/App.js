@@ -9,6 +9,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      people: [],
       planets: [],
       vehicles: [],
       film:{}
@@ -16,10 +17,51 @@ class App extends Component {
     // console.log(this)
     this.getVehicles = this.getVehicles.bind(this);
     this.getPlanets = this.getPlanets.bind(this);
+    this.getPeople =this.getPeople.bind(this);
   }
 
   componentDidMount() {
     this.getFilm();
+    this.getPeople();
+  }
+
+  getPeople() {
+    fetch('https://swapi.co/api/people/')
+      .then(response => response.json())
+      .then(peopleData => {
+        return peopleData.results;
+      })
+      .then(peopleArray => {
+        const resolvedPeopleArray = peopleArray.reduce( (acc, person) => {
+          const unresolvedSpeciesPromises = person.species
+            .map( speciesURL => {
+              return fetch(speciesURL)
+                .then(result => result.json())
+                .then(jsonResult => jsonResult.name);
+            });
+          const promiseSpecies = Promise.all(unresolvedSpeciesPromises);
+          const finishedSpecies = promiseSpecies
+            .then( speciesData => {
+              const resolvedSpecies = Object
+                .assign({}, person, {species: speciesData});
+              return resolvedSpecies;
+            });
+          acc.push(finishedSpecies);
+          return acc;
+        }, []);
+        return resolvedPeopleArray;
+      })
+      .then(finalPeopleArray => {
+        Promise.all(finalPeopleArray)
+          .then(dataSet => {
+            const forState = dataSet.map(personObject=>{
+              return personObject;
+            });
+            this.setState({
+              people: forState
+            });
+          });
+      });
   }
 
   getPlanets() {
@@ -100,7 +142,8 @@ class App extends Component {
     return (
       <div className="App">
         <Header getPlanets={this.getPlanets}
-          getVehicles={this.getVehicles}/>
+          getVehicles={this.getVehicles}
+          getPeople={this.getPeople}/>
         <SideBar {... allState} />
       </div>
     );
