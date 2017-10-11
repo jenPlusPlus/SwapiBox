@@ -29,8 +29,8 @@ class App extends Component {
         let resolvedResidents;
         let resolvedPlanetArray;
         resolvedPlanetArray = planetArray.reduce( (acc, planet) => {
-          const unResolvedResidentPromises = planet.residents.
-            map( residentURL => {
+          const unResolvedResidentPromises = planet.residents
+            .map( residentURL => {
               return fetch(residentURL)
                 .then(result => result.json())
                 .then(jsonResult => jsonResult.name);
