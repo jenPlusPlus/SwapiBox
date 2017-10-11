@@ -16,6 +16,7 @@ class App extends Component {
 
   componentDidMount() {
     this.getPlanets();
+    this.getVehicles();
   }
 
   getPlanets() {
@@ -58,6 +59,22 @@ class App extends Component {
       });
   }
 
+  getVehicles() {
+    fetch('https://swapi.co/api/vehicles/')
+      .then(response => response.json())
+      .then(vehicleArray => vehicleArray.results.map( vehicle => {
+        return {
+          name: vehicle.name,
+          model: vehicle.model,
+          class: vehicle.vehicle_class,
+          numPassengers: vehicle.passengers};
+      }))
+      .then(cleanedVehicleArray => {
+        this.setState({
+          vehicles: cleanedVehicleArray
+        });
+      });
+  }
 
   render() {
     return (
