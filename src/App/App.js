@@ -13,11 +13,12 @@ class App extends Component {
       vehicles: [],
       film:{}
     };
+    // console.log(this)
+    this.getVehicles = this.getVehicles.bind(this);
+    this.getPlanets = this.getPlanets.bind(this);
   }
 
   componentDidMount() {
-    this.getPlanets();
-    this.getVehicles();
     this.getFilm();
   }
 
@@ -28,22 +29,21 @@ class App extends Component {
         return planetData.results;
       })
       .then(planetArray => {
-        let resolvedResidents;
-        let resolvedPlanetArray;
-        resolvedPlanetArray = planetArray.reduce( (acc, planet) => {
+        const resolvedPlanetArray = planetArray.reduce( (acc, planet) => {
           const unResolvedResidentPromises = planet.residents
             .map( residentURL => {
               return fetch(residentURL)
                 .then(result => result.json())
                 .then(jsonResult => jsonResult.name);
             });
-          const promiseAll = Promise.all(unResolvedResidentPromises);
-          const finishedPromise = promiseAll.then( residentData => {
-            resolvedResidents = Object
+          const promiseResidents = Promise.all(unResolvedResidentPromises);
+          const finishedPromiseResidents =
+          promiseResidents.then( residentData => {
+            const resolvedResidents = Object
               .assign({}, planet, {residents: residentData});
             return resolvedResidents;
           });
-          acc.push(finishedPromise);
+          acc.push(finishedPromiseResidents);
           return acc;
         }, []);
         return resolvedPlanetArray;
@@ -97,41 +97,43 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <Header />
-          <SideBar />
-          <Route exact path='/'
-          render={ () =>
-            <div className="home-message">
-          <CardContainer />
-            </div>
-          }
-          />
-          <Route exact path='/people'
-          render={ () =>
-            <div className="people">
-          <CardContainer />
-            </div>
-          }
-          />
-          <Route exact path='/vehicle'
-          render={ () =>
-            <div className="vehicle">
-          <CardContainer />
-            </div>
-          }
-          />
-          <Route exact path='/planet'
-          render={ () =>
-            <div className="planet">
-          <CardContainer />
-            </div>
-          }
-          />
-          <p>SWAPI BOX!</p>
-        <People /> */}
+        <Header getPlanets={this.getPlanets}
+          getVehicles={this.getVehicles}/>
       </div>
     );
   }
 }
 
+/* <Header />
+  <SideBar />
+  <Route exact path='/'
+  render={ () =>
+  <div className="home-message">
+  <CardContainer />
+</div>
+}
+/>
+<Route exact path='/people'
+render={ () =>
+<div className="people">
+<CardContainer />
+</div>
+}
+/>
+<Route exact path='/vehicle'
+render={ () =>
+<div className="vehicle">
+<CardContainer />
+</div>
+}
+/>
+<Route exact path='/planet'
+render={ () =>
+<div className="planet">
+<CardContainer />
+</div>
+}
+/>
+<p>SWAPI BOX!</p>
+<People /> */
 export default App;
