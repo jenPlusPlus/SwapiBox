@@ -10,13 +10,15 @@ class App extends Component {
     super();
     this.state = {
       planets: [],
-      vehicles: []
+      vehicles: [],
+      film:{}
     };
   }
 
   componentDidMount() {
     this.getPlanets();
     this.getVehicles();
+    this.getFilm();
   }
 
   getPlanets() {
@@ -74,6 +76,22 @@ class App extends Component {
           vehicles: cleanedVehicleArray
         });
       });
+  }
+
+  getFilm(){
+    const randomFilm =Math.floor(Math.random() * 7) + 1
+    fetch(`https://swapi.co/api/films/${randomFilm}`)
+    .then(resultsFromAPI => resultsFromAPI.json())
+    .then(filmJsonResults => {console.log(filmJsonResults)
+    this.setState({
+      film: {
+        scrollText: filmJsonResults.opening_crawl,
+        title: filmJsonResults.title,
+        releaseDate: filmJsonResults.release_date
+      }
+    })
+  })
+
   }
 
   render() {
