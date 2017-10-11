@@ -61,25 +61,6 @@ class App extends Component {
 
   }
 
-  // compnentDidMount(){
-  //   fetch('http://localhost:3001/api/frontend-staff')
-  //   .then(res => res.json())
-  //   .then(staffData => staffData.bio)
-  //   .then(staffArray => {
-  //     const unResovedPromises = staffArray.map(member => {
-  //       return fetch(member.info).then(res => res.json())
-  //     })
-  //     const promiseAll = Promise.all(unResovedPromises)
-  //     promiseAll.then(data => {
-  //       const finalArray = data.map((bio, i) => {
-  //         return Object.assign({}, bio, staffArray[i])
-  //       })
-  //       this.setState({
-  //         staff: finalArray
-  //       })
-  //     })
-  //   })
-  // }
 
   render() {
     return (
