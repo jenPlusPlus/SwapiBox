@@ -184,6 +184,7 @@ class App extends Component {
           render={ () =>
             <div className="home-message">
               <Header />
+              <SideBar film={this.state.film} />
               <CardContainer cardData={[]} />
             </div>
           }
@@ -192,21 +193,23 @@ class App extends Component {
           render={ () =>
             <div className="people">
               <Header />
-              <CardContainer cardData={this.state.people}/>
+              <CardContainer cardData={this.state.people} cardType={'people'}/>
             </div>
           }
         />
         <Route exact path='/vehicles'
           render={ () =>
             <div className="vehicles">
-              <CardContainer cardData={this.state.vehicles}/>
+              <Header />
+              <CardContainer cardData={this.state.vehicles} cardType={'vehicles'}/>
             </div>
           }
         />
         <Route exact path='/planets'
           render={ () =>
             <div className="planets">
-              <CardContainer cardData={this.state.planets}/>
+              <Header />
+              <CardContainer cardData={this.state.planets} cardType={'planets'}/>
             </div>
           }
         />
