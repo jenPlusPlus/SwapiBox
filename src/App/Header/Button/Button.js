@@ -12,6 +12,7 @@ const Button = ({ buttonTitle, isActive, numFavorites }) => {
       </div>
     );
   } else {
+
     if (buttonTitle === 'Favorites') {
       return (
         <div className="button-wrapper">

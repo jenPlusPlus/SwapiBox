@@ -14,6 +14,7 @@ const Card = ({ cardData, cardType, updateFavorites }) => {
     }
     return (
       <div className='card'>
+
         <h3 className='people-name card-name'>
           Name: <span>{cardData.name}</span></h3>
         <button className='favorite' onClick={updateFavorites.bind(this, cardData)}>Fave</button>
@@ -47,6 +48,7 @@ const Card = ({ cardData, cardType, updateFavorites }) => {
     }
     return (
       <div className='card'>
+
         <h3 className='planets-name card-name'>
           Name: <span>{cardData.name}</span></h3>
         <button className='favorite' onClick={updateFavorites.bind(this, cardData)}>Fave</button>

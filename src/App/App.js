@@ -207,6 +207,7 @@ class App extends Component {
   render() {
     const allData= this.state;
     return (
+
       <div className="app-wrapper-div">
         SWAPI BOX!
         <Route exact path='/'
