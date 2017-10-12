@@ -1,13 +1,16 @@
 import React from 'react'
 import Button from './Button/Button'
 
-const Header = ({getPlanets, getVehicles, getPeople}) => {
+const Header = ({ activeButton }) => {
+  const peopleButtonTitle = 'People';
+  const planetsButtonTitle = 'Planets';
+  const vehiclesButtonTitle = 'Vehicles';
 
   return (
     <div>
-      <Button buttonAction={getPeople} buttonTitle={'People'}/>
-      <Button buttonAction={getPlanets} buttonTitle={'Planets'}/>
-      <Button buttonAction={getVehicles} buttonTitle={'Vehicles'}/>
+      <Button  isActive={peopleButtonTitle === activeButton} buttonTitle={peopleButtonTitle} />
+      <Button  isActive={planetsButtonTitle === activeButton} buttonTitle={planetsButtonTitle} />
+      <Button  isActive={vehiclesButtonTitle === activeButton} buttonTitle={vehiclesButtonTitle}/>
     </div>
   );
 };
