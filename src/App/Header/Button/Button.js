@@ -3,7 +3,7 @@ import React from 'react'
 const Button = ({ buttonTitle, isActive }) => {
   if (isActive) {
     return (
-      <div>
+      <div className="button-wrapper">
         <a href={`/${buttonTitle.toLowerCase()}`}>
           <button className='active'>
             {buttonTitle}
@@ -13,9 +13,9 @@ const Button = ({ buttonTitle, isActive }) => {
     );
   } else {
     return (
-      <div>
+      <div className="button-wrapper">
         <a href={`/${buttonTitle.toLowerCase()}`}>
-          <button>
+          <button className='button-inactive'>
             {buttonTitle}
           </button>
         </a>

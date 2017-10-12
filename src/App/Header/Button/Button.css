@@ -1,2 +1,16 @@
+.button-wrapper {
+  width: 10%;
+  display: inline-block;
+  margin: 3%; }
+
 .active {
-  background-color: orange; }
+  background-color: #e0531e;
+  border: none;
+  color: #e0d1a8;
+  width: 100%; }
+
+.button-inactive {
+  background-color: #672807;
+  border: none;
+  color: #e0d1a8;
+  width: 100%; }
