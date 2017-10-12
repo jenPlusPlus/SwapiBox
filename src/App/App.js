@@ -192,7 +192,7 @@ class App extends Component {
         <Route exact path='/people'
           render={ () =>
             <div className="people">
-              <Header />
+              <Header activeButton={'People'}/>
               <SideBar film={this.state.film} />
               <CardContainer cardData={this.state.people} cardType={'people'}/>
             </div>
@@ -201,7 +201,7 @@ class App extends Component {
         <Route exact path='/vehicles'
           render={ () =>
             <div className="vehicles">
-              <Header />
+              <Header activeButton={'Vehicles'}/>
               <SideBar film={this.state.film} />
               <CardContainer cardData={this.state.vehicles} cardType={'vehicles'}/>
             </div>
@@ -210,7 +210,7 @@ class App extends Component {
         <Route exact path='/planets'
           render={ () =>
             <div className="planets">
-              <Header />
+              <Header activeButton={'Planets'}/>
               <SideBar film={this.state.film} />
               <CardContainer cardData={this.state.planets} cardType={'planets'}/>
             </div>
