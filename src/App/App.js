@@ -58,7 +58,6 @@ class App extends Component {
         return peopleData.results;
       })
       .then(peopleArray => {
-        const peopleArrayToResolve = [];
         let peopleWithHomeworld = peopleArray.map(person => {
           return fetch(person.homeworld)
             .then(result => result.json())
@@ -68,7 +67,7 @@ class App extends Component {
             );
         });
 
-        const resolvedPeopleArray = Promise.all(peopleWithHomeworld)
+        Promise.all(peopleWithHomeworld)
           .then(promiseResult => {
             const finalPeopleArray = promiseResult.reduce( (acc, person) => {
               const unresolvedSpeciesPromises = person.species
@@ -206,44 +205,56 @@ class App extends Component {
   }
 
   render() {
-    const allData= this.state;
     return (
 
       <div className="app-wrapper-div">
-        SWAPI BOX!
         <Route exact path='/'
           render={ () =>
             <div className="home-message">
               <Header numFavorites={this.state.favorites.length}/>
               <SideBar film={this.state.film} />
-              <CardContainer cardData={[]} updateFavorites={this.updateFavorites} numFavorites={this.state.favorites.length}/>
+              <CardContainer cardData={[]}
+                updateFavorites={this.updateFavorites}
+                numFavorites={this.state.favorites.length}/>
             </div>
           }
         />
         <Route exact path='/people'
           render={ () =>
             <div className="people">
-              <Header activeButton={'People'} numFavorites={this.state.favorites.length}/>
+              <Header activeButton={'People'}
+                numFavorites={this.state.favorites.length}/>
               <SideBar film={this.state.film} />
-              <CardContainer cardData={this.state.people} cardType={'people'} updateFavorites={this.updateFavorites} numFavorites={this.state.favorites.length} />
+              <CardContainer cardData={this.state.people}
+                cardType={'people'}
+                updateFavorites={this.updateFavorites}
+                numFavorites={this.state.favorites.length} />
             </div>
           }
         />
         <Route exact path='/vehicles'
           render={ () =>
             <div className="vehicles">
-              <Header activeButton={'Vehicles'} numFavorites={this.state.favorites.length}/>
+              <Header activeButton={'Vehicles'}
+                numFavorites={this.state.favorites.length}/>
               <SideBar film={this.state.film} />
-              <CardContainer cardData={this.state.vehicles} cardType={'vehicles'} updateFavorites={this.updateFavorites} numFavorites={this.state.favorites.length}/>
+              <CardContainer cardData={this.state.vehicles}
+                cardType={'vehicles'}
+                updateFavorites={this.updateFavorites}
+                numFavorites={this.state.favorites.length}/>
             </div>
           }
         />
         <Route exact path='/planets'
           render={ () =>
             <div className="planets">
-              <Header activeButton={'Planets'} numFavorites={this.state.favorites.length}/>
+              <Header activeButton={'Planets'}
+                numFavorites={this.state.favorites.length}/>
               <SideBar film={this.state.film} />
-              <CardContainer cardData={this.state.planets} cardType={'planets'} updateFavorites={this.updateFavorites} numFavorites={this.state.favorites.length}/>
+              <CardContainer cardData={this.state.planets}
+                cardType={'planets'}
+                updateFavorites={this.updateFavorites}
+                numFavorites={this.state.favorites.length}/>
             </div>
           }
         />
@@ -252,7 +263,10 @@ class App extends Component {
             <div className="favorites">
               <Header numFavorites={this.state.favorites.length}/>
               <SideBar film={this.state.film} />
-              <CardContainer cardData={this.state.favorites} cardType={'favorites'} updateFavorites={this.updateFavorites} numFavorites={this.state.favorites.length}/>
+              <CardContainer cardData={this.state.favorites}
+                cardType={'favorites'}
+                updateFavorites={this.updateFavorites}
+                numFavorites={this.state.favorites.length}/>
             </div>
           }
         />

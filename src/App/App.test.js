@@ -29,13 +29,13 @@ describe('App', () => {
     name: "Alderaan",
     population: "2000000000",
     residents:["Leia Organa",
-                "Bail Prestor Organa",
-                "Raymus Antilles"],
+      "Bail Prestor Organa",
+      "Raymus Antilles"],
     terrain: "grasslands, mountains"
   }];
 
   const mockSpecies = {
-    name: "Wookie",
+    name: "Wookie"
   };
 
   const mockFilms = [{
@@ -47,116 +47,116 @@ describe('App', () => {
   beforeEach(() => {
     //film
     fetchMock.get('https://swapi.co/api/films/1', {
-     status: 200,
-     body: mockFilms
-   });
-
-   fetchMock.get('https://swapi.co/api/films/2', {
-    status: 200,
-    body: mockFilms
-  });
-
-  fetchMock.get('https://swapi.co/api/films/3', {
-   status: 200,
-   body: mockFilms
- });
-
- fetchMock.get('https://swapi.co/api/films/4', {
-  status: 200,
-  body: mockFilms
-});
-
-fetchMock.get('https://swapi.co/api/films/5', {
- status: 200,
- body: mockFilms
-});
-
-fetchMock.get('https://swapi.co/api/films/6', {
- status: 200,
- body: mockFilms
-});
-
-fetchMock.get('https://swapi.co/api/films/7', {
- status: 200,
- body: mockFilms
-});
-
-   // planets
-   fetchMock.get('https://swapi.co/api/planets/', {
-     status: 200,
-     body: mockPlanets
-   });
-
-   // people
-   fetchMock.get('https://swapi.co/api/people/5/', {
-     status: 200,
-     body: mockPeople
-   });
-
-   fetchMock.get('https://swapi.co/api/people/68/', {
-     status: 200,
-     body: mockPeople
-   });
-
-   fetchMock.get('https://swapi.co/api/people/81/', {
-     status: 200,
-     body: mockPeople
-   });
-
-   fetchMock.get('https://swapi.co/api/people/26/', {
-     status: 200,
-     body: mockPeople
-   });
-
-   fetchMock.get('https://swapi.co/api/people/30/', {
-     status: 200,
-     body: mockPeople
-   });
-
-   fetchMock.get('https://swapi.co/api/people/3/', {
-     status: 200,
-     body: mockPeople
-   });
-
-   fetchMock.get('https://swapi.co/api/people/34/', {
-     status: 200,
-     body: mockPeople
-   });
-
-   fetchMock.get('https://swapi.co/api/people/55/', {
-     status: 200,
-     body: mockPeople
-   });
-
-   fetchMock.get('https://swapi.co/api/people/74/', {
-     status: 200,
-     body: mockPeople
-   });
-
-   fetchMock.get('https://swapi.co/api/people/74/', {
-     status: 200,
-     body: mockPeople
-   });
-
-   fetchMock.get('https://swapi.co/api/people/72/', {
-     status: 200,
-     body: mockPeople
-   });
-
-   fetchMock.get('https://swapi.co/api/people/73/', {
-     status: 200,
-     body: mockPeople
-   });
-
-   fetchMock.get('https://swapi.co/api/people/63/', {
-     status: 200,
-     body: mockPeople
-   });
-
-   // vehicles
-   fetchMock.get('https://swapi.co/api/vehicles/', {
       status: 200,
-	     body: mockVehicles
+      body: mockFilms
+    });
+
+    fetchMock.get('https://swapi.co/api/films/2', {
+      status: 200,
+      body: mockFilms
+    });
+
+    fetchMock.get('https://swapi.co/api/films/3', {
+      status: 200,
+      body: mockFilms
+    });
+
+    fetchMock.get('https://swapi.co/api/films/4', {
+      status: 200,
+      body: mockFilms
+    });
+
+    fetchMock.get('https://swapi.co/api/films/5', {
+      status: 200,
+      body: mockFilms
+    });
+
+    fetchMock.get('https://swapi.co/api/films/6', {
+      status: 200,
+      body: mockFilms
+    });
+
+    fetchMock.get('https://swapi.co/api/films/7', {
+      status: 200,
+      body: mockFilms
+    });
+
+    // planets
+    fetchMock.get('https://swapi.co/api/planets/', {
+      status: 200,
+      body: mockPlanets
+    });
+
+    // people
+    fetchMock.get('https://swapi.co/api/people/5/', {
+      status: 200,
+      body: mockPeople
+    });
+
+    fetchMock.get('https://swapi.co/api/people/68/', {
+      status: 200,
+      body: mockPeople
+    });
+
+    fetchMock.get('https://swapi.co/api/people/81/', {
+      status: 200,
+      body: mockPeople
+    });
+
+    fetchMock.get('https://swapi.co/api/people/26/', {
+      status: 200,
+      body: mockPeople
+    });
+
+    fetchMock.get('https://swapi.co/api/people/30/', {
+      status: 200,
+      body: mockPeople
+    });
+
+    fetchMock.get('https://swapi.co/api/people/3/', {
+      status: 200,
+      body: mockPeople
+    });
+
+    fetchMock.get('https://swapi.co/api/people/34/', {
+      status: 200,
+      body: mockPeople
+    });
+
+    fetchMock.get('https://swapi.co/api/people/55/', {
+      status: 200,
+      body: mockPeople
+    });
+
+    fetchMock.get('https://swapi.co/api/people/74/', {
+       status: 200,
+      body: mockPeople
+    });
+
+    fetchMock.get('https://swapi.co/api/people/74/', {
+      status: 200,
+      body: mockPeople
+    });
+
+    fetchMock.get('https://swapi.co/api/people/72/', {
+      status: 200,
+      body: mockPeople
+    });
+
+    fetchMock.get('https://swapi.co/api/people/73/', {
+      status: 200,
+      body: mockPeople
+    });
+
+    fetchMock.get('https://swapi.co/api/people/63/', {
+      status: 200,
+      body: mockPeople
+    });
+
+    // vehicles
+    fetchMock.get('https://swapi.co/api/vehicles/', {
+      status: 200,
+      body: mockVehicles
     });
 
     fetchMock.get('https://swapi.co/api/people/', {
@@ -209,85 +209,36 @@ fetchMock.get('https://swapi.co/api/films/7', {
   it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Router history={history}><App />
-                    </Router>, div);
+    </Router>, div);
   });
 
-  it.skip('Sets state with data after component mounts', async () => {
-
-    const wrapper = mount(<App />);
-
+  it('Sets state with data after component mounts', async () => {
+    const wrapper = mount(<Router history={history}><App />
+    </Router>);
     await pause();
-
-    const groceriesOnDOM = wrapper.find('Grocery');
-
-    expect(wrapper.state().groceries).toEqual(mockData.groceries);
-    expect(groceriesOnDOM.length).toEqual(3);
+    expect(wrapper.state().people).toEqual(mockPeople);
   });
 
-  it.skip('submits the correct data when adding a new grocery', async () => {
-    fetchMock.post('/api/v1/groceries', {
-      status: 200,
-      body: mockData
-    });
-
-    const mockFn = jest.fn()
-
-    const wrapper = mount(<AddGroceryForm updateGroceryList={ mockFn } />)
-
-    const nameInput = wrapper.find('input[name="name"]');
-    const qtyInput = wrapper.find('input[name="quantity"]');
-    const formElem = wrapper.find('form');
-
-    nameInput.simulate('change', {
-      target: { name: 'name', value: 'Foo' }
-    });
-
-    qtyInput.simulate('change', {
-      target: { name: 'quantity', value: '1000' }
-    });
-
-    formElem.simulate('submit');
-
+  it('Sets state with data after component mounts', async () => {
+    const wrapper = mount(<Router history={history}><App />
+    </Router>);
     await pause();
-
-    expect(mockFn).toHaveBeenCalledTimes(1);
+    expect(wrapper.state().vehicles).toEqual(mockVehicles);
   });
 
-it.skip('submits the correct data when adding a new grocery', async () => {
-    fetchMock.get('/api/v1/groceries', {
-      status: 200,
-      body: mockData2
-    });
+  it('Sets state with data after component mounts', async () => {
+    const wrapper = mount(<Router history={history}><App />
+    </Router>);
+    await pause();
+    expect(wrapper.state().planets).toEqual(mockPlanets);
+  });
 
-const wrapper = mount(<App />)
 
+  it('Sets state with data after component mounts', async () => {
+    const wrapper = mount(<Router history={history}><App />
+    </Router>);
+    await pause();
+    expect(wrapper.state().film).toEqual(mockFilms);
+  });
 
-await pause()
-
-fetchMock.post('/api/v1/groceries', {
-  status: 200,
-  body: mockData2
 });
-
-
-const nameInput = wrapper.find('input[name="name"]');
-const qtyInput = wrapper.find('input[name="quantity"]');
-const formElem = wrapper.find('input[name="quantity"]');
-
-
-nameInput.simulate('change', {
-  target: { name: 'name', value: 'Foo' }
-});
-
-qtyInput.simulate('change', {
-  target: { name: 'quantity', value: '1000' }
-});
-
-formElem.simulate('click');
-
-await pause()
-
-expect(wrapper.state('groceries')).toEqual(mockData2.groceries)
-});
-
-})

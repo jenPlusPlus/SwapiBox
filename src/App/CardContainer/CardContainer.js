@@ -1,9 +1,13 @@
-import React from 'react'
-import Card from '../Card/Card'
+import React from 'react';
+import Card from '../Card/Card';
+import PropTypes from 'prop-types';
 
 const CardContainer = ({ cardData, cardType, updateFavorites }) => {
   const mapped = cardData.map( (item, index) => {
-    return <Card cardType={cardData.cardType} cardData={cardData[index]} key={index + Date.now()} updateFavorites={updateFavorites}/>
+    return <Card cardType={cardData.cardType}
+      cardData={cardData[index]}
+      key={index + Date.now()}
+      updateFavorites={updateFavorites}/>;
   });
 
 
@@ -20,7 +24,12 @@ const CardContainer = ({ cardData, cardType, updateFavorites }) => {
       </div>
     );
   }
+};
 
+CardContainer.propTypes = {
+  cardData: PropTypes.array,
+  cardType: PropTypes.string,
+  updateFavorites: PropTypes.func
 };
 
 export default CardContainer;
