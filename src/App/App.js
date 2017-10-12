@@ -11,11 +11,13 @@ class App extends Component {
       people: [],
       planets: [],
       vehicles: [],
-      film:{}
+      film:{},
+      favorites: []
     };
     this.getVehicles = this.getVehicles.bind(this);
     this.getPlanets = this.getPlanets.bind(this);
-    this.getPeople =this.getPeople.bind(this);
+    this.getPeople = this.getPeople.bind(this);
+    this.updateFavorites = this.updateFavorites.bind(this);
   }
 
   componentDidMount() {
@@ -23,6 +25,10 @@ class App extends Component {
     this.getPeople();
     this.getVehicles();
     this.getPlanets();
+  }
+
+  updateFavorites(cardData) {
+    console.log('cardData: ', cardData);
   }
 
   getPeople() {
@@ -184,7 +190,7 @@ class App extends Component {
             <div className="home-message">
               <Header />
               <SideBar film={this.state.film} />
-              <CardContainer cardData={[]} />
+              <CardContainer cardData={[]} updateFavorites={this.updateFavorites}/>
             </div>
           }
         />
@@ -193,7 +199,7 @@ class App extends Component {
             <div className="people">
               <Header activeButton={'People'}/>
               <SideBar film={this.state.film} />
-              <CardContainer cardData={this.state.people} cardType={'people'}/>
+              <CardContainer cardData={this.state.people} cardType={'people'} updateFavorites={this.updateFavorites} />
             </div>
           }
         />
@@ -202,7 +208,7 @@ class App extends Component {
             <div className="vehicles">
               <Header activeButton={'Vehicles'}/>
               <SideBar film={this.state.film} />
-              <CardContainer cardData={this.state.vehicles} cardType={'vehicles'}/>
+              <CardContainer cardData={this.state.vehicles} cardType={'vehicles'} updateFavorites={this.updateFavorites} />
             </div>
           }
         />
@@ -211,7 +217,7 @@ class App extends Component {
             <div className="planets">
               <Header activeButton={'Planets'}/>
               <SideBar film={this.state.film} />
-              <CardContainer cardData={this.state.planets} cardType={'planets'}/>
+              <CardContainer cardData={this.state.planets} cardType={'planets'} updateFavorites={this.updateFavorites} />
             </div>
           }
         />

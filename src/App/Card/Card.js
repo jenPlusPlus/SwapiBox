@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Card = ({ cardData, cardType }) => {
+const Card = ({ cardData, cardType, updateFavorites }) => {
   if (cardType === 'people') {
     let mappedSpecies;
     if (cardData.species.length > 0) {
@@ -13,7 +13,7 @@ const Card = ({ cardData, cardType }) => {
     return (
       <div className='card'>
         <h3 className='people-name'>Name: <span>{cardData.name}</span></h3>
-        <button className='favorite'>Fave</button>
+        <button className='favorite' onClick={updateFavorites.bind(this, cardData)}>Fave</button>
         <p className='people-homeworld'>Homeworld: <span>{cardData.homeworld}</span></p>
         <p className='people-species'>Species: <ul>{mappedSpecies}</ul></p>
         <p className='people-homeworld-population'>Homeworld Population: <span>{cardData.homeworldPopulation}</span></p>
@@ -23,7 +23,7 @@ const Card = ({ cardData, cardType }) => {
     return (
       <div className='card'>
         <h3 className='vehicles-name'>Name: <span>{cardData.name}</span></h3>
-        <button className='favorite'>Fave</button>
+        <button className='favorite' onClick={updateFavorites.bind(this, cardData)}>Fave</button>
         <p className='vehicles-model'>Model: <span>{cardData.model}</span></p>
         <p className='vehicles-class'>Class: <span>{cardData.class}</span></p>
         <p className='vehicles-num-passengers'>Number of Passengers: <span>{cardData.numPassengers}</span></p>
@@ -41,7 +41,7 @@ const Card = ({ cardData, cardType }) => {
     return (
       <div className='card'>
         <h3 className='planets-name'>Name: <span>{cardData.name}</span></h3>
-        <button className='favorite'>Fave</button>
+        <button className='favorite' onClick={updateFavorites.bind(this, cardData)}>Fave</button>
         <p className='planets-terrain'>Terrain: <span>{cardData.terrain}</span></p>
         <p className='planets-population'>Population: <span>{cardData.population}</span></p>
         <p className='planets-climate'>Climate: <span>{cardData.climate}</span></p>
