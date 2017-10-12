@@ -5,6 +5,7 @@ const Card = ({ cardData, cardType }) => {
     return (
       <div className='card'>
         <h3 className='people-name'>Name: <span>{cardData.name}</span></h3>
+        <button className='favorite'>Fave</button>
         <p className='people-homeworld'>Homeworld: <span>{cardData.homeworld}</span></p>
         <p className='people-species'>Species: <span>{cardData.species}</span></p>
         <p className='people-homeworld-population'>Homeworld Population: <span>{cardData.homeworldPopulation}</span></p>
@@ -14,6 +15,7 @@ const Card = ({ cardData, cardType }) => {
     return (
       <div className='card'>
         <h3 className='vehicles-name'>Name: <span>{cardData.name}</span></h3>
+        <button className='favorite'>Fave</button>
         <p className='vehicles-model'>Model: <span>{cardData.model}</span></p>
         <p className='vehicles-class'>Class: <span>{cardData.class}</span></p>
         <p className='vehicles-num-passengers'>Number of Passengers: <span>{cardData.numPassengers}</span></p>
@@ -23,6 +25,7 @@ const Card = ({ cardData, cardType }) => {
     return (
       <div className='card'>
         <h3 className='planets-name'>Name: <span>{cardData.name}</span></h3>
+        <button className='favorite'>Fave</button>
         <p className='planets-terrain'>Terrain: <span>{cardData.terrain}</span></p>
         <p className='planets-population'>Population: <span>{cardData.population}</span></p>
         <p className='planets-climate'>Climate: <span>{cardData.climate}</span></p>
