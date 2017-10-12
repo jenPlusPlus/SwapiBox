@@ -184,7 +184,7 @@ class App extends Component {
           render={ () =>
             <div className="home-message">
               <Header />
-              <CardContainer cardData={{}}/>
+              <CardContainer cardData={[]} />
             </div>
           }
         />
