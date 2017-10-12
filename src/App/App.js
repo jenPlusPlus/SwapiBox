@@ -214,7 +214,7 @@ class App extends Component {
             <div className="home-message">
               <Header numFavorites={this.state.favorites.length}/>
               <SideBar film={this.state.film} />
-              <CardContainer cardData={[]} updateFavorites={this.updateFavorites}/>
+              <CardContainer cardData={[]} updateFavorites={this.updateFavorites} numFavorites={this.state.favorites.length}/>
             </div>
           }
         />
@@ -223,7 +223,7 @@ class App extends Component {
             <div className="people">
               <Header activeButton={'People'} numFavorites={this.state.favorites.length}/>
               <SideBar film={this.state.film} />
-              <CardContainer cardData={this.state.people} cardType={'people'} updateFavorites={this.updateFavorites} />
+              <CardContainer cardData={this.state.people} cardType={'people'} updateFavorites={this.updateFavorites} numFavorites={this.state.favorites.length} />
             </div>
           }
         />
@@ -232,7 +232,7 @@ class App extends Component {
             <div className="vehicles">
               <Header activeButton={'Vehicles'} numFavorites={this.state.favorites.length}/>
               <SideBar film={this.state.film} />
-              <CardContainer cardData={this.state.vehicles} cardType={'vehicles'} updateFavorites={this.updateFavorites} />
+              <CardContainer cardData={this.state.vehicles} cardType={'vehicles'} updateFavorites={this.updateFavorites} numFavorites={this.state.favorites.length}/>
             </div>
           }
         />
@@ -241,7 +241,7 @@ class App extends Component {
             <div className="planets">
               <Header activeButton={'Planets'} numFavorites={this.state.favorites.length}/>
               <SideBar film={this.state.film} />
-              <CardContainer cardData={this.state.planets} cardType={'planets'} updateFavorites={this.updateFavorites} />
+              <CardContainer cardData={this.state.planets} cardType={'planets'} updateFavorites={this.updateFavorites} numFavorites={this.state.favorites.length}/>
             </div>
           }
         />
@@ -250,7 +250,7 @@ class App extends Component {
             <div className="favorites">
               <Header numFavorites={this.state.favorites.length}/>
               <SideBar film={this.state.film} />
-              <CardContainer cardData={this.state.favorites} cardType={'favorites'} updateFavorites={this.updateFavorites} />
+              <CardContainer cardData={this.state.favorites} cardType={'favorites'} updateFavorites={this.updateFavorites} numFavorites={this.state.favorites.length}/>
             </div>
           }
         />
