@@ -4,7 +4,7 @@ const Button = ({ buttonTitle, buttonAction}) => {
   return (
     <div>
       <a href={`/${buttonTitle.toLowerCase()}`}>
-        <button>
+        <button className="button">
           {buttonTitle}
         </button>
       </a>

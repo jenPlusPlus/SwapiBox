@@ -1,0 +1,12 @@
+@import url(https://fonts.googleapis.com/css?family=Khula:300,400,600,700,800);
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Khula', sans-serif; }
+
+.wrapper-div {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../App/assets/bodyBackground.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; }

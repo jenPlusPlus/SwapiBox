@@ -178,7 +178,7 @@ class App extends Component {
   render() {
     const allData= this.state;
     return (
-      <div>
+      <div className="wrapper-div">
         SWAPI BOX!
         <Route exact path='/'
           render={ () =>
