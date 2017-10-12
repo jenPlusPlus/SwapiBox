@@ -10,25 +10,39 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 describe('App', () => {
 
-  const mockPeople = {
+  const mockPeople = [{
+    homeworld: "Tatooine",
+    homeworldPopulation: "200000",
+    name: "Luke Skywalker",
+    species:["Human"]
+  }];
 
-  };
+  const mockVehicles = [{
+    class: "wheeled",
+    model:  "Digger Crawler",
+    name: "Sand Crawler",
+    numPassengers: "30"
+  }];
 
-  const mockVehicles = {
-
-  };
-
-  const mockPlanets = {
-
-  }
+  const mockPlanets = [{
+    climate: "temperate",
+    name: "Alderaan",
+    population: "2000000000",
+    residents:["Leia Organa",
+                "Bail Prestor Organa",
+                "Raymus Antilles"],
+    terrain: "grasslands, mountains"
+  }];
 
   const mockSpecies = {
+    name: "Wookie",
+  };
 
-  }
-
-  const mockFilms = {
-
-  }
+  const mockFilms = [{
+    releaseDate: "2002-05-16",
+    scrollText: "There is unrest in the Galactic\r\nSenate. Several thousand solar\r\nsystems have declared their\r\nintentions to leave the Republic.\r\n\r\nThis separatist movement,\r\nunder the leadership of the\r\nmysterious Co…",
+    title: "Attack of the Clones"
+  }];
 
   beforeEach(() => {
     //film
@@ -175,6 +189,7 @@ fetchMock.get('https://swapi.co/api/films/7', {
       status: 200,
       body: mockPlanets
     });
+
   });
 
   afterEach(() => {
