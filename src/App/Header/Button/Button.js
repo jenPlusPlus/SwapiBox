@@ -3,7 +3,7 @@ import React from 'react'
 const Button = ({ buttonTitle, isActive, numFavorites }) => {
   if (isActive) {
     return (
-      <div>
+      <div className="button-wrapper">
         <a href={`/${buttonTitle.toLowerCase()}`}>
           <button className='active'>
             {buttonTitle}
@@ -12,9 +12,10 @@ const Button = ({ buttonTitle, isActive, numFavorites }) => {
       </div>
     );
   } else {
+
     if (buttonTitle === 'Favorites') {
       return (
-        <div>
+        <div className="button-wrapper">
           <a href={`/${buttonTitle.toLowerCase()}`}>
             <button>
               {buttonTitle}
@@ -26,7 +27,7 @@ const Button = ({ buttonTitle, isActive, numFavorites }) => {
       );
     } else {
       return (
-        <div>
+        <div className="button-wrapper">
           <a href={`/${buttonTitle.toLowerCase()}`}>
             <button>
               {buttonTitle}
