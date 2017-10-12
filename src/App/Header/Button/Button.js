@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Button = ({ buttonTitle, isActive }) => {
+const Button = ({ buttonTitle, isActive, numFavorites }) => {
   if (isActive) {
     return (
       <div>
@@ -12,15 +12,29 @@ const Button = ({ buttonTitle, isActive }) => {
       </div>
     );
   } else {
-    return (
-      <div>
-        <a href={`/${buttonTitle.toLowerCase()}`}>
-          <button>
-            {buttonTitle}
-          </button>
-        </a>
-      </div>
-    );
+    if (buttonTitle === 'Favorites') {
+      return (
+        <div>
+          <a href={`/${buttonTitle.toLowerCase()}`}>
+            <button>
+              {buttonTitle}
+              <span> : </span>
+              {numFavorites}
+            </button>
+          </a>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <a href={`/${buttonTitle.toLowerCase()}`}>
+            <button>
+              {buttonTitle}
+            </button>
+          </a>
+        </div>
+      );
+    }
   }
 };
 
