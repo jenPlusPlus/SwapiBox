@@ -25,10 +25,25 @@ class App extends Component {
     this.getPeople();
     this.getVehicles();
     this.getPlanets();
+    this.getFavoritesFromLocalStorage();
+  }
+
+  getFavoritesFromLocalStorage() {
+    if (localStorage.length > 0) {
+      this.setState({
+        favorites: JSON.parse(localStorage.getItem('favorites'))
+      });
+    }
   }
 
   updateFavorites(cardData) {
-    console.log('cardData: ', cardData);
+    const favorites = this.state.favorites;
+    favorites.push(cardData);
+    this.setState( {
+      favorites: favorites
+    });
+
+    localStorage.setItem('favorites', JSON.stringify(favorites));
   }
 
   getPeople() {
@@ -86,7 +101,8 @@ class App extends Component {
         name: person.name,
         homeworld: person.homeworld,
         species: person.species,
-        homeworldPopulation: person.population
+        homeworldPopulation: person.population,
+        cardType: 'people'
       });
       return acc;
     }, []);
@@ -139,7 +155,8 @@ class App extends Component {
         terrain: planet.terrain,
         population: planet.population,
         climate: planet.climate,
-        residents: planet.residents
+        residents: planet.residents,
+        cardType: 'planets'
       });
       return acc;
     }, []);
@@ -156,7 +173,9 @@ class App extends Component {
           name: vehicle.name,
           model: vehicle.model,
           class: vehicle.vehicle_class,
-          numPassengers: vehicle.passengers};
+          numPassengers: vehicle.passengers,
+          cardType: 'vehicles'
+        };
       }))
       .then(cleanedVehicleArray => {
         this.setState({
@@ -218,6 +237,15 @@ class App extends Component {
               <Header activeButton={'Planets'}/>
               <SideBar film={this.state.film} />
               <CardContainer cardData={this.state.planets} cardType={'planets'} updateFavorites={this.updateFavorites} />
+            </div>
+          }
+        />
+        <Route exact path='/favorites'
+          render={ () =>
+            <div className="favorites">
+              <Header />
+              <SideBar film={this.state.film} />
+              <CardContainer cardData={this.state.favorites} cardType={'favorites'} updateFavorites={this.updateFavorites} />
             </div>
           }
         />

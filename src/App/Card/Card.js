@@ -1,7 +1,9 @@
 import React from 'react';
 
 const Card = ({ cardData, cardType, updateFavorites }) => {
-  if (cardType === 'people') {
+
+
+  if (cardData.cardType === 'people') {
     let mappedSpecies;
     if (cardData.species.length > 0) {
       mappedSpecies = cardData.species.map((species, index) => {
@@ -19,7 +21,7 @@ const Card = ({ cardData, cardType, updateFavorites }) => {
         <p className='people-homeworld-population'>Homeworld Population: <span>{cardData.homeworldPopulation}</span></p>
       </div>
     );
-  } else if (cardType === 'vehicles') {
+  } else if (cardData.cardType === 'vehicles') {
     return (
       <div className='card'>
         <h3 className='vehicles-name'>Name: <span>{cardData.name}</span></h3>
@@ -29,7 +31,7 @@ const Card = ({ cardData, cardType, updateFavorites }) => {
         <p className='vehicles-num-passengers'>Number of Passengers: <span>{cardData.numPassengers}</span></p>
       </div>
     );
-  } else if (cardType === 'planets') {
+  } else if (cardData.cardType === 'planets') {
     let mappedResidents;
     if (cardData.residents.length > 0) {
       mappedResidents = cardData.residents.map((resident, index) => {
@@ -48,7 +50,7 @@ const Card = ({ cardData, cardType, updateFavorites }) => {
         <p className='planets-residents'>Residents: <ul>{mappedResidents}</ul></p>
       </div>
     );
-  }
+  } 
 };
 
 export default Card;
