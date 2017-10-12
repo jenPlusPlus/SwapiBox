@@ -193,6 +193,7 @@ class App extends Component {
           render={ () =>
             <div className="people">
               <Header />
+              <SideBar film={this.state.film} />
               <CardContainer cardData={this.state.people} cardType={'people'}/>
             </div>
           }
@@ -201,6 +202,7 @@ class App extends Component {
           render={ () =>
             <div className="vehicles">
               <Header />
+              <SideBar film={this.state.film} />
               <CardContainer cardData={this.state.vehicles} cardType={'vehicles'}/>
             </div>
           }
@@ -209,6 +211,7 @@ class App extends Component {
           render={ () =>
             <div className="planets">
               <Header />
+              <SideBar film={this.state.film} />
               <CardContainer cardData={this.state.planets} cardType={'planets'}/>
             </div>
           }
