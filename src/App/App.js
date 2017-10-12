@@ -259,12 +259,4 @@ class App extends Component {
   }
 }
 
-
-
-{ /* <div className="App">
-  <Header getPlanets={this.getPlanets}
-    getVehicles={this.getVehicles}/>
-  <SideBar {... allData} />
-  <CardContainer {...allData}/>
-</div> */ }
 export default App;

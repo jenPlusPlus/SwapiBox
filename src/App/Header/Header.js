@@ -7,7 +7,7 @@ const Header = ({ activeButton, numFavorites }) => {
   const vehiclesButtonTitle = 'Vehicles';
 
   return (
-    <div className="header">>
+    <div className="header">
       <Button  isActive={false} buttonTitle={'Favorites'} numFavorites={numFavorites}/>
       <Button  isActive={peopleButtonTitle === activeButton} buttonTitle={peopleButtonTitle} />
       <Button  isActive={planetsButtonTitle === activeButton} buttonTitle={planetsButtonTitle} />
