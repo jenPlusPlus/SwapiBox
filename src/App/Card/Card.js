@@ -14,12 +14,12 @@ const Card = ({ cardData, cardType, updateFavorites }) => {
     }
     return (
       <div className='card'>
-        <h3 className='people-name'>Name: <span>{cardData.name}</span></h3>
 
+        <h3 className='people-name card-name'>
+          Name: <span>{cardData.name}</span></h3>
         <button className='favorite' onClick={updateFavorites.bind(this, cardData)}>Fave</button>
         <p className='people-homeworld'>Homeworld:
           <span>{cardData.homeworld}</span></p>
-
         <p className='people-species'>Species: <ul>{mappedSpecies}</ul></p>
         <p className='people-homeworld-population'>Homeworld Population:
           <span>{cardData.homeworldPopulation}</span></p>
@@ -28,7 +28,8 @@ const Card = ({ cardData, cardType, updateFavorites }) => {
   } else if (cardData.cardType === 'vehicles') {
     return (
       <div className='card'>
-        <h3 className='vehicles-name'>Name: <span>{cardData.name}</span></h3>
+        <h3 className='vehicles-name card-name'>
+          Name: <span>{cardData.name}</span></h3>
         <button className='favorite' onClick={updateFavorites.bind(this, cardData)}>Fave</button>
         <p className='vehicles-model'>Model: <span>{cardData.model}</span></p>
         <p className='vehicles-class'>Class: <span>{cardData.class}</span></p>
@@ -47,21 +48,24 @@ const Card = ({ cardData, cardType, updateFavorites }) => {
     }
     return (
       <div className='card'>
-        <h3 className='planets-name'>Name: <span>{cardData.name}</span></h3>
 
+        <h3 className='planets-name card-name'>
+          Name: <span>{cardData.name}</span></h3>
         <button className='favorite' onClick={updateFavorites.bind(this, cardData)}>Fave</button>
-        <span className='planets-terrain'>Terrain:
-          <span>{cardData.terrain}</span></span>
-        <span className='planets-population'>Population:
-          <span>{cardData.population}</span></span>
-        <span className='planets-climate'>Climate:
-          <span>{cardData.climate}</span></span>
-        <span className='planets-residents'>Residents:
-          <ul>{mappedResidents}</ul></span>
-
+        <span className='planets-terrain label'>Terrain:
+          <br />
+          <span className='value'>{cardData.terrain}</span></span>
+        <span className='planets-population label'>Population:
+          <br />
+          <span className='value'>{cardData.population}</span></span>
+        <span className='planets-climate label'>Climate:
+          <br />
+          <span className='value'>{cardData.climate}</span></span>
+        <span className='planets-residents label'>Residents:
+          <ul className='value'>{mappedResidents}</ul></span>
       </div>
     );
-  } 
+  }
 };
 
 export default Card;

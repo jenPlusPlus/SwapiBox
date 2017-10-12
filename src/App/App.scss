@@ -6,7 +6,14 @@
   font-family: 'Khula', sans-serif;
 }
 
-.wrapper-div{
+
+.header{
+  height: 5vh;
+  margin: 0 0 1% 0;
+}
+
+.app-wrapper-div{
+
   width: 100%;
   height: 100vh;
   background-image: url(../App/assets/bodyBackground.jpg);
@@ -15,9 +22,13 @@
 }
 
 .button-wrapper{
+
+
   width: 10%;
   display: inline-block;
-  margin: 3%;
+  margin: 0 1% 0 1%;
+  height: 100%;
+  float: right;
 }
 
 .active {
@@ -25,24 +36,41 @@
   border: none;
   color: #e0d1a8;
   width: 100%;
+
+  height: 50%;
+  font-size: 1.25em;
+  margin: auto;
   }
+
+
 
   .button-inactive{
     background-color: #672807;
     border: none;
     color: #e0d1a8;
     width: 100%;
+
+    height: 50%;
+    font-size: 1.25em;
+    margin: auto;
+  }
+
+  .button-inactive:hover{
+    background-color: #e0531e;
   }
 
   .side-bar-wrapper{
     width: 20%;
     background-color: #e6deb0;
     overflow-y: scroll;
-    height: 70vh;
+
+    height: 87vh;
     display: inline-block;
+    margin: 0 2% 0 3%;
   }
 
   .film-text{
+    color: #504d3e;
     width: 97%;
     padding: 3% 1.5% 3% 1.5%;
   }
@@ -50,18 +78,41 @@
   .card-container-wrapper{
     background-color: rgba(236, 219, 175, 0.75);
     width: 70%;
-    overflow-y: scroll;
+
+    overflow-y: auto;
     float: right;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-
+    justify-content: space-around;
+    height: 87vh;
+    margin: 0 3% 0 2%;
+    padding-bottom: .5%;
   }
+
   .card{
     background-color: #fff5c5;
     display: inline-block;
     display: flex;
     flex-direction: column;
-    width:20%;
+    width:17%;
+    height: 47%;
+    margin: 1% .5% .5% .5%;
 
+  }
+
+  .label{
+    color: #545040;
+    font-weight: 700;
+    margin: .5% 0 0 .5%;
+    line-height: 1.5em;
+    padding: .75% .75% .5% .75%;
+    margin-left: 1.75%;
+  }
+
+  .value{
+    font-weight: 400;
+  }
+
+  .card-name{
+    margin: 1% 0 0 1.75%;
   }
