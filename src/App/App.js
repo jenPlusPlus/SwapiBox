@@ -201,7 +201,8 @@ class App extends Component {
             releaseDate: filmJsonResults.release_date
           }
         });
-      });
+      })
+      .catch(error => alert(error));
   }
 
   render() {
