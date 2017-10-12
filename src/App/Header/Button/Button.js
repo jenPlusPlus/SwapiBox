@@ -1,16 +1,16 @@
 import React from 'react'
 
-const Header = ({ buttonTitle, buttonAction}) => {
-  console.log(buttonAction);
+const Button = ({ buttonTitle, buttonAction}) => {
+
   return (
     <div>
       <a href={`/${buttonTitle}`}>
-      <button onClick={buttonAction}>
-        {buttonTitle}
-      </button>
-    </a>
+        <button>
+          {buttonTitle}
+        </button>
+      </a>
     </div>
   );
 };
 
-export default Header;
+export default Button;

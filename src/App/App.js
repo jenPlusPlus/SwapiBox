@@ -21,7 +21,9 @@ class App extends Component {
 
   componentDidMount() {
     this.getFilm();
-
+    this.getPeople();
+    this.getVehicles();
+    this.getPlanets();
   }
 
   getPeople() {
@@ -67,12 +69,25 @@ class App extends Component {
                 const forState = dataSet.map(personObject=>{
                   return personObject;
                 });
-                this.setState({
-                  people: forState
-                });
+                this.cleanPeopleData(forState);
               });
           });
       });
+  }
+
+  cleanPeopleData(peopleDataArray) {
+    const cleanedPeopleDataArray = peopleDataArray.reduce( (acc, person) => {
+      acc.push({
+        name: person.name,
+        homeworld: person.homeworld,
+        species: person.species,
+        homeworldPopulation: person.population
+      });
+      return acc;
+    }, []);
+    this.setState({
+      people: cleanedPeopleDataArray
+    });
   }
 
   getPlanets() {
@@ -107,11 +122,25 @@ class App extends Component {
             const forState = dataSet.map(planetObject=>{
               return planetObject;
             });
-            this.setState({
-              planets: forState
-            });
+            this.cleanPlanetData(forState);
           });
       });
+  }
+
+  cleanPlanetData(planetDataArray) {
+    const cleanedPlanetDataArray = planetDataArray.reduce( (acc, planet) => {
+      acc.push({
+        name: planet.name,
+        terrain: planet.terrain,
+        population: planet.population,
+        climate: planet.climate,
+        residents: planet.residents
+      });
+      return acc;
+    }, []);
+    this.setState( {
+      planets: cleanedPlanetDataArray
+    });
   }
 
   getVehicles() {
@@ -149,46 +178,35 @@ class App extends Component {
   render() {
     const allData= this.state;
     return (
-      <div className="top-app-wrapper">
+      <div>
 
         <Route exact path='/'
           render={ () =>
             <div className="home-message">
-              <Header getPlanets={this.getPlanets}
-                getVehicles={this.getVehicles}
-                getPeople={this.getPeople}/>
-              <SideBar {... allData} />
-              <CardContainer {...allData}/>
+              <Header />
+              <CardContainer cardData={this.state}/>
             </div>
           }
         />
         <Route exact path='/people'
           render={ () =>
             <div className="people">
-              <Header getPlanets={this.getPlanets}
-                getVehicles={this.getVehicles}/>
-              <SideBar {... allData} />
-              <CardContainer {...allData}/>
+              <Header />
+              <CardContainer cardData={this.state.people}/>
             </div>
           }
         />
         <Route exact path='/vehicle'
           render={ () =>
             <div className="vehicle">
-              <Header getPlanets={this.getPlanets}
-                getVehicles={this.getVehicles}/>
-              <SideBar {... allData} />
-              <CardContainer {...allData}/>
+              <CardContainer cardData={this.state.vehicles}/>
             </div>
           }
         />
         <Route exact path='/planet'
           render={ () =>
             <div className="planet">
-              <Header getPlanets={this.getPlanets}
-                getVehicles={this.getVehicles}/>
-              <SideBar {... allData} />
-              <CardContainer {...allData}/>
+              <CardContainer cardData={this.state.planets}/>
             </div>
           }
         />
@@ -200,10 +218,10 @@ class App extends Component {
 
 
 
-{/* <div className="App">
+{ /* <div className="App">
   <Header getPlanets={this.getPlanets}
     getVehicles={this.getVehicles}/>
   <SideBar {... allData} />
   <CardContainer {...allData}/>
-</div> */}
+</div> */ }
 export default App;
