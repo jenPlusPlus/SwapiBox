@@ -179,12 +179,12 @@ class App extends Component {
     const allData= this.state;
     return (
       <div>
-
+        SWAPI BOX!
         <Route exact path='/'
           render={ () =>
             <div className="home-message">
               <Header />
-              <CardContainer cardData={this.state}/>
+              <CardContainer cardData={[]} />
             </div>
           }
         />
@@ -196,21 +196,20 @@ class App extends Component {
             </div>
           }
         />
-        <Route exact path='/vehicle'
+        <Route exact path='/vehicles'
           render={ () =>
-            <div className="vehicle">
+            <div className="vehicles">
               <CardContainer cardData={this.state.vehicles}/>
             </div>
           }
         />
-        <Route exact path='/planet'
+        <Route exact path='/planets'
           render={ () =>
-            <div className="planet">
+            <div className="planets">
               <CardContainer cardData={this.state.planets}/>
             </div>
           }
         />
-        <p>SWAPI BOX!</p>
       </div>
     );
   }
