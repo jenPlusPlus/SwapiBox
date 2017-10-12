@@ -5,11 +5,13 @@ const SideBar = ({ film })=>{
     <div className="side-bar-wrapper">
       <p className="film-text">
         {film.scrollText}
-        <br />
-        {film.title}
-        <br />
-        {film.releaseDate}
       </p>
+      <h2 className="film-text">
+        {film.title}
+      </h2>
+      <h3 className="film-text">
+        {film.releaseDate}
+      </h3>
     </div>
 
   );

@@ -38,11 +38,30 @@
     width: 20%;
     background-color: #e6deb0;
     overflow-y: scroll;
+    height: 70vh;
+    display: inline-block;
   }
 
   .film-text{
     width: 97%;
     padding: 3% 1.5% 3% 1.5%;
-    height: 70vh;
+  }
+
+  .card-container-wrapper{
+    background-color: rgba(236, 219, 175, 0.75);
+    width: 70%;
+    overflow-y: scroll;
+    float: right;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+  }
+  .card{
+    background-color: #fff5c5;
+    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    width:20%;
 
   }

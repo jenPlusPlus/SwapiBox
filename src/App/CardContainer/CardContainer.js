@@ -8,13 +8,13 @@ const CardContainer = ({ cardData, cardType, updateFavorites }) => {
 
   if (cardData.length <= 0 && cardType === 'favorites') {
     return (
-      <div>
+      <div className="card-container-wrapper">
         No favorite cards found.
       </div>
     );
   } else  {
     return (
-      <div>
+      <div className="card-container-wrapper">
         {mapped}
       </div>
     );
