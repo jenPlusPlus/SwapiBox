@@ -11,11 +11,13 @@ class App extends Component {
       people: [],
       planets: [],
       vehicles: [],
-      film:{}
+      film:{},
+      favorites: []
     };
     this.getVehicles = this.getVehicles.bind(this);
     this.getPlanets = this.getPlanets.bind(this);
-    this.getPeople =this.getPeople.bind(this);
+    this.getPeople = this.getPeople.bind(this);
+    this.updateFavorites = this.updateFavorites.bind(this);
   }
 
   componentDidMount() {
@@ -23,6 +25,30 @@ class App extends Component {
     this.getPeople();
     this.getVehicles();
     this.getPlanets();
+    this.getFavoritesFromLocalStorage();
+  }
+
+  getFavoritesFromLocalStorage() {
+    if (localStorage.length > 0) {
+      this.setState({
+        favorites: JSON.parse(localStorage.getItem('favorites'))
+      });
+    }
+  }
+
+  updateFavorites(cardData) {
+    let favorites = this.state.favorites;
+    if (favorites.includes(cardData) === true ) {
+      favorites = favorites.filter(card => {
+
+        return card.name !== cardData.name;
+      });
+    } else {
+      favorites.push(cardData);
+    }
+    this.setState( {
+      favorites: favorites
+    }, () => localStorage.setItem('favorites', JSON.stringify(favorites)));
   }
 
   getPeople() {
@@ -80,7 +106,8 @@ class App extends Component {
         name: person.name,
         homeworld: person.homeworld,
         species: person.species,
-        homeworldPopulation: person.population
+        homeworldPopulation: person.population,
+        cardType: 'people'
       });
       return acc;
     }, []);
@@ -133,7 +160,8 @@ class App extends Component {
         terrain: planet.terrain,
         population: planet.population,
         climate: planet.climate,
-        residents: planet.residents
+        residents: planet.residents,
+        cardType: 'planets'
       });
       return acc;
     }, []);
@@ -150,7 +178,9 @@ class App extends Component {
           name: vehicle.name,
           model: vehicle.model,
           class: vehicle.vehicle_class,
-          numPassengers: vehicle.passengers};
+          numPassengers: vehicle.passengers,
+          cardType: 'vehicles'
+        };
       }))
       .then(cleanedVehicleArray => {
         this.setState({
@@ -184,7 +214,7 @@ class App extends Component {
             <div className="home-message">
               <Header />
               <SideBar film={this.state.film} />
-              <CardContainer cardData={[]} />
+              <CardContainer cardData={[]} updateFavorites={this.updateFavorites}/>
             </div>
           }
         />
@@ -193,7 +223,7 @@ class App extends Component {
             <div className="people">
               <Header activeButton={'People'}/>
               <SideBar film={this.state.film} />
-              <CardContainer cardData={this.state.people} cardType={'people'}/>
+              <CardContainer cardData={this.state.people} cardType={'people'} updateFavorites={this.updateFavorites} />
             </div>
           }
         />
@@ -202,7 +232,7 @@ class App extends Component {
             <div className="vehicles">
               <Header activeButton={'Vehicles'}/>
               <SideBar film={this.state.film} />
-              <CardContainer cardData={this.state.vehicles} cardType={'vehicles'}/>
+              <CardContainer cardData={this.state.vehicles} cardType={'vehicles'} updateFavorites={this.updateFavorites} />
             </div>
           }
         />
@@ -211,7 +241,16 @@ class App extends Component {
             <div className="planets">
               <Header activeButton={'Planets'}/>
               <SideBar film={this.state.film} />
-              <CardContainer cardData={this.state.planets} cardType={'planets'}/>
+              <CardContainer cardData={this.state.planets} cardType={'planets'} updateFavorites={this.updateFavorites} />
+            </div>
+          }
+        />
+        <Route exact path='/favorites'
+          render={ () =>
+            <div className="favorites">
+              <Header />
+              <SideBar film={this.state.film} />
+              <CardContainer cardData={this.state.favorites} cardType={'favorites'} updateFavorites={this.updateFavorites} />
             </div>
           }
         />

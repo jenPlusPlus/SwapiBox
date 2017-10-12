@@ -8,6 +8,7 @@ const Header = ({ activeButton }) => {
 
   return (
     <div>
+      <Button  isActive={false} buttonTitle={'Favorites'} />
       <Button  isActive={peopleButtonTitle === activeButton} buttonTitle={peopleButtonTitle} />
       <Button  isActive={planetsButtonTitle === activeButton} buttonTitle={planetsButtonTitle} />
       <Button  isActive={vehiclesButtonTitle === activeButton} buttonTitle={vehiclesButtonTitle}/>
