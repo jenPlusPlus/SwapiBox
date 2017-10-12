@@ -37,13 +37,18 @@ class App extends Component {
   }
 
   updateFavorites(cardData) {
-    const favorites = this.state.favorites;
-    favorites.push(cardData);
+    let favorites = this.state.favorites;
+    if (favorites.includes(cardData) === true ) {
+      favorites = favorites.filter(card => {
+
+        return card.name !== cardData.name;
+      });
+    } else {
+      favorites.push(cardData);
+    }
     this.setState( {
       favorites: favorites
-    });
-
-    localStorage.setItem('favorites', JSON.stringify(favorites));
+    }, () => localStorage.setItem('favorites', JSON.stringify(favorites)));
   }
 
   getPeople() {
