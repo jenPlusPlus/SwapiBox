@@ -1,5 +1,6 @@
-import React from 'react'
-import Button from './Button/Button'
+import React from 'react';
+import Button from './Button/Button';
+import PropTypes from 'prop-types';
 
 const Header = ({ activeButton, numFavorites }) => {
   const peopleButtonTitle = 'People';
@@ -8,12 +9,21 @@ const Header = ({ activeButton, numFavorites }) => {
 
   return (
     <div className="header">
-      <Button  isActive={false} buttonTitle={'Favorites'} numFavorites={numFavorites}/>
-      <Button  isActive={peopleButtonTitle === activeButton} buttonTitle={peopleButtonTitle} />
-      <Button  isActive={planetsButtonTitle === activeButton} buttonTitle={planetsButtonTitle} />
-      <Button  isActive={vehiclesButtonTitle === activeButton} buttonTitle={vehiclesButtonTitle}/>
+      <Button  isActive={false} buttonTitle={'Favorites'}
+        numFavorites={numFavorites}/>
+      <Button  isActive={peopleButtonTitle === activeButton}
+        buttonTitle={peopleButtonTitle} />
+      <Button  isActive={planetsButtonTitle === activeButton}
+        buttonTitle={planetsButtonTitle} />
+      <Button  isActive={vehiclesButtonTitle === activeButton}
+        buttonTitle={vehiclesButtonTitle}/>
     </div>
   );
+};
+
+Header.propTypes = {
+  activeButton: PropTypes.string,
+  numFavorites: PropTypes.number
 };
 
 export default Header;

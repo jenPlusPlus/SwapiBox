@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Button = ({ buttonTitle, isActive, numFavorites }) => {
   if (isActive) {
@@ -37,6 +38,12 @@ const Button = ({ buttonTitle, isActive, numFavorites }) => {
       );
     }
   }
+};
+
+Button.propTypes = {
+  buttonTitle: PropTypes.string,
+  isActive: PropTypes.boolean,
+  numFavorites: PropTypes.number
 };
 
 export default Button;
