@@ -6,7 +6,7 @@ const CardContainer = ({ cardData, cardType }) => {
     return <Card cardType={cardType} cardData={cardData[index]} key={index + Date.now()}/>
   });
   return (
-    <div>
+    <div className="card-container-wrapper">
       {mapped}
     </div>
   )
