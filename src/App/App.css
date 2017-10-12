@@ -4,7 +4,6 @@
   padding: 0;
   font-family: 'Khula', sans-serif; }
 
-
 .header {
   height: 5vh;
   margin: 0 0 1% 0; }
@@ -23,7 +22,6 @@
   height: 100%;
   float: right; }
 
-
 .active {
   background-color: #e0531e;
   border: none;
@@ -33,12 +31,10 @@
   font-size: 1.25em;
   margin: auto; }
 
-
 .button-inactive {
   background-color: #672807;
   border: none;
   color: #e0d1a8;
-
   width: 100%;
   height: 50%;
   font-size: 1.25em;
@@ -46,7 +42,6 @@
 
 .button-inactive:hover {
   background-color: #e0531e; }
-
 
 .side-bar-wrapper {
   width: 20%;
@@ -73,14 +68,11 @@
   margin: 0 3% 0 2%;
   padding-bottom: .5%; }
 
-
-
 .card {
   background-color: #fff5c5;
   display: inline-block;
   display: flex;
   flex-direction: column;
-
   width: 17%;
   height: 47%;
   margin: 1% .5% .5% .5%; }
@@ -98,4 +90,3 @@
 
 .card-name {
   margin: 1% 0 0 1.75%; }
-
