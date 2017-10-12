@@ -5,7 +5,7 @@ const Button = ({ buttonTitle, isActive, numFavorites }) => {
     return (
       <div>
         <a href={`/${buttonTitle.toLowerCase()}`}>
-          <button className='active'>
+          <button className='active button'>
             {buttonTitle}
           </button>
         </a>
@@ -16,7 +16,7 @@ const Button = ({ buttonTitle, isActive, numFavorites }) => {
       return (
         <div>
           <a href={`/${buttonTitle.toLowerCase()}`}>
-            <button>
+            <button className="button">
               {buttonTitle}
               <span> : </span>
               {numFavorites}
@@ -28,7 +28,7 @@ const Button = ({ buttonTitle, isActive, numFavorites }) => {
       return (
         <div>
           <a href={`/${buttonTitle.toLowerCase()}`}>
-            <button>
+            <button className="button">
               {buttonTitle}
             </button>
           </a>
