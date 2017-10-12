@@ -10,3 +10,30 @@
   background-image: url(../App/assets/bodyBackground.jpg);
   background-repeat: no-repeat;
   background-size: cover; }
+
+.button-wrapper {
+  width: 10%;
+  display: inline-block;
+  margin: 3%; }
+
+.active {
+  background-color: #e0531e;
+  border: none;
+  color: #e0d1a8;
+  width: 100%; }
+
+.button-inactive {
+  background-color: #672807;
+  border: none;
+  color: #e0d1a8;
+  width: 100%; }
+
+.side-bar-wrapper {
+  width: 20%;
+  background-color: #e6deb0;
+  overflow-y: scroll; }
+
+.film-text {
+  width: 97%;
+  padding: 3% 1.5% 3% 1.5%;
+  height: 70vh; }

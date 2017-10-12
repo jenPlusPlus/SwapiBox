@@ -2,8 +2,8 @@ import React from 'react';
 
 const SideBar = ({ film })=>{
   return (
-    <div>
-      <p>
+    <div className="side-bar-wrapper">
+      <p className="film-text">
         {film.scrollText}
         <br />
         {film.title}
