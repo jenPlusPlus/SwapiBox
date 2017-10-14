@@ -18,13 +18,14 @@ class App extends Component {
     this.getPlanets = this.getPlanets.bind(this);
     this.getPeople = this.getPeople.bind(this);
     this.updateFavorites = this.updateFavorites.bind(this);
+    this.cleanPeopleData = this.cleanPeopleData.bind(this);
   }
 
   componentDidMount() {
     this.getFilm();
-    this.getPeople();
-    this.getVehicles();
-    this.getPlanets();
+    // this.getPeople();
+    // this.getVehicles();
+    // this.getPlanets();
     this.getFavoritesFromLocalStorage();
   }
 
@@ -52,6 +53,7 @@ class App extends Component {
   }
 
   getPeople() {
+    console.log('click');
     fetch('https://swapi.co/api/people/')
       .then(response => response.json())
       .then(peopleData => {
@@ -211,7 +213,10 @@ class App extends Component {
         <Route exact path='/'
           render={ () =>
             <div className="home-message">
-              <Header numFavorites={this.state.favorites.length}/>
+              <Header numFavorites={this.state.favorites.length}
+                getPeople={this.getPeople}
+                getPlanets={this.getPlanets}
+                getVehicles={this.getVehicles}/>
               <SideBar film={this.state.film} />
               <CardContainer cardData={[]}
                 updateFavorites={this.updateFavorites}
@@ -223,7 +228,10 @@ class App extends Component {
           render={ () =>
             <div className="people">
               <Header activeButton={'People'}
-                numFavorites={this.state.favorites.length}/>
+                numFavorites={this.state.favorites.length}
+                getPeople={this.getPeople}
+                getPlanets={this.getPlanets}
+                getVehicles={this.getVehicles}/>
               <SideBar film={this.state.film} />
               <CardContainer cardData={this.state.people}
                 cardType={'people'}
@@ -236,7 +244,10 @@ class App extends Component {
           render={ () =>
             <div className="vehicles">
               <Header activeButton={'Vehicles'}
-                numFavorites={this.state.favorites.length}/>
+                numFavorites={this.state.favorites.length}
+                getPeople={this.getPeople}
+                getPlanets={this.getPlanets}
+                getVehicles={this.getVehicles}/>
               <SideBar film={this.state.film} />
               <CardContainer cardData={this.state.vehicles}
                 cardType={'vehicles'}
@@ -249,7 +260,10 @@ class App extends Component {
           render={ () =>
             <div className="planets">
               <Header activeButton={'Planets'}
-                numFavorites={this.state.favorites.length}/>
+                numFavorites={this.state.favorites.length}
+                getPeople={this.getPeople}
+                getPlanets={this.getPlanets}
+                getVehicles={this.getVehicles}/>
               <SideBar film={this.state.film} />
               <CardContainer cardData={this.state.planets}
                 cardType={'planets'}
@@ -261,7 +275,10 @@ class App extends Component {
         <Route exact path='/favorites'
           render={ () =>
             <div className="favorites">
-              <Header numFavorites={this.state.favorites.length}/>
+              <Header numFavorites={this.state.favorites.length}
+                getPeople={this.getPeople}
+                getPlanets={this.getPlanets}
+                getVehicles={this.getVehicles}/>
               <SideBar film={this.state.film} />
               <CardContainer cardData={this.state.favorites}
                 cardType={'favorites'}

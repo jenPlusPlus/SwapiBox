@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-const Button = ({ buttonTitle, isActive, numFavorites }) => {
+const Button = ({ buttonTitle, isActive, numFavorites, apiCall }) => {
   if (isActive) {
     return (
       <div className="button-wrapper">
-        <a href={`/${buttonTitle.toLowerCase()}`}>
+        <Link to={`/${buttonTitle.toLowerCase()}`} onClick={apiCall}>
           <button className='active button'>
             {buttonTitle}
           </button>
-        </a>
+        </Link>
       </div>
     );
   } else {
@@ -17,23 +18,23 @@ const Button = ({ buttonTitle, isActive, numFavorites }) => {
     if (buttonTitle === 'Favorites') {
       return (
         <div className="button-wrapper">
-          <a href={`/${buttonTitle.toLowerCase()}`}>
+          <Link to={`/${buttonTitle.toLowerCase()}`} >
             <button className="button button-inactive">
               {buttonTitle}
               <span> : </span>
               {numFavorites}
             </button>
-          </a>
+          </Link>
         </div>
       );
     } else {
       return (
         <div className="button-wrapper">
-          <a href={`/${buttonTitle.toLowerCase()}`}>
+          <Link to={`/${buttonTitle.toLowerCase()}`} onClick={apiCall}>
             <button className="button button-inactive">
               {buttonTitle}
             </button>
-          </a>
+          </Link>
         </div>
       );
     }
@@ -45,5 +46,7 @@ Button.propTypes = {
   isActive: PropTypes.boolean,
   numFavorites: PropTypes.number
 };
+
+          // <a href={`/${buttonTitle.toLowerCase()}`}>
 
 export default Button;
