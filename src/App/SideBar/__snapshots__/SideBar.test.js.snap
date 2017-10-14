@@ -1,0 +1,212 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideBar should match the Card snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <SideBar
+    film={
+        Object {
+            "releaseDate": "2002-05-16",
+            "scrollText": "There is unrest in the Galactic
+        Senate. Several thousand solar
+        systems have declared their
+        intentions to leave the Republic.
+        
+        This separatist movement,
+        under the leadership of the
+        mysterious Co…",
+            "title": "Attack of the Clones",
+          }
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": null,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <p
+          className="film-text"
+>
+          There is unrest in the Galactic
+          Senate. Several thousand solar
+          systems have declared their
+          intentions to leave the Republic.
+          
+          This separatist movement,
+          under the leadership of the
+          mysterious Co…
+</p>,
+        <h2
+          className="film-text"
+>
+          Attack of the Clones
+</h2>,
+        <h3
+          className="film-text"
+>
+          2002-05-16
+</h3>,
+      ],
+      "className": "side-bar-wrapper",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": null,
+        "nodeType": "host",
+        "props": Object {
+          "children": "There is unrest in the Galactic
+Senate. Several thousand solar
+systems have declared their
+intentions to leave the Republic.
+
+This separatist movement,
+under the leadership of the
+mysterious Co…",
+          "className": "film-text",
+        },
+        "ref": null,
+        "rendered": "There is unrest in the Galactic
+Senate. Several thousand solar
+systems have declared their
+intentions to leave the Republic.
+
+This separatist movement,
+under the leadership of the
+mysterious Co…",
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": null,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Attack of the Clones",
+          "className": "film-text",
+        },
+        "ref": null,
+        "rendered": "Attack of the Clones",
+        "type": "h2",
+      },
+      Object {
+        "instance": null,
+        "key": null,
+        "nodeType": "host",
+        "props": Object {
+          "children": "2002-05-16",
+          "className": "film-text",
+        },
+        "ref": null,
+        "rendered": "2002-05-16",
+        "type": "h3",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": null,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <p
+            className="film-text"
+>
+            There is unrest in the Galactic
+            Senate. Several thousand solar
+            systems have declared their
+            intentions to leave the Republic.
+            
+            This separatist movement,
+            under the leadership of the
+            mysterious Co…
+</p>,
+          <h2
+            className="film-text"
+>
+            Attack of the Clones
+</h2>,
+          <h3
+            className="film-text"
+>
+            2002-05-16
+</h3>,
+        ],
+        "className": "side-bar-wrapper",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": null,
+          "nodeType": "host",
+          "props": Object {
+            "children": "There is unrest in the Galactic
+Senate. Several thousand solar
+systems have declared their
+intentions to leave the Republic.
+
+This separatist movement,
+under the leadership of the
+mysterious Co…",
+            "className": "film-text",
+          },
+          "ref": null,
+          "rendered": "There is unrest in the Galactic
+Senate. Several thousand solar
+systems have declared their
+intentions to leave the Republic.
+
+This separatist movement,
+under the leadership of the
+mysterious Co…",
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": null,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Attack of the Clones",
+            "className": "film-text",
+          },
+          "ref": null,
+          "rendered": "Attack of the Clones",
+          "type": "h2",
+        },
+        Object {
+          "instance": null,
+          "key": null,
+          "nodeType": "host",
+          "props": Object {
+            "children": "2002-05-16",
+            "className": "film-text",
+          },
+          "ref": null,
+          "rendered": "2002-05-16",
+          "type": "h3",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;

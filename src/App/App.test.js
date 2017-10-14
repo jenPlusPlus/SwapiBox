@@ -4,7 +4,7 @@ import App from './App';
 import fetchMock from 'fetch-mock';
 import renderer from 'react-test-renderer';
 import { withRouter } from 'react-router';
-import { shallow, mount } from 'enzyme';
+import { shallow, mount, render } from 'enzyme';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
