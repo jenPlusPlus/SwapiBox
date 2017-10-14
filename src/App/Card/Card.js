@@ -8,10 +8,10 @@ const Card = ({ cardData, cardType, updateFavorites }) => {
     let mappedSpecies;
     if (cardData.species.length > 0) {
       mappedSpecies = cardData.species.map((species, index) => {
-        return <li key={index + Date.now()}>{species}</li>;
+        return <li className='value' key={index + Date.now()}>{species}</li>;
       });
     } else {
-      mappedSpecies = <span>Unknown</span>;
+      mappedSpecies = <span className='value'>Unknown</span>;
     }
     return (
       <div className='card'>
@@ -20,11 +20,12 @@ const Card = ({ cardData, cardType, updateFavorites }) => {
           <span>{cardData.name}</span></h3>
         <button className='favorite'
           onClick={updateFavorites.bind(this, cardData)}>Fave</button>
-        <p className='people-homeworld'>Homeworld:
-          <span>{cardData.homeworld}</span></p>
-        <p className='people-species'>Species: <ul>{mappedSpecies}</ul></p>
-        <p className='people-homeworld-population'>Homeworld Population:
-          <span>{cardData.homeworldPopulation}</span></p>
+        <p className='people-homeworld label'>Homeworld:
+          <span className='value'> {cardData.homeworld}</span></p>
+        <p className='people-species label'>Species: <ul>{mappedSpecies}</ul>
+        </p>
+        <p className='people-homeworld-population label'>Homeworld Population:
+          <span className='value'> {cardData.homeworldPopulation}</span></p>
       </div>
     );
   } else if (cardData.cardType === 'vehicles') {
@@ -34,10 +35,12 @@ const Card = ({ cardData, cardType, updateFavorites }) => {
           <span>{cardData.name}</span></h3>
         <button className='favorite'
           onClick={updateFavorites.bind(this, cardData)}>Fave</button>
-        <p className='vehicles-model'>Model: <span>{cardData.model}</span></p>
-        <p className='vehicles-class'>Class: <span>{cardData.class}</span></p>
-        <p className='vehicles-num-passengers'>Number of Passengers:
-          <span>{cardData.numPassengers}</span></p>
+        <p className='vehicles-model label'>Model: <span className='value'>{cardData.model}</span>
+        </p>
+        <p className='vehicles-class label'>Class: <span className='value'>{cardData.class}</span>
+        </p>
+        <p className='vehicles-num-passengers label'>Number of Passengers:
+          <span className='value'> {cardData.numPassengers}</span></p>
       </div>
     );
   } else if (cardData.cardType === 'planets') {
