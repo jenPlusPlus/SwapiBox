@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Card = ({ cardData, cardType, updateFavorites }) => {
+const Card = ({ cardData, cardType, updateFavorites, isFavorite }) => {
 
 
   if (cardData.cardType === 'people') {
@@ -18,8 +18,8 @@ const Card = ({ cardData, cardType, updateFavorites }) => {
 
         <h3 className='people-name card-name'>
           <span>{cardData.name}</span></h3>
-        <button className='favorite'
-          onClick={updateFavorites.bind(this, cardData)}>Fave</button>
+        <div className={`favorite ${isFavorite}`}
+          onClick={updateFavorites.bind(this, cardData)}></div>
         <p className='people-homeworld label'>Homeworld:
           <span className='value'> {cardData.homeworld}</span></p>
         <p className='people-species label'>Species: <ul>{mappedSpecies}</ul>
@@ -33,8 +33,8 @@ const Card = ({ cardData, cardType, updateFavorites }) => {
       <div className='card'>
         <h3 className='vehicles-name card-name'>
           <span>{cardData.name}</span></h3>
-        <button className='favorite'
-          onClick={updateFavorites.bind(this, cardData)}>Fave</button>
+        <div className={`favorite ${isFavorite}`}
+          onClick={updateFavorites.bind(this, cardData)}></div>
         <p className='vehicles-model label'>Model:
           <span className='value'> {cardData.model}</span>
         </p>
@@ -59,8 +59,8 @@ const Card = ({ cardData, cardType, updateFavorites }) => {
 
         <h3 className='planets-name card-name'>
           <span>{cardData.name}</span></h3>
-        <button className='favorite'
-          onClick={updateFavorites.bind(this, cardData)}>Fave</button>
+        <div className={`favorite ${isFavorite}`}
+          onClick={updateFavorites.bind(this, cardData)}></div>
         <span className='planets-terrain label'>Terrain:
           <br />
           <span className='value'>{cardData.terrain}</span></span>
@@ -80,6 +80,7 @@ const Card = ({ cardData, cardType, updateFavorites }) => {
 Card.propTypes = {
   cardData: PropTypes.object,
   cardType: PropTypes.string,
-  updateFavorites: PropTypes.func
+  updateFavorites: PropTypes.func,
+  isFavorite: PropTypes.string
 };
 export default Card;

@@ -78,7 +78,8 @@ ul {
   flex-direction: column;
   width: 17%;
   height: 47%;
-  margin: 1% .5% .5% .5%; }
+  margin: 1% .5% .5% .5%;
+  position: relative; }
 
 .label {
   color: #545040;
@@ -92,7 +93,22 @@ ul {
   font-weight: 400; }
 
 .card-name {
-  margin: 1% 0 0 1.75%; }
+  margin: 1% 0 0 1.75%;
+  height: 10%; }
+
+.favorite {
+  display: inline-block;
+  background-color: #ecdbaf;
+  background-image: url(../App/assets/favbutton.png);
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  position: absolute;
+  top: 5px;
+  right: 7px; }
+
+.is-favorite {
+  background-color: #A31621; }
 
 .planets-residents {
   height: 50%;

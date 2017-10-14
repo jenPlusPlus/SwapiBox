@@ -217,7 +217,8 @@ class App extends Component {
               <SideBar film={this.state.film} />
               <CardContainer cardData={[]}
                 updateFavorites={this.updateFavorites}
-                numFavorites={this.state.favorites.length}/>
+                numFavorites={this.state.favorites.length}
+                favorites={this.state.favorites}/>
             </div>
           }
         />
@@ -233,7 +234,8 @@ class App extends Component {
               <CardContainer cardData={this.state.people}
                 cardType={'people'}
                 updateFavorites={this.updateFavorites}
-                numFavorites={this.state.favorites.length} />
+                numFavorites={this.state.favorites.length}
+                favorites={this.state.favorites}/>
             </div>
           }
         />
@@ -249,7 +251,8 @@ class App extends Component {
               <CardContainer cardData={this.state.vehicles}
                 cardType={'vehicles'}
                 updateFavorites={this.updateFavorites}
-                numFavorites={this.state.favorites.length}/>
+                numFavorites={this.state.favorites.length}
+                favorites={this.state.favorites}/>
             </div>
           }
         />
@@ -265,7 +268,8 @@ class App extends Component {
               <CardContainer cardData={this.state.planets}
                 cardType={'planets'}
                 updateFavorites={this.updateFavorites}
-                numFavorites={this.state.favorites.length}/>
+                numFavorites={this.state.favorites.length}
+                favorites={this.state.favorites}/>
             </div>
           }
         />
@@ -281,7 +285,8 @@ class App extends Component {
               <CardContainer cardData={this.state.favorites}
                 cardType={'favorites'}
                 updateFavorites={this.updateFavorites}
-                numFavorites={this.state.favorites.length}/>
+                numFavorites={this.state.favorites.length}
+                favorites={this.state.favorites}/>
             </div>
           }
         />

@@ -2,13 +2,29 @@ import React from 'react';
 import Card from '../Card/Card';
 import PropTypes from 'prop-types';
 
-const CardContainer = ({ cardData, cardType, updateFavorites }) => {
+const CardContainer = ({ cardData, cardType, updateFavorites, favorites }) => {
+
   const mapped = cardData.map( (item, index) => {
-    return <Card cardType={cardData.cardType}
-      cardData={cardData[index]}
-      key={index + Date.now()}
-      updateFavorites={updateFavorites}/>;
+
+    if (favorites.filter(card => {
+      return item.name === card.name;
+    }).length > 0) {
+      return (<Card cardType={cardData.cardType}
+        cardData={cardData[index]}
+        key={index + Date.now()}
+        updateFavorites={updateFavorites}
+        isFavorite={'is-favorite'}/>);
+    } else {
+      return (<Card cardType={cardData.cardType}
+        cardData={cardData[index]}
+        key={index + Date.now()}
+        updateFavorites={updateFavorites}
+        isFavorite={''}/>);
+    }
   });
+
+
+
 
 
   if (cardData.length <= 0 && cardType === 'favorites') {
@@ -29,7 +45,8 @@ const CardContainer = ({ cardData, cardType, updateFavorites }) => {
 CardContainer.propTypes = {
   cardData: PropTypes.array,
   cardType: PropTypes.string,
-  updateFavorites: PropTypes.func
+  updateFavorites: PropTypes.func,
+  favorites: PropTypes.array
 };
 
 export default CardContainer;
