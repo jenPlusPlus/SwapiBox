@@ -272,7 +272,8 @@ class App extends Component {
         <Route exact path='/favorites'
           render={ () =>
             <div className="favorites">
-              <Header numFavorites={this.state.favorites.length}
+              <Header activeButton={'Favorites'}
+                numFavorites={this.state.favorites.length}
                 getPeople={this.getPeople}
                 getPlanets={this.getPlanets}
                 getVehicles={this.getVehicles}/>
