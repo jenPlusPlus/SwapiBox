@@ -17,7 +17,7 @@ const Card = ({ cardData, cardType, updateFavorites }) => {
       <div className='card'>
 
         <h3 className='people-name card-name'>
-          Name: <span>{cardData.name}</span></h3>
+          <span>{cardData.name}</span></h3>
         <button className='favorite'
           onClick={updateFavorites.bind(this, cardData)}>Fave</button>
         <p className='people-homeworld'>Homeworld:
@@ -31,7 +31,7 @@ const Card = ({ cardData, cardType, updateFavorites }) => {
     return (
       <div className='card'>
         <h3 className='vehicles-name card-name'>
-          Name: <span>{cardData.name}</span></h3>
+          <span>{cardData.name}</span></h3>
         <button className='favorite'
           onClick={updateFavorites.bind(this, cardData)}>Fave</button>
         <p className='vehicles-model'>Model: <span>{cardData.model}</span></p>
@@ -53,7 +53,7 @@ const Card = ({ cardData, cardType, updateFavorites }) => {
       <div className='card'>
 
         <h3 className='planets-name card-name'>
-          Name: <span>{cardData.name}</span></h3>
+          <span>{cardData.name}</span></h3>
         <button className='favorite'
           onClick={updateFavorites.bind(this, cardData)}>Fave</button>
         <span className='planets-terrain label'>Terrain:
