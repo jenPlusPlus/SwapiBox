@@ -2,7 +2,8 @@ import React from 'react';
 import Button from './Button/Button';
 import PropTypes from 'prop-types';
 
-const Header = ({ activeButton, numFavorites, getPeople, getPlanets, getVehicles}) => {
+const Header = ({ activeButton, numFavorites,
+  getPeople, getPlanets, getVehicles}) => {
   const peopleButtonTitle = 'People';
   const planetsButtonTitle = 'Planets';
   const vehiclesButtonTitle = 'Vehicles';
@@ -27,7 +28,10 @@ const Header = ({ activeButton, numFavorites, getPeople, getPlanets, getVehicles
 
 Header.propTypes = {
   activeButton: PropTypes.string,
-  numFavorites: PropTypes.number
+  numFavorites: PropTypes.number,
+  getPeople: PropTypes.number,
+  getPlanets: PropTypes.number,
+  getVehicles: PropTypes.number
 };
 
 export default Header;
