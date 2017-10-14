@@ -23,9 +23,6 @@ class App extends Component {
 
   componentDidMount() {
     this.getFilm();
-    // this.getPeople();
-    // this.getVehicles();
-    // this.getPlanets();
     this.getFavoritesFromLocalStorage();
   }
 

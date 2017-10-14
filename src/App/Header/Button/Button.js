@@ -7,7 +7,7 @@ const Button = ({ buttonTitle, isActive, numFavorites, apiCall }) => {
     return (
       <div className="button-wrapper">
         <Link to={`/${buttonTitle.toLowerCase()}`} onClick={apiCall}>
-          <button className='active button'>
+          <button className={`button active ${buttonTitle}-button`}>
             {buttonTitle}
           </button>
         </Link>
@@ -19,7 +19,7 @@ const Button = ({ buttonTitle, isActive, numFavorites, apiCall }) => {
       return (
         <div className="button-wrapper">
           <Link to={`/${buttonTitle.toLowerCase()}`} >
-            <button className="button button-inactive">
+            <button className={`button button-inactive ${buttonTitle}-button`}>
               {buttonTitle}
               <span> : </span>
               {numFavorites}
@@ -31,7 +31,7 @@ const Button = ({ buttonTitle, isActive, numFavorites, apiCall }) => {
       return (
         <div className="button-wrapper">
           <Link to={`/${buttonTitle.toLowerCase()}`} onClick={apiCall}>
-            <button className="button button-inactive">
+            <button className={`button button-inactive ${buttonTitle}-button`}>
               {buttonTitle}
             </button>
           </Link>
@@ -44,9 +44,9 @@ const Button = ({ buttonTitle, isActive, numFavorites, apiCall }) => {
 Button.propTypes = {
   buttonTitle: PropTypes.string,
   isActive: PropTypes.boolean,
-  numFavorites: PropTypes.number
+  numFavorites: PropTypes.number,
+  apiCall: PropTypes.func
 };
 
-          // <a href={`/${buttonTitle.toLowerCase()}`}>
 
 export default Button;
