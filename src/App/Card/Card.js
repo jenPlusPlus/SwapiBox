@@ -1,50 +1,55 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Card = ({ cardData, cardType, updateFavorites }) => {
+const Card = ({ cardData, cardType, updateFavorites, isFavorite }) => {
 
 
   if (cardData.cardType === 'people') {
     let mappedSpecies;
     if (cardData.species.length > 0) {
       mappedSpecies = cardData.species.map((species, index) => {
-        return <li key={index + Date.now()}>{species}</li>;
+        return <li className='value' key={index + Date.now()}>{species}</li>;
       });
     } else {
-      mappedSpecies = <span>Unknown</span>;
+      mappedSpecies = <span className='value'>Unknown</span>;
     }
     return (
       <div className='card'>
 
         <h3 className='people-name card-name'>
-          Name: <span>{cardData.name}</span></h3>
-        <button className='favorite'
-          onClick={updateFavorites.bind(this, cardData)}>Fave</button>
-        <p className='people-homeworld'>Homeworld:
-          <span>{cardData.homeworld}</span></p>
-        <p className='people-species'>Species: <ul>{mappedSpecies}</ul></p>
-        <p className='people-homeworld-population'>Homeworld Population:
-          <span>{cardData.homeworldPopulation}</span></p>
+          <span>{cardData.name}</span></h3>
+        <div className={`favorite ${isFavorite}`}
+          onClick={updateFavorites.bind(this, cardData)}></div>
+        <p className='people-homeworld label'>Homeworld:
+          <span className='value'> {cardData.homeworld}</span></p>
+        <p className='people-species label'>Species: <ul>{mappedSpecies}</ul>
+        </p>
+        <p className='people-homeworld-population label'>Homeworld Population:
+          <span className='value'> {cardData.homeworldPopulation}</span></p>
       </div>
     );
   } else if (cardData.cardType === 'vehicles') {
     return (
       <div className='card'>
         <h3 className='vehicles-name card-name'>
-          Name: <span>{cardData.name}</span></h3>
-        <button className='favorite'
-          onClick={updateFavorites.bind(this, cardData)}>Fave</button>
-        <p className='vehicles-model'>Model: <span>{cardData.model}</span></p>
-        <p className='vehicles-class'>Class: <span>{cardData.class}</span></p>
-        <p className='vehicles-num-passengers'>Number of Passengers:
-          <span>{cardData.numPassengers}</span></p>
+          <span>{cardData.name}</span></h3>
+        <div className={`favorite ${isFavorite}`}
+          onClick={updateFavorites.bind(this, cardData)}></div>
+        <p className='vehicles-model label'>Model:
+          <span className='value'> {cardData.model}</span>
+        </p>
+        <p className='vehicles-class label'>Class:
+          <span className='value'> {cardData.class}</span>
+        </p>
+        <p className='vehicles-num-passengers label'>Number of Passengers:
+          <span className='value'> {cardData.numPassengers}</span></p>
       </div>
     );
   } else if (cardData.cardType === 'planets') {
     let mappedResidents;
     if (cardData.residents.length > 0) {
       mappedResidents = cardData.residents.map((resident, index) => {
-        return <span key={index + Date.now()}>{resident}</span>;
+        return <li key={index + Date.now()}>{resident}</li>;
       });
     } else {
       mappedResidents = <span>Unknown</span>;
@@ -53,9 +58,9 @@ const Card = ({ cardData, cardType, updateFavorites }) => {
       <div className='card'>
 
         <h3 className='planets-name card-name'>
-          Name: <span>{cardData.name}</span></h3>
-        <button className='favorite'
-          onClick={updateFavorites.bind(this, cardData)}>Fave</button>
+          <span>{cardData.name}</span></h3>
+        <div className={`favorite ${isFavorite}`}
+          onClick={updateFavorites.bind(this, cardData)}></div>
         <span className='planets-terrain label'>Terrain:
           <br />
           <span className='value'>{cardData.terrain}</span></span>
@@ -75,6 +80,7 @@ const Card = ({ cardData, cardType, updateFavorites }) => {
 Card.propTypes = {
   cardData: PropTypes.object,
   cardType: PropTypes.string,
-  updateFavorites: PropTypes.func
+  updateFavorites: PropTypes.func,
+  isFavorite: PropTypes.string
 };
 export default Card;
