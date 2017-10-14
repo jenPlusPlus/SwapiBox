@@ -35,9 +35,11 @@ const Card = ({ cardData, cardType, updateFavorites }) => {
           <span>{cardData.name}</span></h3>
         <button className='favorite'
           onClick={updateFavorites.bind(this, cardData)}>Fave</button>
-        <p className='vehicles-model label'>Model: <span className='value'>{cardData.model}</span>
+        <p className='vehicles-model label'>Model:
+          <span className='value'>{cardData.model}</span>
         </p>
-        <p className='vehicles-class label'>Class: <span className='value'>{cardData.class}</span>
+        <p className='vehicles-class label'>Class:
+          <span className='value'>{cardData.class}</span>
         </p>
         <p className='vehicles-num-passengers label'>Number of Passengers:
           <span className='value'> {cardData.numPassengers}</span></p>
@@ -47,7 +49,7 @@ const Card = ({ cardData, cardType, updateFavorites }) => {
     let mappedResidents;
     if (cardData.residents.length > 0) {
       mappedResidents = cardData.residents.map((resident, index) => {
-        return <span key={index + Date.now()}>{resident}</span>;
+        return <li key={index + Date.now()}>{resident}</li>;
       });
     } else {
       mappedResidents = <span>Unknown</span>;
