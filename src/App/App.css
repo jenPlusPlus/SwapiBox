@@ -100,12 +100,12 @@ ul {
   display: inline-block;
   background-color: #ecdbaf;
   background-image: url(../App/assets/favbutton.png);
-  width: 20px;
-  height: 20px;
+  width: 10%;
+  height: 5%;
   background-size: cover;
   position: absolute;
-  top: 5px;
-  right: 7px; }
+  top: 2%;
+  right: 5%; }
 
 .is-favorite {
   background-color: #A31621; }

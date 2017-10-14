@@ -15,13 +15,12 @@ const Card = ({ cardData, cardType, updateFavorites, isFavorite }) => {
     }
     return (
       <div className='card'>
-
-        <h3 className='people-name card-name'>
-          {cardData.name}
+        <div className='card-title'>
+          <h3 className='people-name card-name'>
+            {cardData.name}</h3>
           <div className={`favorite ${isFavorite}`}
             onClick={updateFavorites.bind(this, cardData)}></div>
-        </h3>
-
+        </div>
         <div className='card-info'>
           <p className='people-homeworld label'>Homeworld:
             <span className='value'> {cardData.homeworld}</span></p>
@@ -35,10 +34,12 @@ const Card = ({ cardData, cardType, updateFavorites, isFavorite }) => {
   } else if (cardData.cardType === 'vehicles') {
     return (
       <div className='card'>
-        <h3 className='vehicles-name card-name'>
-          {cardData.name}</h3>
-        <div className={`favorite ${isFavorite}`}
-          onClick={updateFavorites.bind(this, cardData)}></div>
+        <div className='card-title'>
+          <h3 className='vehicles-name card-name'>
+            {cardData.name}</h3>
+          <div className={`favorite ${isFavorite}`}
+            onClick={updateFavorites.bind(this, cardData)}></div>
+        </div>
         <div className='card-info'>
           <p className='vehicles-model label'>Model:
             <span className='value'> {cardData.model}</span>
@@ -62,11 +63,12 @@ const Card = ({ cardData, cardType, updateFavorites, isFavorite }) => {
     }
     return (
       <div className='card'>
-
-        <h3 className='planets-name card-name'>
-          {cardData.name}</h3>
-        <div className={`favorite ${isFavorite}`}
-          onClick={updateFavorites.bind(this, cardData)}></div>
+        <div className='card-title'>
+          <h3 className='planets-name card-name'>
+            {cardData.name}</h3>
+          <div className={`favorite ${isFavorite}`}
+            onClick={updateFavorites.bind(this, cardData)}></div>
+        </div>
         <div className='card-info'>
           <p className='planets-terrain label'>Terrain:
             <br />
