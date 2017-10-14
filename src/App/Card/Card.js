@@ -36,10 +36,10 @@ const Card = ({ cardData, cardType, updateFavorites }) => {
         <button className='favorite'
           onClick={updateFavorites.bind(this, cardData)}>Fave</button>
         <p className='vehicles-model label'>Model:
-          <span className='value'>{cardData.model}</span>
+          <span className='value'> {cardData.model}</span>
         </p>
         <p className='vehicles-class label'>Class:
-          <span className='value'>{cardData.class}</span>
+          <span className='value'> {cardData.class}</span>
         </p>
         <p className='vehicles-num-passengers label'>Number of Passengers:
           <span className='value'> {cardData.numPassengers}</span></p>
