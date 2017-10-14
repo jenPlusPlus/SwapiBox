@@ -94,13 +94,14 @@ ul {
 
 .card-name {
   margin: 1% 0 0 1.75%;
-  height: 10%; }
+  height: 100%;
+  width: 85%; }
 
 .favorite {
   display: inline-block;
   background-color: #ecdbaf;
   background-image: url(../App/assets/favbutton.png);
-  width: 10%;
+  width: 15%;
   height: 5%;
   background-size: cover;
   position: absolute;
@@ -111,8 +112,11 @@ ul {
   background-color: #A31621; }
 
 .planets-residents {
-  height: 38%;
+  height: 30%;
   overflow-y: auto; }
 
+.card-title {
+  height: 20%; }
+
 .card-info {
-  height: 87%; }
+  height: 80%; }

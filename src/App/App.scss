@@ -37,7 +37,6 @@ ul {
   border: none;
   color: #e0d1a8;
   width: 100%;
-
   height: 50%;
   font-size: 1.25em;
   margin: auto;
@@ -50,7 +49,6 @@ ul {
     border: none;
     color: #e0d1a8;
     width: 100%;
-
     height: 50%;
     font-size: 1.25em;
     margin: auto;
@@ -64,7 +62,6 @@ ul {
     width: 20%;
     background-color: #e6deb0;
     overflow-y: scroll;
-
     height: 87vh;
     display: inline-block;
     margin: 0 2% 0 3%;
@@ -79,7 +76,6 @@ ul {
   .card-container-wrapper{
     background-color: rgba(236, 219, 175, 0.75);
     width: 70%;
-
     overflow-y: auto;
     float: right;
     display: flex;
@@ -116,14 +112,15 @@ ul {
 
   .card-name{
     margin: 1% 0 0 1.75%;
-    height: 10%;
+    height: 100%;
+    width: 85%;
   }
 
   .favorite {
     display: inline-block;
     background-color: #ecdbaf;
     background-image: url(../App/assets/favbutton.png);
-    width: 10%;
+    width: 15%;
     height: 5%;
     background-size: cover;
     position: absolute;
@@ -136,10 +133,14 @@ ul {
   }
 
 .planets-residents {
-  height: 38%;
+  height: 30%;
   overflow-y: auto;
 }
 
+.card-title {
+  height: 20%;
+}
+
 .card-info {
-  height: 87%;
+  height: 80%;
 }
