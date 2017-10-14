@@ -11,13 +11,9 @@ const Header = ({ activeButton, numFavorites,
 
   return (
     <div className="header">
-<<<<<<< HEAD
-      <Button  isActive={false}
-        buttonTitle={'Favorites'}
-=======
+
       <Button  isActive={favoritesButtonTitle === activeButton}
         buttonTitle={favoritesButtonTitle}
->>>>>>> add active state to favorites button
         numFavorites={numFavorites}/>
       <Button  isActive={peopleButtonTitle === activeButton}
         buttonTitle={peopleButtonTitle}

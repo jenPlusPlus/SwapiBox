@@ -4,44 +4,30 @@ import { Link } from 'react-router-dom';
 
 const Button = ({ buttonTitle, isActive, numFavorites, apiCall }) => {
   if (isActive) {
-<<<<<<< HEAD
-    return (
-      <div className="button-wrapper">
-        <Link to={`/${buttonTitle.toLowerCase()}`} onClick={apiCall}>
-          <button className={`button active ${buttonTitle}-button`}>
-            {buttonTitle}
-          </button>
-        </Link>
-      </div>
-    );
-  } else {
-
-=======
     if (buttonTitle === 'Favorites') {
       return (
         <div className="button-wrapper">
-          <a href={`/${buttonTitle.toLowerCase()}`}>
-            <button className="active button">
+          <Link to={`/${buttonTitle.toLowerCase()}`} onClick={apiCall}>
+            <button className={`button active ${buttonTitle}-button`}>
               {buttonTitle}
               <span> : </span>
               {numFavorites}
             </button>
-          </a>
+          </Link>
         </div>
       );
     } else {
       return (
         <div className="button-wrapper">
-          <a href={`/${buttonTitle.toLowerCase()}`}>
-            <button className='active button'>
+          <Link to={`/${buttonTitle.toLowerCase()}`} >
+            <button className={`button active ${buttonTitle}-button`}>
               {buttonTitle}
             </button>
-          </a>
+          </Link>
         </div>
       );
     }
   }  else {
->>>>>>> add active state to favorites button
     if (buttonTitle === 'Favorites') {
       return (
         <div className="button-wrapper">
