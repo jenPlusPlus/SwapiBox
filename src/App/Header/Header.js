@@ -2,21 +2,25 @@ import React from 'react';
 import Button from './Button/Button';
 import PropTypes from 'prop-types';
 
-const Header = ({ activeButton, numFavorites }) => {
+const Header = ({ activeButton, numFavorites, getPeople, getPlanets, getVehicles}) => {
   const peopleButtonTitle = 'People';
   const planetsButtonTitle = 'Planets';
   const vehiclesButtonTitle = 'Vehicles';
 
   return (
     <div className="header">
-      <Button  isActive={false} buttonTitle={'Favorites'}
+      <Button  isActive={false}
+        buttonTitle={'Favorites'}
         numFavorites={numFavorites}/>
       <Button  isActive={peopleButtonTitle === activeButton}
-        buttonTitle={peopleButtonTitle} />
+        buttonTitle={peopleButtonTitle}
+        apiCall={getPeople}/>
       <Button  isActive={planetsButtonTitle === activeButton}
-        buttonTitle={planetsButtonTitle} />
+        buttonTitle={planetsButtonTitle}
+        apiCall={getPlanets}/>
       <Button  isActive={vehiclesButtonTitle === activeButton}
-        buttonTitle={vehiclesButtonTitle}/>
+        buttonTitle={vehiclesButtonTitle}
+        apiCall={getVehicles}/>
     </div>
   );
 };
