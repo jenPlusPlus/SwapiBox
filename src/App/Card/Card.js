@@ -77,7 +77,11 @@ const Card = ({ cardData, cardType, updateFavorites, isFavorite }) => {
           <p className='planets-climate label'>Climate:
             <span className='value'> { cardData.climate}</span></p>
           <div className='planets-residents'>
-            <ul className='label'>Residents: {mappedResidents}</ul></div>
+            <ul className='label'>Residents:
+              <div className='residents-list-container'>{mappedResidents}
+              </div>
+            </ul>
+          </div>
         </div>
       </div>
     );

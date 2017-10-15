@@ -5,7 +5,10 @@
   font-family: 'Khula', sans-serif; }
 
 ul {
-  list-style: none; }
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  display: inline-block; }
 
 .header {
   height: 5vh;
@@ -112,8 +115,11 @@ ul {
   background-color: #A31621; }
 
 .planets-residents {
-  height: 38%;
-  overflow-y: auto; }
+  height: 38%; }
+
+.residents-list-container {
+  overflow-y: auto;
+  height: 75%; }
 
 .card-title {
   height: 20%; }
