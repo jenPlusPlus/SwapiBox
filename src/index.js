@@ -3,14 +3,12 @@ import ReactDOM from 'react-dom';
 // import './reset.css';
 import './index.css';
 import App from './App/App';
-import createHistory from 'history/createBrowserHistory';
-import { Router } from 'react-router-dom';
-
-const history = createHistory();
+// import createHistory from 'history/createBrowserHistory';
+// import { Router } from 'react-router-dom';
+//
+// const history = createHistory();
 
 ReactDOM.render(
-  <Router history={history}>
-    <App />
-  </Router>,
+  <App />,
   document.getElementById('root')
 );

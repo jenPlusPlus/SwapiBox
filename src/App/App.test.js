@@ -238,21 +238,16 @@ describe('App', () => {
 
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<Router history={history}><App />
-    </Router>, div);
+    ReactDOM.render(<App />, div);
   });
 
   it('Sets state with data after component mounts', async () => {
-    const wrapper = mount(<Router history={history}><App />
-    </Router>);
+    const app = mount(<App />);
 
-    const app = wrapper.find('App');
-    console.log('app: ', app.debug());
     const peopleButton = app.find('.People-button');
 
     await pause();
 
-    console.log('state: ', app.state())
     expect(app.state('people')).toEqual([]);
 
     peopleButton.simulate('click');

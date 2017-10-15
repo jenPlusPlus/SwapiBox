@@ -69,11 +69,15 @@ ShallowWrapper {
                               >
                                         Species: 
                               </span>
-                              <li
-                                        className="value"
+                              <div
+                                        className="species-list-container"
                               >
-                                        Human
-                              </li>
+                                        <li
+                                                  className="value"
+                                        >
+                                                  Human
+                                        </li>
+                              </div>
                     </ul>
           </div>
           <p
@@ -166,11 +170,15 @@ ShallowWrapper {
                             >
                                           Species: 
                             </span>
-                            <li
-                                          className="value"
+                            <div
+                                          className="species-list-container"
                             >
-                                          Human
-                            </li>
+                                          <li
+                                                        className="value"
+                                          >
+                                                        Human
+                                          </li>
+                            </div>
               </ul>
 </div>,
             <p
@@ -240,11 +248,15 @@ ShallowWrapper {
                 >
                                 Species: 
                 </span>
-                <li
-                                className="value"
+                <div
+                                className="species-list-container"
                 >
-                                Human
-                </li>
+                                <li
+                                                className="value"
+                                >
+                                                Human
+                                </li>
+                </div>
 </ul>,
               "className": "people-species",
             },
@@ -260,13 +272,15 @@ ShallowWrapper {
 >
                     Species: 
 </span>,
-                  Array [
-                    <li
-                      className="value"
+                  <div
+                    className="species-list-container"
 >
-                      Human
-</li>,
-                  ],
+                    <li
+                                        className="value"
+                    >
+                                        Human
+                    </li>
+</div>,
                 ],
               },
               "ref": null,
@@ -285,15 +299,34 @@ ShallowWrapper {
                 },
                 Object {
                   "instance": null,
-                  "key": "Luke Skywalker0",
+                  "key": null,
                   "nodeType": "host",
                   "props": Object {
-                    "children": "Human",
-                    "className": "value",
+                    "children": Array [
+                      <li
+                        className="value"
+>
+                        Human
+</li>,
+                    ],
+                    "className": "species-list-container",
                   },
                   "ref": null,
-                  "rendered": "Human",
-                  "type": "li",
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": "Luke Skywalker0",
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Human",
+                        "className": "value",
+                      },
+                      "ref": null,
+                      "rendered": "Human",
+                      "type": "li",
+                    },
+                  ],
+                  "type": "div",
                 },
               ],
               "type": "ul",
@@ -389,11 +422,15 @@ ShallowWrapper {
                                     >
                                                 Species: 
                                     </span>
-                                    <li
-                                                className="value"
+                                    <div
+                                                className="species-list-container"
                                     >
-                                                Human
-                                    </li>
+                                                <li
+                                                            className="value"
+                                                >
+                                                            Human
+                                                </li>
+                                    </div>
                         </ul>
             </div>
             <p
@@ -486,11 +523,15 @@ ShallowWrapper {
                                 >
                                                 Species: 
                                 </span>
-                                <li
-                                                className="value"
+                                <div
+                                                className="species-list-container"
                                 >
-                                                Human
-                                </li>
+                                                <li
+                                                                className="value"
+                                                >
+                                                                Human
+                                                </li>
+                                </div>
                 </ul>
 </div>,
               <p
@@ -560,11 +601,15 @@ ShallowWrapper {
                   >
                                     Species: 
                   </span>
-                  <li
-                                    className="value"
+                  <div
+                                    className="species-list-container"
                   >
-                                    Human
-                  </li>
+                                    <li
+                                                      className="value"
+                                    >
+                                                      Human
+                                    </li>
+                  </div>
 </ul>,
                 "className": "people-species",
               },
@@ -580,13 +625,15 @@ ShallowWrapper {
 >
                       Species: 
 </span>,
-                    Array [
-                      <li
-                        className="value"
+                    <div
+                      className="species-list-container"
 >
-                        Human
-</li>,
-                    ],
+                      <li
+                                            className="value"
+                      >
+                                            Human
+                      </li>
+</div>,
                   ],
                 },
                 "ref": null,
@@ -605,15 +652,34 @@ ShallowWrapper {
                   },
                   Object {
                     "instance": null,
-                    "key": "Luke Skywalker0",
+                    "key": null,
                     "nodeType": "host",
                     "props": Object {
-                      "children": "Human",
-                      "className": "value",
+                      "children": Array [
+                        <li
+                          className="value"
+>
+                          Human
+</li>,
+                      ],
+                      "className": "species-list-container",
                     },
                     "ref": null,
-                    "rendered": "Human",
-                    "type": "li",
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": "Luke Skywalker0",
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Human",
+                          "className": "value",
+                        },
+                        "ref": null,
+                        "rendered": "Human",
+                        "type": "li",
+                      },
+                    ],
+                    "type": "div",
                   },
                 ],
                 "type": "ul",

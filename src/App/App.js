@@ -3,6 +3,10 @@ import { Route } from 'react-router';
 import Header from './Header/Header';
 import SideBar from './SideBar/SideBar';
 import CardContainer from './CardContainer/CardContainer';
+import createHistory from 'history/createBrowserHistory';
+import { Router } from 'react-router-dom';
+
+const history = createHistory();
 
 class App extends Component {
   constructor() {
@@ -204,7 +208,7 @@ class App extends Component {
 
   render() {
     return (
-
+    <Router history={history}>
       <div className="app-wrapper-div">
         <Route exact path='/'
           render={ () =>
@@ -290,6 +294,7 @@ class App extends Component {
           }
         />
       </div>
+    </Router>
     );
   }
 }
