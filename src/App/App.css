@@ -99,7 +99,8 @@ ul {
   margin-left: 1.75%; }
 
 .value {
-  font-weight: 400; }
+  font-weight: 400;
+  color: #545040; }
 
 .card-name {
   margin: 1% 0 0 1.75%;
