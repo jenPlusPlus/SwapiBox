@@ -209,7 +209,7 @@ class App extends Component {
       <div className="app-wrapper-div">
         <Route exact path='/'
           render={ () =>
-            <div className="home-message">
+            <div className="home-message main">
               <Header numFavorites={this.state.favorites.length}
                 getPeople={this.getPeople}
                 getPlanets={this.getPlanets}
@@ -224,7 +224,7 @@ class App extends Component {
         />
         <Route exact path='/people'
           render={ () =>
-            <div className="people">
+            <div className="people main">
               <Header activeButton={'People'}
                 numFavorites={this.state.favorites.length}
                 getPeople={this.getPeople}
@@ -241,7 +241,7 @@ class App extends Component {
         />
         <Route exact path='/vehicles'
           render={ () =>
-            <div className="vehicles">
+            <div className="vehicles main">
               <Header activeButton={'Vehicles'}
                 numFavorites={this.state.favorites.length}
                 getPeople={this.getPeople}
@@ -258,7 +258,7 @@ class App extends Component {
         />
         <Route exact path='/planets'
           render={ () =>
-            <div className="planets">
+            <div className="planets main">
               <Header activeButton={'Planets'}
                 numFavorites={this.state.favorites.length}
                 getPeople={this.getPeople}
@@ -275,7 +275,7 @@ class App extends Component {
         />
         <Route exact path='/favorites'
           render={ () =>
-            <div className="favorites">
+            <div className="favorites main">
               <Header activeButton={'Favorites'}
                 numFavorites={this.state.favorites.length}
                 getPeople={this.getPeople}

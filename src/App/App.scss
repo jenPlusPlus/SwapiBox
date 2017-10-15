@@ -13,6 +13,11 @@ ul {
   display: inline-block;
 }
 
+.main {
+  height: 100%;
+  width: 100%;
+  padding-right: 2%;
+}
 
 .header{
   height: 5vh;
@@ -28,7 +33,7 @@ ul {
 }
 
 .button-wrapper{
-  width: 10%;
+  width: 12%;
   display: inline-block;
   margin: 1% 1% 0 2%;
   height: 100%;
@@ -40,9 +45,10 @@ ul {
   border: none;
   color: #e0d1a8;
   width: 100%;
-  height: 50%;
+  height: 65%;
   font-size: 1.25em;
   margin: auto;
+  padding-top: 1%;
   }
 
 
@@ -52,9 +58,10 @@ ul {
     border: none;
     color: #e0d1a8;
     width: 100%;
-    height: 50%;
+    height: 65%;
     font-size: 1.25em;
     margin: auto;
+    padding-top: 1%;
   }
 
   .button-inactive:hover{
@@ -85,7 +92,7 @@ ul {
     flex-wrap: wrap;
     justify-content: space-around;
     height: 87vh;
-    margin: 0 3% 0 2%;
+    margin: 0 1% 0 2%;
     padding-bottom: .5%;
   }
 
