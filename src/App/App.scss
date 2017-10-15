@@ -97,7 +97,6 @@ ul {
     width: 46%;
     height: 27%;
     margin: 1% .5% .5% .5%;
-    position: relative;
   }
 
   .label{
@@ -117,18 +116,18 @@ ul {
     margin: 1% 0 0 1.75%;
     height: 100%;
     width: 85%;
+    display: inline-block;
   }
 
   .favorite {
-    display: inline-block;
     background-color: #ecdbaf;
     background-image: url(../App/assets/favbutton.png);
-    width: 15%;
-    height: 5%;
+    width: 7%;
+    height: 53%;
     background-size: cover;
     position: absolute;
-    top: 2%;
-    right: 5%;
+    top: 10%;
+    right: 3%;
   }
 
   .is-favorite {
@@ -147,6 +146,8 @@ ul {
 
 .card-title {
   height: 20%;
+  width: 100%;
+  position: relative;
 }
 
 .card-info {
