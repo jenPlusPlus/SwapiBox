@@ -1,0 +1,159 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardContainer should match the Card snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CardContainer
+    cardData={
+        Array [
+            Object {
+              "cardType": "people",
+              "homeworld": "Tatooine",
+              "homeworldPopulation": "200000",
+              "name": "Luke Skywalker",
+              "species": Array [
+                "Human",
+              ],
+            },
+          ]
+    }
+    cardType="people"
+    favorites={
+        Array [
+            Object {
+              "cardType": "people",
+              "homeworld": "Tatooine",
+              "homeworldPopulation": "200000",
+              "name": "Luke Skywalker",
+              "species": Array [
+                "Human",
+              ],
+            },
+          ]
+    }
+    numFavorites={1}
+    updatedFavorites={[Function]}
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": null,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Card
+          cardData={
+                    Object {
+                              "cardType": "people",
+                              "homeworld": "Tatooine",
+                              "homeworldPopulation": "200000",
+                              "name": "Luke Skywalker",
+                              "species": Array [
+                                "Human",
+                              ],
+                            }
+          }
+          cardType={undefined}
+          isFavorite="is-favorite"
+          updateFavorites={undefined}
+/>,
+      ],
+      "className": "card-container-wrapper",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "Luke Skywalker",
+        "nodeType": "function",
+        "props": Object {
+          "cardData": Object {
+            "cardType": "people",
+            "homeworld": "Tatooine",
+            "homeworldPopulation": "200000",
+            "name": "Luke Skywalker",
+            "species": Array [
+              "Human",
+            ],
+          },
+          "cardType": undefined,
+          "isFavorite": "is-favorite",
+          "updateFavorites": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": null,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Card
+            cardData={
+                        Object {
+                                    "cardType": "people",
+                                    "homeworld": "Tatooine",
+                                    "homeworldPopulation": "200000",
+                                    "name": "Luke Skywalker",
+                                    "species": Array [
+                                      "Human",
+                                    ],
+                                  }
+            }
+            cardType={undefined}
+            isFavorite="is-favorite"
+            updateFavorites={undefined}
+/>,
+        ],
+        "className": "card-container-wrapper",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "Luke Skywalker",
+          "nodeType": "function",
+          "props": Object {
+            "cardData": Object {
+              "cardType": "people",
+              "homeworld": "Tatooine",
+              "homeworldPopulation": "200000",
+              "name": "Luke Skywalker",
+              "species": Array [
+                "Human",
+              ],
+            },
+            "cardType": undefined,
+            "isFavorite": "is-favorite",
+            "updateFavorites": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;

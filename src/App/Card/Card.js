@@ -2,13 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Card = ({ cardData, cardType, updateFavorites, isFavorite }) => {
+  const handleClick =   () => {
+    updateFavorites(cardData);
+  };
 
 
   if (cardData.cardType === 'people') {
     let mappedSpecies;
     if (cardData.species.length > 0) {
       mappedSpecies = cardData.species.map((species, index) => {
-        return <li className='value' key={index + Date.now()}>{species}</li>;
+        return <li className='value' key={cardData.name + index}>{species}</li>;
       });
     } else {
       mappedSpecies = <span className='value'>Unknown</span>;
@@ -19,7 +22,7 @@ const Card = ({ cardData, cardType, updateFavorites, isFavorite }) => {
           <h3 className='people-name card-name'>
             {cardData.name}</h3>
           <div className={`favorite ${isFavorite}`}
-            onClick={updateFavorites.bind(this, cardData)}></div>
+            onClick={handleClick}></div>
         </div>
         <div className='card-info'>
           <p className='people-homeworld label'>Homeworld:
@@ -39,7 +42,7 @@ const Card = ({ cardData, cardType, updateFavorites, isFavorite }) => {
           <h3 className='vehicles-name card-name'>
             {cardData.name}</h3>
           <div className={`favorite ${isFavorite}`}
-            onClick={updateFavorites.bind(this, cardData)}></div>
+            onClick={handleClick}></div>
         </div>
         <div className='card-info'>
           <p className='vehicles-model label'>Model:
@@ -57,7 +60,7 @@ const Card = ({ cardData, cardType, updateFavorites, isFavorite }) => {
     let mappedResidents;
     if (cardData.residents.length > 0) {
       mappedResidents = cardData.residents.map((resident, index) => {
-        return <li className='value' key={index + Date.now()}>{resident}</li>;
+        return <li className='value' key={cardData.name + index}>{resident}</li>;
       });
     } else {
       mappedResidents = <span className='value'>Unknown</span>;
@@ -68,7 +71,7 @@ const Card = ({ cardData, cardType, updateFavorites, isFavorite }) => {
           <h3 className='planets-name card-name'>
             {cardData.name}</h3>
           <div className={`favorite ${isFavorite}`}
-            onClick={updateFavorites.bind(this, cardData)}></div>
+            onClick={handleClick}></div>
         </div>
         <div className='card-info'>
           <p className='planets-terrain label'>Terrain:

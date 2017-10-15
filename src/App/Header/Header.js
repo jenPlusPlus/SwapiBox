@@ -31,9 +31,9 @@ const Header = ({ activeButton, numFavorites,
 Header.propTypes = {
   activeButton: PropTypes.string,
   numFavorites: PropTypes.number,
-  getPeople: PropTypes.number,
-  getPlanets: PropTypes.number,
-  getVehicles: PropTypes.number
+  getPeople: PropTypes.func,
+  getPlanets: PropTypes.func,
+  getVehicles: PropTypes.func
 };
 
 export default Header;
