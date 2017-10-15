@@ -98,7 +98,9 @@ ul {
   margin: 1% 0 0 1.75%;
   height: 100%;
   width: 85%;
-  display: inline-block; }
+  display: inline-block;
+  font-size: 24px;
+  color: #672807; }
 
 .favorite {
   background-color: #ecdbaf;
