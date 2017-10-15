@@ -24,8 +24,9 @@ const Card = ({ cardData, cardType, updateFavorites, isFavorite }) => {
         <div className='card-info'>
           <p className='people-homeworld label'>Homeworld:
             <span className='value'> {cardData.homeworld}</span></p>
-          <p className='people-species label'>Species: <ul>{mappedSpecies}</ul>
-          </p>
+          <div className='people-species'>
+            <ul className='label'>Species: {mappedSpecies}</ul>
+          </div>
           <p className='people-homeworld-population label'>Homeworld Population:
             <span className='value'> {cardData.homeworldPopulation}</span></p>
         </div>
