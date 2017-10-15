@@ -25,7 +25,7 @@ const Card = ({ cardData, cardType, updateFavorites, isFavorite }) => {
           <p className='people-homeworld label'>Homeworld:
             <span className='value'> {cardData.homeworld}</span></p>
           <div className='people-species'>
-            <ul className='label'>Species: {mappedSpecies}</ul>
+            <ul><span className='label'>Species: </span>{mappedSpecies}</ul>
           </div>
           <p className='people-homeworld-population label'>Homeworld Population:
             <span className='value'> {cardData.homeworldPopulation}</span></p>
@@ -78,7 +78,7 @@ const Card = ({ cardData, cardType, updateFavorites, isFavorite }) => {
           <p className='planets-climate label'>Climate:
             <span className='value'> { cardData.climate}</span></p>
           <div className='planets-residents'>
-            <ul className='label'>Residents:
+            <ul><span className='label'>Residents: </span>
               <div className='residents-list-container'>{mappedResidents}
               </div>
             </ul>
