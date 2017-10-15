@@ -11,13 +11,13 @@ const CardContainer = ({ cardData, cardType, updateFavorites, favorites }) => {
     }).length > 0) {
       return (<Card cardType={cardData.cardType}
         cardData={cardData[index]}
-        key={index + Date.now()}
+        key={item.name}
         updateFavorites={updateFavorites}
         isFavorite={'is-favorite'}/>);
     } else {
       return (<Card cardType={cardData.cardType}
         cardData={cardData[index]}
-        key={index + Date.now()}
+        key={item.name}
         updateFavorites={updateFavorites}
         isFavorite={''}/>);
     }

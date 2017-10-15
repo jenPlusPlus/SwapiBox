@@ -7,18 +7,19 @@ import { withRouter } from 'react-router';
 import { shallow, mount } from 'enzyme';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-describe('CARD', () => {
+describe('Card', () => {
   const mkFun = jest.fn();
   let wrapper = shallow(<Card cardType={'People'}
-                              cardData={[{
+                              cardData={{
                                 cardType: "people",
                                 homeworld:"Tatooine",
                                 homeworldPopulation: "200000",
                                 name: "Luke Skywalker",
                                 species:["Human"]
-                              }]}
+                              }}
                               key={1}
                               updatedFavorites={mkFun}
+                              isFavorite={''}
                               />);
 
 it('should match the Card snapshot', () => {

@@ -222,7 +222,7 @@ describe('App', () => {
 
 
   afterEach(() => {
-    // expect(fetchMock.calls().unmatched).toEqual([]);
+    expect(fetchMock.calls().unmatched).toEqual([]);
     fetchMock.restore();
   });
 
@@ -247,12 +247,14 @@ describe('App', () => {
     const peopleButton =wrapper.find('.People-button');
 
     await pause();
-    expect(wrapper.state().people).toEqual([]);
+
+    console.log(wrapper.state())
+    expect(wrapper.state('people')).toEqual([]);
 
     peopleButton.simulate('click');
 
     await pause();
-    expect(wrapper.state().people).toEqual(mockPeople.results);
+    expect(wrapper.state('people')).toEqual(mockPeople.results);
 
   });
 
@@ -262,12 +264,12 @@ describe('App', () => {
     const vehiclesButton =wrapper.find('.Vehicles-button');
 
     await pause();
-    expect(wrapper.state().vehicles).toEqual([]);
+    expect(wrapper.state('vehicles')).toEqual([]);
 
     vehiclesButton.simulate('click');
 
     await pause();
-    expect(wrapper.state().vehicles).toEqual(mockVehicles.results);
+    expect(wrapper.state('vehicles')).toEqual(mockVehicles.results);
   });
 
   it('Sets state with data after component mounts', async () => {
@@ -276,12 +278,12 @@ describe('App', () => {
     const planetsButton =wrapper.find('.Planets-button');
 
     await pause();
-    expect(wrapper.state().planets).toEqual([]);
+    expect(wrapper.state('planets')).toEqual([]);
 
     planetsButton.simulate('click');
 
     await pause();
-    expect(wrapper.state().planets).toEqual(mockPlanets.results);
+    expect(wrapper.state('planets')).toEqual(mockPlanets.results);
   });
 
 
@@ -289,7 +291,7 @@ describe('App', () => {
     const wrapper = mount(<Router history={history}><App />
     </Router>);
     await pause();
-    expect(wrapper.state().film).toEqual(mockFilms);
+    expect(wrapper.state('film')).toEqual(mockFilms);
   });
 
 });

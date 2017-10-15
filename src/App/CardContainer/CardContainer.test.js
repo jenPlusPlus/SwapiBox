@@ -19,6 +19,13 @@ describe('CardContainer', () => {
                           cardType={'people'}
                           updatedFavorites={mkFun}
                           numFavorites={1}
+                          favorites={[{
+                         cardType: "people",
+                          homeworld:"Tatooine",
+                          homeworldPopulation: "200000",
+                          name: "Luke Skywalker",
+                          species:["Human"]
+                          }]}
                               />);
 
 it('should match the Card snapshot', () => {

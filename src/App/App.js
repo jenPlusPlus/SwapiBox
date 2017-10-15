@@ -50,7 +50,6 @@ class App extends Component {
   }
 
   getPeople() {
-    console.log('click');
     fetch('https://swapi.co/api/people/')
       .then(response => response.json())
       .then(peopleData => {
