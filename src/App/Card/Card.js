@@ -56,10 +56,10 @@ const Card = ({ cardData, cardType, updateFavorites, isFavorite }) => {
     let mappedResidents;
     if (cardData.residents.length > 0) {
       mappedResidents = cardData.residents.map((resident, index) => {
-        return <li key={index + Date.now()}>{resident}</li>;
+        return <li className='value' key={index + Date.now()}>{resident}</li>;
       });
     } else {
-      mappedResidents = <span>Unknown</span>;
+      mappedResidents = <span className='value'>Unknown</span>;
     }
     return (
       <div className='card'>
@@ -71,16 +71,13 @@ const Card = ({ cardData, cardType, updateFavorites, isFavorite }) => {
         </div>
         <div className='card-info'>
           <p className='planets-terrain label'>Terrain:
-            <br />
-            <span className='value'>{cardData.terrain}</span></p>
+            <span className='value'> {cardData.terrain}</span></p>
           <p className='planets-population label'>Population:
-            <br />
-            <span className='value'>{cardData.population}</span></p>
+            <span className='value'> {cardData.population}</span></p>
           <p className='planets-climate label'>Climate:
-            <br />
-            <span className='value'>{cardData.climate}</span></p>
-          <div className='planets-residents label'>Residents:
-            <ul className='value'>{mappedResidents}</ul></div>
+            <span className='value'> { cardData.climate}</span></p>
+          <div className='planets-residents'>
+            <ul className='label'>Residents: {mappedResidents}</ul></div>
         </div>
       </div>
     );
