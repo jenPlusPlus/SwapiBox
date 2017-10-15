@@ -8,7 +8,8 @@ ul {
   list-style: none;
   width: 97%;
   height: 100%;
-  display: inline-block; }
+  display: inline-block;
+  position: relative; }
 
 .main {
   height: 100%;
@@ -99,7 +100,8 @@ ul {
   margin-left: 1.75%; }
 
 .value {
-  font-weight: 400; }
+  font-weight: 400;
+  color: #545040; }
 
 .card-name {
   margin: 1% 0 0 1.75%;
@@ -125,9 +127,16 @@ ul {
 .planets-residents {
   height: 38%; }
 
-.residents-list-container {
+.residents-list-container, .species-list-container {
   overflow-y: auto;
-  height: 75%; }
+  height: 75%;
+  width: 75%;
+  position: absolute;
+  left: 26%;
+  top: 0; }
+
+.species-list-container {
+  left: 20%; }
 
 .card-title {
   height: 20%;
