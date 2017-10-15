@@ -15,63 +15,75 @@ const Card = ({ cardData, cardType, updateFavorites, isFavorite }) => {
     }
     return (
       <div className='card'>
-
-        <h3 className='people-name card-name'>
-          <span>{cardData.name}</span></h3>
-        <div className={`favorite ${isFavorite}`}
-          onClick={updateFavorites.bind(this, cardData)}></div>
-        <p className='people-homeworld label'>Homeworld:
-          <span className='value'> {cardData.homeworld}</span></p>
-        <p className='people-species label'>Species: <ul>{mappedSpecies}</ul>
-        </p>
-        <p className='people-homeworld-population label'>Homeworld Population:
-          <span className='value'> {cardData.homeworldPopulation}</span></p>
+        <div className='card-title'>
+          <h3 className='people-name card-name'>
+            {cardData.name}</h3>
+          <div className={`favorite ${isFavorite}`}
+            onClick={updateFavorites.bind(this, cardData)}></div>
+        </div>
+        <div className='card-info'>
+          <p className='people-homeworld label'>Homeworld:
+            <span className='value'> {cardData.homeworld}</span></p>
+          <div className='people-species'>
+            <ul><span className='label'>Species: </span>{mappedSpecies}</ul>
+          </div>
+          <p className='people-homeworld-population label'>Homeworld Population:
+            <span className='value'> {cardData.homeworldPopulation}</span></p>
+        </div>
       </div>
     );
   } else if (cardData.cardType === 'vehicles') {
     return (
       <div className='card'>
-        <h3 className='vehicles-name card-name'>
-          <span>{cardData.name}</span></h3>
-        <div className={`favorite ${isFavorite}`}
-          onClick={updateFavorites.bind(this, cardData)}></div>
-        <p className='vehicles-model label'>Model:
-          <span className='value'> {cardData.model}</span>
-        </p>
-        <p className='vehicles-class label'>Class:
-          <span className='value'> {cardData.class}</span>
-        </p>
-        <p className='vehicles-num-passengers label'>Number of Passengers:
-          <span className='value'> {cardData.numPassengers}</span></p>
+        <div className='card-title'>
+          <h3 className='vehicles-name card-name'>
+            {cardData.name}</h3>
+          <div className={`favorite ${isFavorite}`}
+            onClick={updateFavorites.bind(this, cardData)}></div>
+        </div>
+        <div className='card-info'>
+          <p className='vehicles-model label'>Model:
+            <span className='value'> {cardData.model}</span>
+          </p>
+          <p className='vehicles-class label'>Class:
+            <span className='value'> {cardData.class}</span>
+          </p>
+          <p className='vehicles-num-passengers label'>Number of Passengers:
+            <span className='value'> {cardData.numPassengers}</span></p>
+        </div>
       </div>
     );
   } else if (cardData.cardType === 'planets') {
     let mappedResidents;
     if (cardData.residents.length > 0) {
       mappedResidents = cardData.residents.map((resident, index) => {
-        return <li key={index + Date.now()}>{resident}</li>;
+        return <li className='value' key={index + Date.now()}>{resident}</li>;
       });
     } else {
-      mappedResidents = <span>Unknown</span>;
+      mappedResidents = <span className='value'>Unknown</span>;
     }
     return (
       <div className='card'>
-
-        <h3 className='planets-name card-name'>
-          <span>{cardData.name}</span></h3>
-        <div className={`favorite ${isFavorite}`}
-          onClick={updateFavorites.bind(this, cardData)}></div>
-        <span className='planets-terrain label'>Terrain:
-          <br />
-          <span className='value'>{cardData.terrain}</span></span>
-        <span className='planets-population label'>Population:
-          <br />
-          <span className='value'>{cardData.population}</span></span>
-        <span className='planets-climate label'>Climate:
-          <br />
-          <span className='value'>{cardData.climate}</span></span>
-        <span className='planets-residents label'>Residents:
-          <ul className='value'>{mappedResidents}</ul></span>
+        <div className='card-title'>
+          <h3 className='planets-name card-name'>
+            {cardData.name}</h3>
+          <div className={`favorite ${isFavorite}`}
+            onClick={updateFavorites.bind(this, cardData)}></div>
+        </div>
+        <div className='card-info'>
+          <p className='planets-terrain label'>Terrain:
+            <span className='value'> {cardData.terrain}</span></p>
+          <p className='planets-population label'>Population:
+            <span className='value'> {cardData.population}</span></p>
+          <p className='planets-climate label'>Climate:
+            <span className='value'> { cardData.climate}</span></p>
+          <div className='planets-residents'>
+            <ul><span className='label'>Residents: </span>
+              <div className='residents-list-container'>{mappedResidents}
+              </div>
+            </ul>
+          </div>
+        </div>
       </div>
     );
   }
