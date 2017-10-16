@@ -2,7 +2,7 @@ import React from 'react';
 import Button from './Button/Button';
 import PropTypes from 'prop-types';
 
-const Header = ({ activeButton, numFavorites,
+const Header = ({ buttonIsOn, numFavorites,
   getPeople, getPlanets, getVehicles}) => {
   const peopleButtonTitle = 'People';
   const planetsButtonTitle = 'Planets';
@@ -12,16 +12,16 @@ const Header = ({ activeButton, numFavorites,
   return (
     <div className="header">
 
-      <Button  isActive={favoritesButtonTitle === activeButton}
+      <Button  buttonIsOn={favoritesButtonTitle === buttonIsOn}
         buttonTitle={favoritesButtonTitle}
         numFavorites={numFavorites}/>
-      <Button  isActive={peopleButtonTitle === activeButton}
+      <Button  buttonIsOn={peopleButtonTitle === buttonIsOn}
         buttonTitle={peopleButtonTitle}
         apiCall={getPeople}/>
-      <Button  isActive={planetsButtonTitle === activeButton}
+      <Button  buttonIsOn={planetsButtonTitle === buttonIsOn}
         buttonTitle={planetsButtonTitle}
         apiCall={getPlanets}/>
-      <Button  isActive={vehiclesButtonTitle === activeButton}
+      <Button  buttonIsOn={vehiclesButtonTitle === buttonIsOn}
         buttonTitle={vehiclesButtonTitle}
         apiCall={getVehicles}/>
     </div>
@@ -29,7 +29,7 @@ const Header = ({ activeButton, numFavorites,
 };
 
 Header.propTypes = {
-  activeButton: PropTypes.string,
+  buttonIsOn: PropTypes.string,
   numFavorites: PropTypes.number,
   getPeople: PropTypes.func,
   getPlanets: PropTypes.func,

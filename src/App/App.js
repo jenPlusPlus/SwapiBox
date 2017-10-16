@@ -54,12 +54,11 @@ class App extends Component {
   }
 
   getPeople() {
-    console.log('***************getting PEOPLE***********');
     fetch('https://swapi.co/api/people/')
       .then(response => {
-        console.log('***************got DATA***********');
-        return response.json()
-      })
+        return response.json();
+      }
+      )
       .then(peopleData => {
         return peopleData.results;
       })
@@ -99,7 +98,6 @@ class App extends Component {
                 const forState = dataSet.map(personObject=>{
                   return personObject;
                 });
-                console.log('***************about to CLEAN PEOPLE DATA***********');
                 this.cleanPeopleData(forState);
               });
           });
@@ -117,7 +115,6 @@ class App extends Component {
       });
       return acc;
     }, []);
-    console.log('***************setting STATE in APP***********');
     this.setState({
       people: cleanedPeopleDataArray
     });
@@ -214,88 +211,88 @@ class App extends Component {
 
   render() {
     return (
-    <Router history={history}>
-      <div className="app-wrapper-div">
-        <Route exact path='/'
-          render={ () =>
-            <div className="home-message main">
-              <Header numFavorites={this.state.favorites.length}
-              />
-              <SideBar film={this.state.film} />
-              <CardContainer cardData={[]}
-                updateFavorites={this.updateFavorites}
-                numFavorites={this.state.favorites.length}
-                favorites={this.state.favorites}
-                makeAPICall={()=>{}}/>
-            </div>
-          }
-        />
-        <Route exact path='/people'
-          render={ () =>
-            <div className="people main">
-              <Header activeButton={'People'}
-                numFavorites={this.state.favorites.length}
-              />
-              <SideBar film={this.state.film} />
-              <CardContainer cardData={this.state.people}
-                cardType={'people'}
-                updateFavorites={this.updateFavorites}
-                numFavorites={this.state.favorites.length}
-                favorites={this.state.favorites}
-                makeAPICall={this.getPeople}/>
-            </div>
-          }
-        />
-        <Route exact path='/vehicles'
-          render={ () =>
-            <div className="vehicles main">
-              <Header activeButton={'Vehicles'}
-                numFavorites={this.state.favorites.length}
-              />
-              <SideBar film={this.state.film} />
-              <CardContainer cardData={this.state.vehicles}
-                cardType={'vehicles'}
-                updateFavorites={this.updateFavorites}
-                numFavorites={this.state.favorites.length}
-                favorites={this.state.favorites}
-                makeAPICall={this.getVehicles}/>
-            </div>
-          }
-        />
-        <Route exact path='/planets'
-          render={ () =>
-            <div className="planets main">
-              <Header activeButton={'Planets'}
-                numFavorites={this.state.favorites.length}
-              />
-              <SideBar film={this.state.film} />
-              <CardContainer cardData={this.state.planets}
-                cardType={'planets'}
-                updateFavorites={this.updateFavorites}
-                numFavorites={this.state.favorites.length}
-                favorites={this.state.favorites}
-                makeAPICall={this.getPlanets}/>
-            </div>
-          }
-        />
-        <Route exact path='/favorites'
-          render={ () =>
-            <div className="favorites main">
-              <Header activeButton={'Favorites'}
-                numFavorites={this.state.favorites.length}
-              />
-              <SideBar film={this.state.film} />
-              <CardContainer cardData={this.state.favorites}
-                cardType={'favorites'}
-                updateFavorites={this.updateFavorites}
-                numFavorites={this.state.favorites.length}
-                favorites={this.state.favorites}
-                makeAPICall={()=>{}}/>
-            </div>
-          }
-        />
-      </div>
-    </Router>
+      <Router history={history}>
+        <div className="app-wrapper-div">
+          <Route exact path='/'
+            render={ () =>
+              <div className="home-message main">
+                <Header numFavorites={this.state.favorites.length}
+                />
+                <SideBar film={this.state.film} />
+                <CardContainer cardData={[]}
+                  updateFavorites={this.updateFavorites}
+                  numFavorites={this.state.favorites.length}
+                  favorites={this.state.favorites}
+                  makeAPICall={()=>{}}/>
+              </div>
+            }
+          />
+          <Route exact path='/people'
+            render={ () =>
+              <div className="people main">
+                <Header buttonIsOn={'People'}
+                  numFavorites={this.state.favorites.length}
+                />
+                <SideBar film={this.state.film} />
+                <CardContainer cardData={this.state.people}
+                  cardType={'people'}
+                  updateFavorites={this.updateFavorites}
+                  numFavorites={this.state.favorites.length}
+                  favorites={this.state.favorites}
+                  makeAPICall={this.getPeople}/>
+              </div>
+            }
+          />
+          <Route exact path='/vehicles'
+            render={ () =>
+              <div className="vehicles main">
+                <Header buttonIsOn={'Vehicles'}
+                  numFavorites={this.state.favorites.length}
+                />
+                <SideBar film={this.state.film} />
+                <CardContainer cardData={this.state.vehicles}
+                  cardType={'vehicles'}
+                  updateFavorites={this.updateFavorites}
+                  numFavorites={this.state.favorites.length}
+                  favorites={this.state.favorites}
+                  makeAPICall={this.getVehicles}/>
+              </div>
+            }
+          />
+          <Route exact path='/planets'
+            render={ () =>
+              <div className="planets main">
+                <Header buttonIsOn={'Planets'}
+                  numFavorites={this.state.favorites.length}
+                />
+                <SideBar film={this.state.film} />
+                <CardContainer cardData={this.state.planets}
+                  cardType={'planets'}
+                  updateFavorites={this.updateFavorites}
+                  numFavorites={this.state.favorites.length}
+                  favorites={this.state.favorites}
+                  makeAPICall={this.getPlanets}/>
+              </div>
+            }
+          />
+          <Route exact path='/favorites'
+            render={ () =>
+              <div className="favorites main">
+                <Header buttonIsOn={'Favorites'}
+                  numFavorites={this.state.favorites.length}
+                />
+                <SideBar film={this.state.film} />
+                <CardContainer cardData={this.state.favorites}
+                  cardType={'favorites'}
+                  updateFavorites={this.updateFavorites}
+                  numFavorites={this.state.favorites.length}
+                  favorites={this.state.favorites}
+                  makeAPICall={()=>{}}/>
+              </div>
+            }
+          />
+        </div>
+      </Router>
     );
   }
 }
