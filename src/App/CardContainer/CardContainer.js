@@ -8,10 +8,9 @@ class CardContainer extends Component {
   }
 
   componentDidMount() {
-    if (this.props.cardType !== 'favorites') {
-      console.log('**************mounting CARD CONTAINER***********', this.props);
+  
     this.props.makeAPICall();
-    }
+
   }
 
   getCardData() {
