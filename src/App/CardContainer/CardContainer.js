@@ -1,52 +1,71 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Card from '../Card/Card';
 import PropTypes from 'prop-types';
 
-const CardContainer = ({ cardData, cardType, updateFavorites, favorites }) => {
+class CardContainer extends Component {
+  constructor() {
+    super();
+  }
 
-  const mapped = cardData.map( (item, index) => {
-
-    if (favorites.filter(card => {
-      return item.name === card.name;
-    }).length > 0) {
-      return (<Card cardType={cardData.cardType}
-        cardData={cardData[index]}
-        key={item.name}
-        updateFavorites={updateFavorites}
-        isFavorite={'is-favorite'}/>);
-    } else {
-      return (<Card cardType={cardData.cardType}
-        cardData={cardData[index]}
-        key={item.name}
-        updateFavorites={updateFavorites}
-        isFavorite={''}/>);
+  componentDidMount() {
+    if (this.props.cardType !== 'favorites') {
+      console.log('**************mounting CARD CONTAINER***********', this.props);
+    this.props.makeAPICall();
     }
-  });
+  }
 
+  getCardData() {
+    const mapped = this.props.cardData.map( (item, index) => {
 
+      if (this.props.favorites.filter(card => {
+        return item.name === card.name;
+      }).length > 0) {
+        return (<Card cardType={this.props.cardData.cardType}
+          cardData={this.props.cardData[index]}
+          key={item.name}
+          updateFavorites={this.props.updateFavorites}
+          isFavorite={'is-favorite'}/>);
+      } else {
+        return (<Card cardType={this.props.cardData.cardType}
+          cardData={this.props.cardData[index]}
+          key={item.name}
+          updateFavorites={this.props.updateFavorites}
+          isFavorite={''}/>);
+      }
+    });
 
+    if (this.props.cardData.length <= 0
+      && this.props.cardType === 'favorites') {
+      return (
+        <div className="card-container">
+          'No favorite cards found.'
+        </div>
+          );
+    } else  {
+      return (
+        <div className="card-container">
+          {mapped}
+        </div>
+      );
+    }
+  }
 
-
-  if (cardData.length <= 0 && cardType === 'favorites') {
+  render() {
     return (
       <div className="card-container-wrapper">
-        No favorite cards found.
-      </div>
-    );
-  } else  {
-    return (
-      <div className="card-container-wrapper">
-        {mapped}
+        {this.getCardData()}
       </div>
     );
   }
-};
+}
+
 
 CardContainer.propTypes = {
   cardData: PropTypes.array,
   cardType: PropTypes.string,
   updateFavorites: PropTypes.func,
-  favorites: PropTypes.array
+  favorites: PropTypes.array,
+  makeAPICall: PropTypes.func
 };
 
 export default CardContainer;

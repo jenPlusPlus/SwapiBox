@@ -37,43 +37,56 @@ describe('App', () => {
 
   const mockPeople = {
     results: [{
-      homeworld: "Tatooine",
-      homeworldPopulation: "200000",
+      homeworld: "https://swapi.co/api/planets/1/",
       name: "Luke Skywalker",
-      species:["Human"]
+      species:["https://swapi.co/api/species/1/"]
     }]
+  };
+
+  const mockPerson = {
+    name: "Luke Skywalker",
+    homeworld: "https://swapi.co/api/planets/1/",
+    species: [
+      "https://swapi.co/api/species/1/"
+    ]
   };
 
   const mockVehicles = {
     results: [{
-      class: "wheeled",
+      vehicle_class: "wheeled",
       model:  "Digger Crawler",
       name: "Sand Crawler",
-      numPassengers: "30"
+      passengers: "30"
     }]
   };
 
   const mockPlanets = {
     results: [{
-      climate: "temperate",
-      name: "Alderaan",
-      population: "2000000000",
-      residents:["Leia Organa",
-        "Bail Prestor Organa",
-        "Raymus Antilles"],
-      terrain: "grasslands, mountains"
+      climate: "Arid",
+      name: "Tatooine",
+      population: "120000",
+      residents:["https://swapi.co/api/people/1/"],
+      terrain: "desert"
     }]
   };
 
+  const mockPlanet = {
+    name: "Tatooine",
+    climate: "Arid",
+    terrain: "desert",
+    population: "120000",
+    residents: ["https://swapi.co/api/people/1/"]
+  }
+
   const mockSpecies = {
-    name: "Wookie"
+    name: "Human"
   };
 
-  const mockFilms = [{
-    releaseDate: "2002-05-16",
-    scrollText: "There is unrest in the Galactic\r\nSenate. Several thousand solar\r\nsystems have declared their\r\nintentions to leave the Republic.\r\n\r\nThis separatist movement,\r\nunder the leadership of the\r\nmysterious Co…",
+  const mockFilms = {
+    release_date: "2002-05-16",
+    opening_crawl: "There is unrest in the Galactic\r\nSenate. Several thousand solar\r\nsystems have declared their\r\nintentions to leave the Republic.\r\n\r\nThis separatist movement,\r\nunder the leadership of the\r\nmysterious Co…",
     title: "Attack of the Clones"
-  }];
+  };
 
     //film
   fetchMock.get('https://swapi.co/api/films/1', {
@@ -120,67 +133,72 @@ describe('App', () => {
   // people
   fetchMock.get('https://swapi.co/api/people/5/', {
     status: 200,
-    body: mockPeople
+    body: mockPerson
   });
 
   fetchMock.get('https://swapi.co/api/people/68/', {
     status: 200,
-    body: mockPeople
+    body: mockPerson
   });
 
   fetchMock.get('https://swapi.co/api/people/81/', {
     status: 200,
-    body: mockPeople
+    body: mockPerson
   });
 
   fetchMock.get('https://swapi.co/api/people/26/', {
     status: 200,
-    body: mockPeople
+    body: mockPerson
   });
 
   fetchMock.get('https://swapi.co/api/people/30/', {
     status: 200,
-    body: mockPeople
+    body: mockPerson
   });
 
   fetchMock.get('https://swapi.co/api/people/3/', {
     status: 200,
-    body: mockPeople
+    body: mockPerson
   });
 
   fetchMock.get('https://swapi.co/api/people/34/', {
     status: 200,
-    body: mockPeople
+    body: mockPerson
   });
 
   fetchMock.get('https://swapi.co/api/people/55/', {
     status: 200,
-    body: mockPeople
+    body: mockPerson
   });
 
   fetchMock.get('https://swapi.co/api/people/74/', {
     status: 200,
-    body: mockPeople
+    body: mockPerson
   });
 
   fetchMock.get('https://swapi.co/api/people/74/', {
     status: 200,
-    body: mockPeople
+    body: mockPerson
   });
 
   fetchMock.get('https://swapi.co/api/people/72/', {
     status: 200,
-    body: mockPeople
+    body: mockPerson
   });
 
   fetchMock.get('https://swapi.co/api/people/73/', {
     status: 200,
-    body: mockPeople
+    body: mockPerson
+  });
+
+  fetchMock.get('https://swapi.co/api/people/1/', {
+    status: 200,
+    body: mockPerson
   });
 
   fetchMock.get('https://swapi.co/api/people/63/', {
     status: 200,
-    body: mockPeople
+    body: mockPerson
   });
 
   // vehicles
@@ -197,7 +215,7 @@ describe('App', () => {
   //planets
   fetchMock.get('https://swapi.co/api/planets/1/', {
     status: 200,
-    body: mockPlanets
+    body: mockPlanet
   });
 
   fetchMock.get('https://swapi.co/api/species/1/', {
@@ -212,12 +230,12 @@ describe('App', () => {
 
   fetchMock.get('https://swapi.co/api/planets/8/', {
     status: 200,
-    body: mockPlanets
+    body: mockPlanet
   });
 
   fetchMock.get('https://swapi.co/api/planets/20/', {
     status: 200,
-    body: mockPlanets
+    body: mockPlanet
   });
 
   const history = createHistory();
@@ -232,28 +250,40 @@ describe('App', () => {
     return new Promise(res => {
       setTimeout(() => {
         res();
-      });
+      }, 1000);
     });
   };
 
-  it('renders without crashing', () => {
+  it.skip('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
 
   it('Sets state with data after component mounts', async () => {
     const app = mount(<App />);
-
-    const peopleButton = app.find('.People-button');
+    const peopleButton = app.find('Link');
+    // console.log('peopleButton: ', peopleButton.debug())
+    const expectedPeopleState = [{
+      cardType: "people",
+      homeworld: "Tatooine",
+      homeworldPopulation: "200000",
+      name: "Luke Skywalker",
+      species: ["Human"]
+    }];
 
     await pause();
 
     expect(app.state('people')).toEqual([]);
-
-    peopleButton.simulate('click');
+    const linkToPeople = peopleButton.at(1).find('a');
+    console.log('linkBtn: ', linkToPeople.debug())
+    linkToPeople.simulate('click');
 
     await pause();
-    expect(app.state('people')).toEqual(mockPeople.results);
+
+
+
+console.log('***************done WAITING***********');
+    expect(app.state('people')).toEqual(expectedPeopleState);
 
   });
 
