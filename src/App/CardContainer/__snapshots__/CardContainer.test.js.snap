@@ -32,6 +32,7 @@ ShallowWrapper {
             },
           ]
     }
+    makeAPICall={[Function]}
     numFavorites={1}
     updatedFavorites={[Function]}
 />,
@@ -47,55 +48,30 @@ ShallowWrapper {
     "key": null,
     "nodeType": "host",
     "props": Object {
-      "children": Array [
+      "children": <div
+        className="card-container"
+>
         <Card
-          cardData={
-                    Object {
-                              "cardType": "people",
-                              "homeworld": "Tatooine",
-                              "homeworldPopulation": "200000",
-                              "name": "Luke Skywalker",
-                              "species": Array [
-                                "Human",
-                              ],
-                            }
-          }
-          cardType={undefined}
-          isFavorite="is-favorite"
-          updateFavorites={undefined}
-/>,
-      ],
+                cardData={
+                        Object {
+                                "cardType": "people",
+                                "homeworld": "Tatooine",
+                                "homeworldPopulation": "200000",
+                                "name": "Luke Skywalker",
+                                "species": Array [
+                                  "Human",
+                                ],
+                              }
+                }
+                cardType={undefined}
+                isFavorite="is-favorite"
+                updateFavorites={undefined}
+        />
+</div>,
       "className": "card-container-wrapper",
     },
     "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": "Luke Skywalker",
-        "nodeType": "function",
-        "props": Object {
-          "cardData": Object {
-            "cardType": "people",
-            "homeworld": "Tatooine",
-            "homeworldPopulation": "200000",
-            "name": "Luke Skywalker",
-            "species": Array [
-              "Human",
-            ],
-          },
-          "cardType": undefined,
-          "isFavorite": "is-favorite",
-          "updateFavorites": undefined,
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-    ],
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
+    "rendered": Object {
       "instance": null,
       "key": null,
       "nodeType": "host",
@@ -118,7 +94,7 @@ ShallowWrapper {
             updateFavorites={undefined}
 />,
         ],
-        "className": "card-container-wrapper",
+        "className": "card-container",
       },
       "ref": null,
       "rendered": Array [
@@ -145,6 +121,91 @@ ShallowWrapper {
           "type": [Function],
         },
       ],
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": null,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="card-container"
+>
+          <Card
+                    cardData={
+                              Object {
+                                        "cardType": "people",
+                                        "homeworld": "Tatooine",
+                                        "homeworldPopulation": "200000",
+                                        "name": "Luke Skywalker",
+                                        "species": Array [
+                                          "Human",
+                                        ],
+                                      }
+                    }
+                    cardType={undefined}
+                    isFavorite="is-favorite"
+                    updateFavorites={undefined}
+          />
+</div>,
+        "className": "card-container-wrapper",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": null,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <Card
+              cardData={
+                            Object {
+                                          "cardType": "people",
+                                          "homeworld": "Tatooine",
+                                          "homeworldPopulation": "200000",
+                                          "name": "Luke Skywalker",
+                                          "species": Array [
+                                            "Human",
+                                          ],
+                                        }
+              }
+              cardType={undefined}
+              isFavorite="is-favorite"
+              updateFavorites={undefined}
+/>,
+          ],
+          "className": "card-container",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "Luke Skywalker",
+            "nodeType": "function",
+            "props": Object {
+              "cardData": Object {
+                "cardType": "people",
+                "homeworld": "Tatooine",
+                "homeworldPopulation": "200000",
+                "name": "Luke Skywalker",
+                "species": Array [
+                  "Human",
+                ],
+              },
+              "cardType": undefined,
+              "isFavorite": "is-favorite",
+              "updateFavorites": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
       "type": "div",
     },
   ],

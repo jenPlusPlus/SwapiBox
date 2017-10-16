@@ -3,6 +3,10 @@ import { Route } from 'react-router';
 import Header from './Header/Header';
 import SideBar from './SideBar/SideBar';
 import CardContainer from './CardContainer/CardContainer';
+import createHistory from 'history/createBrowserHistory';
+import { Router } from 'react-router-dom';
+
+const history = createHistory();
 
 class App extends Component {
   constructor() {
@@ -50,8 +54,12 @@ class App extends Component {
   }
 
   getPeople() {
+    console.log('***************getting PEOPLE***********');
     fetch('https://swapi.co/api/people/')
-      .then(response => response.json())
+      .then(response => {
+        console.log('***************got DATA***********');
+        return response.json()
+      })
       .then(peopleData => {
         return peopleData.results;
       })
@@ -91,6 +99,7 @@ class App extends Component {
                 const forState = dataSet.map(personObject=>{
                   return personObject;
                 });
+                console.log('***************about to CLEAN PEOPLE DATA***********');
                 this.cleanPeopleData(forState);
               });
           });
@@ -108,6 +117,7 @@ class App extends Component {
       });
       return acc;
     }, []);
+    console.log('***************setting STATE in APP***********');
     this.setState({
       people: cleanedPeopleDataArray
     });
@@ -204,20 +214,19 @@ class App extends Component {
 
   render() {
     return (
-
+    <Router history={history}>
       <div className="app-wrapper-div">
         <Route exact path='/'
           render={ () =>
             <div className="home-message main">
               <Header numFavorites={this.state.favorites.length}
-                getPeople={this.getPeople}
-                getPlanets={this.getPlanets}
-                getVehicles={this.getVehicles}/>
+              />
               <SideBar film={this.state.film} />
               <CardContainer cardData={[]}
                 updateFavorites={this.updateFavorites}
                 numFavorites={this.state.favorites.length}
-                favorites={this.state.favorites}/>
+                favorites={this.state.favorites}
+                makeAPICall={()=>{}}/>
             </div>
           }
         />
@@ -226,15 +235,14 @@ class App extends Component {
             <div className="people main">
               <Header activeButton={'People'}
                 numFavorites={this.state.favorites.length}
-                getPeople={this.getPeople}
-                getPlanets={this.getPlanets}
-                getVehicles={this.getVehicles}/>
+              />
               <SideBar film={this.state.film} />
               <CardContainer cardData={this.state.people}
                 cardType={'people'}
                 updateFavorites={this.updateFavorites}
                 numFavorites={this.state.favorites.length}
-                favorites={this.state.favorites}/>
+                favorites={this.state.favorites}
+                makeAPICall={this.getPeople}/>
             </div>
           }
         />
@@ -243,15 +251,14 @@ class App extends Component {
             <div className="vehicles main">
               <Header activeButton={'Vehicles'}
                 numFavorites={this.state.favorites.length}
-                getPeople={this.getPeople}
-                getPlanets={this.getPlanets}
-                getVehicles={this.getVehicles}/>
+              />
               <SideBar film={this.state.film} />
               <CardContainer cardData={this.state.vehicles}
                 cardType={'vehicles'}
                 updateFavorites={this.updateFavorites}
                 numFavorites={this.state.favorites.length}
-                favorites={this.state.favorites}/>
+                favorites={this.state.favorites}
+                makeAPICall={this.getVehicles}/>
             </div>
           }
         />
@@ -260,15 +267,14 @@ class App extends Component {
             <div className="planets main">
               <Header activeButton={'Planets'}
                 numFavorites={this.state.favorites.length}
-                getPeople={this.getPeople}
-                getPlanets={this.getPlanets}
-                getVehicles={this.getVehicles}/>
+              />
               <SideBar film={this.state.film} />
               <CardContainer cardData={this.state.planets}
                 cardType={'planets'}
                 updateFavorites={this.updateFavorites}
                 numFavorites={this.state.favorites.length}
-                favorites={this.state.favorites}/>
+                favorites={this.state.favorites}
+                makeAPICall={this.getPlanets}/>
             </div>
           }
         />
@@ -277,19 +283,19 @@ class App extends Component {
             <div className="favorites main">
               <Header activeButton={'Favorites'}
                 numFavorites={this.state.favorites.length}
-                getPeople={this.getPeople}
-                getPlanets={this.getPlanets}
-                getVehicles={this.getVehicles}/>
+              />
               <SideBar film={this.state.film} />
               <CardContainer cardData={this.state.favorites}
                 cardType={'favorites'}
                 updateFavorites={this.updateFavorites}
                 numFavorites={this.state.favorites.length}
-                favorites={this.state.favorites}/>
+                favorites={this.state.favorites}
+                makeAPICall={()=>{}}/>
             </div>
           }
         />
       </div>
+    </Router>
     );
   }
 }
