@@ -25,24 +25,24 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <Button
+          buttonIsOn={false}
           buttonTitle="Favorites"
-          isActive={false}
           numFavorites={1}
 />,
         <Button
           apiCall={[Function]}
+          buttonIsOn={false}
           buttonTitle="People"
-          isActive={false}
 />,
         <Button
           apiCall={[Function]}
+          buttonIsOn={false}
           buttonTitle="Planets"
-          isActive={false}
 />,
         <Button
           apiCall={[Function]}
+          buttonIsOn={false}
           buttonTitle="Vehicles"
-          isActive={false}
 />,
       ],
       "className": "header",
@@ -54,8 +54,8 @@ ShallowWrapper {
         "key": null,
         "nodeType": "function",
         "props": Object {
+          "buttonIsOn": false,
           "buttonTitle": "Favorites",
-          "isActive": false,
           "numFavorites": 1,
         },
         "ref": null,
@@ -68,8 +68,8 @@ ShallowWrapper {
         "nodeType": "function",
         "props": Object {
           "apiCall": [Function],
+          "buttonIsOn": false,
           "buttonTitle": "People",
-          "isActive": false,
         },
         "ref": null,
         "rendered": null,
@@ -81,8 +81,8 @@ ShallowWrapper {
         "nodeType": "function",
         "props": Object {
           "apiCall": [Function],
+          "buttonIsOn": false,
           "buttonTitle": "Planets",
-          "isActive": false,
         },
         "ref": null,
         "rendered": null,
@@ -94,8 +94,8 @@ ShallowWrapper {
         "nodeType": "function",
         "props": Object {
           "apiCall": [Function],
+          "buttonIsOn": false,
           "buttonTitle": "Vehicles",
-          "isActive": false,
         },
         "ref": null,
         "rendered": null,
@@ -112,24 +112,24 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <Button
+            buttonIsOn={false}
             buttonTitle="Favorites"
-            isActive={false}
             numFavorites={1}
 />,
           <Button
             apiCall={[Function]}
+            buttonIsOn={false}
             buttonTitle="People"
-            isActive={false}
 />,
           <Button
             apiCall={[Function]}
+            buttonIsOn={false}
             buttonTitle="Planets"
-            isActive={false}
 />,
           <Button
             apiCall={[Function]}
+            buttonIsOn={false}
             buttonTitle="Vehicles"
-            isActive={false}
 />,
         ],
         "className": "header",
@@ -141,8 +141,8 @@ ShallowWrapper {
           "key": null,
           "nodeType": "function",
           "props": Object {
+            "buttonIsOn": false,
             "buttonTitle": "Favorites",
-            "isActive": false,
             "numFavorites": 1,
           },
           "ref": null,
@@ -155,8 +155,8 @@ ShallowWrapper {
           "nodeType": "function",
           "props": Object {
             "apiCall": [Function],
+            "buttonIsOn": false,
             "buttonTitle": "People",
-            "isActive": false,
           },
           "ref": null,
           "rendered": null,
@@ -168,8 +168,8 @@ ShallowWrapper {
           "nodeType": "function",
           "props": Object {
             "apiCall": [Function],
+            "buttonIsOn": false,
             "buttonTitle": "Planets",
-            "isActive": false,
           },
           "ref": null,
           "rendered": null,
@@ -181,8 +181,8 @@ ShallowWrapper {
           "nodeType": "function",
           "props": Object {
             "apiCall": [Function],
+            "buttonIsOn": false,
             "buttonTitle": "Vehicles",
-            "isActive": false,
           },
           "ref": null,
           "rendered": null,

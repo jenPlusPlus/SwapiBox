@@ -63,7 +63,8 @@ const Card = ({ cardData, cardType, updateFavorites, isFavorite }) => {
     let mappedResidents;
     if (cardData.residents.length > 0) {
       mappedResidents = cardData.residents.map((resident, index) => {
-        return <li className='value' key={cardData.name + index}>{resident}</li>;
+        return <li className='value'
+          key={cardData.name + index}>{resident}</li>;
       });
     } else {
       mappedResidents = <span className='value'>Unknown</span>;

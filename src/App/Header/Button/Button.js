@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const Button = ({ buttonTitle, isActive, numFavorites, apiCall }) => {
-  if (isActive) {
+const Button = ({ buttonTitle, buttonIsOn, numFavorites, apiCall }) => {
+  if (buttonIsOn) {
     if (buttonTitle === 'Favorites') {
       return (
         <div className="button-wrapper">
-          <Link to={`/${buttonTitle.toLowerCase()}`}>
-            <button className={`button active ${buttonTitle}-button`}>
+          <Link to={`/${buttonTitle.toLowerCase()}`}
+            onClick={apiCall} className={`${buttonTitle}-button`}>
+            <button className={`button active`}>
               {buttonTitle}
               <span> : </span>
               {numFavorites}
@@ -43,8 +44,9 @@ const Button = ({ buttonTitle, isActive, numFavorites, apiCall }) => {
     } else {
       return (
         <div className="button-wrapper">
-          <Link to={`/${buttonTitle.toLowerCase()}`}>
-            <button className={`button button-inactive ${buttonTitle}-button`}>
+          <Link to={`/${buttonTitle.toLowerCase()}`}
+            onClick={apiCall} className={`${buttonTitle}-button`}>
+            <button className={`button button-inactive`}>
               {buttonTitle}
             </button>
           </Link>
@@ -56,7 +58,7 @@ const Button = ({ buttonTitle, isActive, numFavorites, apiCall }) => {
 
 Button.propTypes = {
   buttonTitle: PropTypes.string,
-  isActive: PropTypes.boolean,
+  buttonIsOn: PropTypes.boolean,
   numFavorites: PropTypes.number,
   apiCall: PropTypes.func
 };
