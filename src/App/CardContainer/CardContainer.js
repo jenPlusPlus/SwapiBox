@@ -8,9 +8,7 @@ class CardContainer extends Component {
   }
 
   componentDidMount() {
-  
     this.props.makeAPICall();
-
   }
 
   getCardData() {
@@ -37,9 +35,9 @@ class CardContainer extends Component {
       && this.props.cardType === 'favorites') {
       return (
         <div className="card-container">
-          'No favorite cards found.'
+          {'No favorite cards found.'}
         </div>
-          );
+      );
     } else  {
       return (
         <div className="card-container">

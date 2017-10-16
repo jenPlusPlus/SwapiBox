@@ -49,7 +49,7 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": <div
-        className="card-container-wrapper"
+        className="card-container"
 >
         <Card
                 cardData={
@@ -68,6 +68,7 @@ ShallowWrapper {
                 updateFavorites={undefined}
         />
 </div>,
+      "className": "card-container-wrapper",
     },
     "ref": null,
     "rendered": Object {
@@ -93,7 +94,7 @@ ShallowWrapper {
             updateFavorites={undefined}
 />,
         ],
-        "className": "card-container-wrapper",
+        "className": "card-container",
       },
       "ref": null,
       "rendered": Array [
@@ -131,7 +132,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": <div
-          className="card-container-wrapper"
+          className="card-container"
 >
           <Card
                     cardData={
@@ -150,6 +151,7 @@ ShallowWrapper {
                     updateFavorites={undefined}
           />
 </div>,
+        "className": "card-container-wrapper",
       },
       "ref": null,
       "rendered": Object {
@@ -175,7 +177,7 @@ ShallowWrapper {
               updateFavorites={undefined}
 />,
           ],
-          "className": "card-container-wrapper",
+          "className": "card-container",
         },
         "ref": null,
         "rendered": Array [

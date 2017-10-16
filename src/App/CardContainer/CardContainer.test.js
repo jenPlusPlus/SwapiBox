@@ -27,9 +27,9 @@ describe('CardContainer', () => {
       species:["Human"]
     }]}
     makeAPICall={mkFun}
-                              />);
+                        />);
 
-it('should match the Card snapshot', () => {
+  it('should match the Card snapshot', () => {
 
     expect(wrapper).toMatchSnapshot();
   });

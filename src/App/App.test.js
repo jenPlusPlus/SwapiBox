@@ -71,12 +71,12 @@ describe('App', () => {
   };
 
   const mockPlanet = {
-    name: "Tatooine",
-    climate: "Arid",
-    terrain: "desert",
-    population: "120000",
-    residents: ["https://swapi.co/api/people/1/"]
-  }
+    name: "Yavin IV",
+    climate: "temperate, tropical",
+    terrain: "jungle, rainforests",
+    population: "1000",
+    residents: []
+  };
 
   const mockSpecies = {
     name: "Human"
@@ -238,6 +238,37 @@ describe('App', () => {
     body: mockPlanet
   });
 
+  const expectedPeopleState = [{
+    cardType: "people",
+    homeworld: "Tatooine",
+    homeworldPopulation: "200000",
+    name: "Luke Skywalker",
+    species: ["Human"]
+  }];
+
+  const expectedPlanetState = [{
+    cardType: "planets",
+    climate: "temperate, tropical",
+    name: "Yavin IV",
+    population: "1000",
+    residents: [],
+    terrain: "jungle, rainforests"
+  }];
+
+  const expectedVehicleState = [{
+    cardType: "vehicles",
+    class: "wheeled",
+    model: "Digger Crawler",
+    name: "Sand Crawler",
+    numPassengers: "30"
+  }];
+
+  const expectedFilmState = {
+    releaseDate: "2002-05-16",
+    scrollText: "There is unrest in the Galactic\r\nSenate. Several thousand solar\r\nsystems have declared their\r\nintentions to leave the Republic.\r\n\r\nThis separatist movement,\r\nunder the leadership of the\r\nmysterious Co…",
+    title: "Attack of the Clones"
+  };
+
   const history = createHistory();
 
   afterEach(() => {
@@ -250,77 +281,66 @@ describe('App', () => {
     return new Promise(res => {
       setTimeout(() => {
         res();
-      }, 1000);
+      });
     });
   };
 
-  it.skip('renders without crashing', () => {
+
+  it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
   });
 
-  it('Sets state with data after component mounts', async () => {
+  it('Sets state with people data after going to /people page', async () => {
     const app = mount(<App />);
-    const peopleButton = app.find('Link');
-    // console.log('peopleButton: ', peopleButton.debug())
-    const expectedPeopleState = [{
-      cardType: "people",
-      homeworld: "Tatooine",
-      homeworldPopulation: "200000",
-      name: "Luke Skywalker",
-      species: ["Human"]
-    }];
-
     await pause();
 
     expect(app.state('people')).toEqual([]);
-    const linkToPeople = peopleButton.at(1).find('a');
-    console.log('linkBtn: ', linkToPeople.debug())
+    const linkToPeople = app.find('Link').at(1).find('a');
+
     linkToPeople.simulate('click');
 
     await pause();
 
-
-
-console.log('***************done WAITING***********');
     expect(app.state('people')).toEqual(expectedPeopleState);
 
   });
 
-  it.skip('Sets state with data after component mounts', async () => {
-    const wrapper = mount(<Router history={history}><App />
-    </Router>);
-    const vehiclesButton =wrapper.find('.Vehicles-button');
+  it('Sets state with planet data after going to /planets page', async () => {
+    const app = mount(<App />);
+    await pause();
+
+    expect(app.state('planets')).toEqual([]);
+    const linkToPlanets = app.find('Link').at(2).find('a');
+
+    linkToPlanets.simulate('click');
 
     await pause();
-    expect(wrapper.state('vehicles')).toEqual([]);
 
-    vehiclesButton.simulate('click');
+    expect(app.state('planets')).toEqual(expectedPlanetState);
 
-    await pause();
-    expect(wrapper.state('vehicles')).toEqual(mockVehicles.results);
   });
 
-  it.skip('Sets state with data after component mounts', async () => {
-    const wrapper = mount(<Router history={history}><App />
-    </Router>);
-    const planetsButton =wrapper.find('.Planets-button');
+  it('Sets state with vehicle data after going to /vehicles page', async () => {
+    const app = mount(<App />);
+    await pause();
+
+    expect(app.state('vehicles')).toEqual([]);
+    const linkToVehicles = app.find('Link').at(3).find('a');
+
+    linkToVehicles.simulate('click');
 
     await pause();
-    expect(wrapper.state('planets')).toEqual([]);
 
-    planetsButton.simulate('click');
+    expect(app.state('vehicles')).toEqual(expectedVehicleState);
 
-    await pause();
-    expect(wrapper.state('planets')).toEqual(mockPlanets.results);
   });
 
 
   it('Sets state with data after component mounts', async () => {
-    const wrapper = mount(<Router history={history}><App />
-    </Router>);
+    const app = mount(<App />);
     await pause();
-    expect(wrapper.state('film')).toEqual(mockFilms);
+    expect(app.state('film')).toEqual(expectedFilmState);
   });
 
 });
