@@ -58,7 +58,7 @@ const Button = ({ buttonTitle, buttonIsOn, numFavorites, apiCall }) => {
 
 Button.propTypes = {
   buttonTitle: PropTypes.string,
-  buttonIsOn: PropTypes.boolean,
+  buttonIsOn: PropTypes.bool,
   numFavorites: PropTypes.number,
   apiCall: PropTypes.func
 };
