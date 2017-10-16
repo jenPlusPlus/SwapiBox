@@ -43,7 +43,8 @@ const Button = ({ buttonTitle, isActive, numFavorites, apiCall }) => {
     } else {
       return (
         <div className="button-wrapper">
-          <Link to={`/${buttonTitle.toLowerCase()}`} onClick={apiCall} className={`${buttonTitle}-button`}>
+          <Link to={`/${buttonTitle.toLowerCase()}`}
+          onClick={apiCall} className={`${buttonTitle}-button`}>
             <button className={`button button-inactive`}>
               {buttonTitle}
             </button>

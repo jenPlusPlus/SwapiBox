@@ -9,20 +9,21 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 describe('Card', () => {
   const mkFun = jest.fn();
-  let wrapper = shallow(<Card cardType={'People'}
-                              cardData={{
-                                cardType: "people",
-                                homeworld:"Tatooine",
-                                homeworldPopulation: "200000",
-                                name: "Luke Skywalker",
-                                species:["Human"]
-                              }}
-                              key={1}
-                              updatedFavorites={mkFun}
-                              isFavorite={''}
-                              />);
+  let wrapper = shallow(
+    <Card cardType={'People'}
+      cardData={{
+        cardType: "people",
+        homeworld:"Tatooine",
+        homeworldPopulation: "200000",
+        name: "Luke Skywalker",
+        species:["Human"]
+      }}
+      key={1}
+      updatedFavorites={mkFun}
+      isFavorite={''}
+    />);
 
-it('should match the Card snapshot', () => {
+  it('should match the Card snapshot', () => {
 
     expect(wrapper).toMatchSnapshot();
   });

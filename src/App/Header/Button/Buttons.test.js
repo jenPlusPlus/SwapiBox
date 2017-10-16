@@ -9,14 +9,15 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 describe('CARD', () => {
   const mkFun = jest.fn();
-  let wrapper = shallow(<Button
-                          isActive={false}
-                          buttonTitle={'Favorites'}
-                          numFavorites={0}
-                          apiCall={mkFun}
-                              />);
+  let wrapper = shallow(
+    <Button
+      isActive={false}
+      buttonTitle={'Favorites'}
+      numFavorites={0}
+      apiCall={mkFun}
+    />);
 
-it('should match the Card snapshot', () => {
+  it('should match the Card snapshot', () => {
 
     expect(wrapper).toMatchSnapshot();
   });

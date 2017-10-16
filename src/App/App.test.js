@@ -37,43 +37,56 @@ describe('App', () => {
 
   const mockPeople = {
     results: [{
-      homeworld: "Tatooine",
-      homeworldPopulation: "200000",
+      homeworld: "https://swapi.co/api/planets/1/",
       name: "Luke Skywalker",
-      species:["Human"]
+      species:["https://swapi.co/api/species/1/"]
     }]
+  };
+
+  const mockPerson = {
+    name: "Luke Skywalker",
+    homeworld: "https://swapi.co/api/planets/1/",
+    species: [
+      "https://swapi.co/api/species/1/"
+    ]
   };
 
   const mockVehicles = {
     results: [{
-      class: "wheeled",
+      vehicle_class: "wheeled",
       model:  "Digger Crawler",
       name: "Sand Crawler",
-      numPassengers: "30"
+      passengers: "30"
     }]
   };
 
   const mockPlanets = {
     results: [{
-      climate: "temperate",
-      name: "Alderaan",
-      population: "2000000000",
-      residents:["Leia Organa",
-        "Bail Prestor Organa",
-        "Raymus Antilles"],
-      terrain: "grasslands, mountains"
+      climate: "Arid",
+      name: "Tatooine",
+      population: "120000",
+      residents:["https://swapi.co/api/people/1/"],
+      terrain: "desert"
     }]
   };
 
-  const mockSpecies = {
-    name: "Wookie"
+  const mockPlanet = {
+    name: "Yavin IV",
+    climate: "temperate, tropical",
+    terrain: "jungle, rainforests",
+    population: "1000",
+    residents: []
   };
 
-  const mockFilms = [{
-    releaseDate: "2002-05-16",
-    scrollText: "There is unrest in the Galactic\r\nSenate. Several thousand solar\r\nsystems have declared their\r\nintentions to leave the Republic.\r\n\r\nThis separatist movement,\r\nunder the leadership of the\r\nmysterious Co…",
+  const mockSpecies = {
+    name: "Human"
+  };
+
+  const mockFilms = {
+    release_date: "2002-05-16",
+    opening_crawl: "There is unrest in the Galactic\r\nSenate. Several thousand solar\r\nsystems have declared their\r\nintentions to leave the Republic.\r\n\r\nThis separatist movement,\r\nunder the leadership of the\r\nmysterious Co…",
     title: "Attack of the Clones"
-  }];
+  };
 
     //film
   fetchMock.get('https://swapi.co/api/films/1', {
@@ -120,67 +133,72 @@ describe('App', () => {
   // people
   fetchMock.get('https://swapi.co/api/people/5/', {
     status: 200,
-    body: mockPeople
+    body: mockPerson
   });
 
   fetchMock.get('https://swapi.co/api/people/68/', {
     status: 200,
-    body: mockPeople
+    body: mockPerson
   });
 
   fetchMock.get('https://swapi.co/api/people/81/', {
     status: 200,
-    body: mockPeople
+    body: mockPerson
   });
 
   fetchMock.get('https://swapi.co/api/people/26/', {
     status: 200,
-    body: mockPeople
+    body: mockPerson
   });
 
   fetchMock.get('https://swapi.co/api/people/30/', {
     status: 200,
-    body: mockPeople
+    body: mockPerson
   });
 
   fetchMock.get('https://swapi.co/api/people/3/', {
     status: 200,
-    body: mockPeople
+    body: mockPerson
   });
 
   fetchMock.get('https://swapi.co/api/people/34/', {
     status: 200,
-    body: mockPeople
+    body: mockPerson
   });
 
   fetchMock.get('https://swapi.co/api/people/55/', {
     status: 200,
-    body: mockPeople
+    body: mockPerson
   });
 
   fetchMock.get('https://swapi.co/api/people/74/', {
     status: 200,
-    body: mockPeople
+    body: mockPerson
   });
 
   fetchMock.get('https://swapi.co/api/people/74/', {
     status: 200,
-    body: mockPeople
+    body: mockPerson
   });
 
   fetchMock.get('https://swapi.co/api/people/72/', {
     status: 200,
-    body: mockPeople
+    body: mockPerson
   });
 
   fetchMock.get('https://swapi.co/api/people/73/', {
     status: 200,
-    body: mockPeople
+    body: mockPerson
+  });
+
+  fetchMock.get('https://swapi.co/api/people/1/', {
+    status: 200,
+    body: mockPerson
   });
 
   fetchMock.get('https://swapi.co/api/people/63/', {
     status: 200,
-    body: mockPeople
+    body: mockPerson
   });
 
   // vehicles
@@ -197,7 +215,7 @@ describe('App', () => {
   //planets
   fetchMock.get('https://swapi.co/api/planets/1/', {
     status: 200,
-    body: mockPlanets
+    body: mockPlanet
   });
 
   fetchMock.get('https://swapi.co/api/species/1/', {
@@ -212,13 +230,44 @@ describe('App', () => {
 
   fetchMock.get('https://swapi.co/api/planets/8/', {
     status: 200,
-    body: mockPlanets
+    body: mockPlanet
   });
 
   fetchMock.get('https://swapi.co/api/planets/20/', {
     status: 200,
-    body: mockPlanets
+    body: mockPlanet
   });
+
+  const expectedPeopleState = [{
+    cardType: "people",
+    homeworld: "Tatooine",
+    homeworldPopulation: "200000",
+    name: "Luke Skywalker",
+    species: ["Human"]
+  }];
+
+  const expectedPlanetState = [{
+    cardType: "planets",
+    climate: "temperate, tropical",
+    name: "Yavin IV",
+    population: "1000",
+    residents: [],
+    terrain: "jungle, rainforests"
+  }];
+
+  const expectedVehicleState = [{
+    cardType: "vehicles",
+    class: "wheeled",
+    model: "Digger Crawler",
+    name: "Sand Crawler",
+    numPassengers: "30"
+  }];
+
+  const expectedFilmState = {
+    releaseDate: "2002-05-16",
+    scrollText: "There is unrest in the Galactic\r\nSenate. Several thousand solar\r\nsystems have declared their\r\nintentions to leave the Republic.\r\n\r\nThis separatist movement,\r\nunder the leadership of the\r\nmysterious Co…",
+    title: "Attack of the Clones"
+  };
 
   const history = createHistory();
 
@@ -236,57 +285,55 @@ describe('App', () => {
     });
   };
 
+
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<Router history={history}><App />
-    </Router>, div);
+    ReactDOM.render(<App />, div);
   });
 
-  it('Sets state with data after component mounts', async () => {
-    const wrapper = mount(<Router history={history}><App />
-    </Router>);
+  it('Sets state with people data after going to /people page', async () => {
+    const app = mount(<App />);
+    await pause();
 
-    // const app = wrapper.find('App');
-    const peopleButton = wrapper.find('.People-button').first();
+    expect(app.state('people')).toEqual([]);
+    const linkToPeople = app.find('Link').at(1).find('a');
 
-    wrapper.setState({ people: [] });
-    expect(wrapper.state('people')).toEqual([]);
-
-
-    peopleButton.simulate('click');
-    wrapper.setState({ people: mockPeople.results });
+    linkToPeople.simulate('click');
 
     await pause();
-    expect(wrapper.state('people')).toEqual(mockPeople.results);
+
+    expect(app.state('people')).toEqual(expectedPeopleState);
 
   });
 
-  it.skip('Sets state with data after component mounts', async () => {
-    const wrapper = mount(<Router history={history}><App />
-    </Router>);
-    const vehiclesButton =wrapper.find('.Vehicles-button');
+  it('Sets state with planet data after going to /planets page', async () => {
+    const app = mount(<App />);
+    await pause();
+
+    expect(app.state('planets')).toEqual([]);
+    const linkToPlanets = app.find('Link').at(2).find('a');
+
+    linkToPlanets.simulate('click');
 
     await pause();
-    expect(wrapper.state('vehicles')).toEqual([]);
 
-    vehiclesButton.simulate('click');
+    expect(app.state('planets')).toEqual(expectedPlanetState);
 
-    await pause();
-    expect(wrapper.state('vehicles')).toEqual(mockVehicles.results);
   });
 
-  it.skip('Sets state with data after component mounts', async () => {
-    const wrapper = mount(<Router history={history}><App />
-    </Router>);
-    const planetsButton =wrapper.find('.Planets-button');
+  it('Sets state with vehicle data after going to /vehicles page', async () => {
+    const app = mount(<App />);
+    await pause();
+
+    expect(app.state('vehicles')).toEqual([]);
+    const linkToVehicles = app.find('Link').at(3).find('a');
+
+    linkToVehicles.simulate('click');
 
     await pause();
-    expect(wrapper.state('planets')).toEqual([]);
 
-    planetsButton.simulate('click');
+    expect(app.state('vehicles')).toEqual(expectedVehicleState);
 
-    await pause();
-    expect(wrapper.state('planets')).toEqual(mockPlanets.results);
   });
 
 
@@ -294,7 +341,7 @@ describe('App', () => {
     const wrapper = mount(<Router history={history}><App />
     </Router>);
     await pause();
-    expect(wrapper.state('film')).toEqual(mockFilms);
+    expect(wrapper.state('film')).toEqual(expectedFilmState);
   });
 
 });
